@@ -1,7 +1,7 @@
 class Validator {
   static String? validateName(String? value) {
     if (value!.isEmpty) {
-      return "Field is required";
+      return 'حقل فارغ!';
     } else if (value.length < 3) {
       return "Enter correct name";
     } else if (!RegExp(r'^[a-z A-Z]+$').hasMatch(value)) {
@@ -13,7 +13,7 @@ class Validator {
 
   static String? validateEmail(String? value) {
     if (value!.isEmpty) {
-      return "Field is required";
+      return 'حقل فارغ!';
     } else if (!RegExp(r'\S+@\S+\.\S+').hasMatch(value)) {
       return "Enter correct email";
     } else {
@@ -32,14 +32,23 @@ class Validator {
 
   static String? validatePassword(String? value) {
     if (value!.isEmpty) {
-      return "Field is required";
+      return 'حقل فارغ!';
     } else {
       bool result = passwordValidate(value);
       if (result) {
         return null;
       } else {
-        return " Password should contain Capital, small letter & Number & Special";
+        return "يجب أن تحتوى كلمه المرور علي حرف كبير و حرف صغير و حروف خاصة";
       }
     }
+  }
+
+  static String? validatePhone(String? value) {
+    if (value!.isEmpty) {
+      return 'حقل فارغ!';
+    } else if (!RegExp(r'^01[0-2,5]{1}[0-9]{8}$').hasMatch(value)) {
+      return 'يرجى إدخال رقم هاتف صحيح';
+    }
+    return null;
   }
 }

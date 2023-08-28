@@ -15,6 +15,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        fontFamily: "Tajawal",
+      ),
       locale: const Locale('ar'),
       localizationsDelegates: const [
         S.delegate,
@@ -25,7 +29,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: S.delegate.supportedLocales,
       title: 'Snay3y',
       onGenerateRoute: onGenerate,
-      initialRoute: AppRoutes.loginPageRoute,
+      initialRoute: AppRoutes.resetPasswordPageRoute,
     );
   }
 }
