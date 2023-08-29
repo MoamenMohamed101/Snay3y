@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:snay3y/generated/l10n.dart';
+import 'package:snay3y/signup_screen.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
@@ -23,7 +25,11 @@ class OnBoardingScreen extends StatelessWidget {
           ),
           FloatingActionButton(
             elevation: 0.0,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return const SignUpScreen();
+              }));
+            },
             backgroundColor: const Color(0xFF91C8E4), // background: #;
 
             child: const Icon(
@@ -37,26 +43,29 @@ class OnBoardingScreen extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text(
-            'زيادة دخلك',
-            style: TextStyle(
-                fontSize: 28,
-                color: Color(0xFF322653),
-                fontWeight: FontWeight.w700),
+          Text(
+            S.of(context).onBoardingTitle,
+            style: const TextStyle(
+              fontSize: 28,
+              color: Color(0xFF322653),
+              fontWeight: FontWeight.w700,
+            ),
           ),
           RichText(
             textAlign: TextAlign.center,
-            text: const TextSpan(
-              style: TextStyle(
-                  color: Color(0xFFC6C7D5),
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400),
+            text: TextSpan(
+              style: const TextStyle(
+                color: Color(0xFFC6C7D5),
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+                height: 1.5,
+              ),
               children: [
                 TextSpan(
-                    text:
-                        'اياً كانت صنعتك، قم بإنشاء حسابك الان وأنشر صور لعملك ،'),
+                  text: S.of(context).onBoardingDescription1,
+                ),
                 TextSpan(
-                  text: 'واستقبل الحجوزات من العملاء للزيادة من دخلك',
+                  text: S.of(context).onBoardingDescription2,
                 )
               ],
             ),
