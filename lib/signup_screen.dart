@@ -17,12 +17,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     List listItem = [
-      S.of(context).signUPCountryEgypt,
-      S.of(context).signUPCountrySaudiArabia,
-      S.of(context).signUPCountryUnitedArabEmirates,
-      S.of(context).signUPCountryKuwait,
-      S.of(context).signUPCountryBahrain,
-      S.of(context).signUPCountryQatar,
+      S.of(context).signUPCountryCairo,
+      S.of(context).signUPCountryAlexandria,
+      S.of(context).signUPCountryGizeh,
+      S.of(context).signUPCountryShubraElKheima,
+      S.of(context).signUPCountryPortSaid,
+      S.of(context).signUPCountrySuez,
     ];
     List chooseType = [
       S.of(context).signUPGenderMale,
