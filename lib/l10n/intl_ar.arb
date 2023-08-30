@@ -35,5 +35,10 @@
   "signUPIdNumberValidate": "ادخل الرقم القومي",
   "signUPJobNameValidate": "ادخل مهنتك",
   "signUPDropBoxCountryValidate": "اختر دولتك",
-  "signUPDropBoxGenderValidate": "اختر النوع"
+  "signUPDropBoxGenderValidate": "اختر النوع",
+  "userSignUPEmailTitle": "البريد الالكتروني",
+  "userSignUPEmailDescription": "ادخل البريد الالكتروني الخاص بك",
+  "userSignUPShowButtonSheet": "تم انشاء الحساب",
+  "userSignUPShowButtonSheetTitle": "يرجي تسجيل الدخول اولا قبل طلب فني \nشكرا لك !",
+  "userSignUPShowButtonSheetButton": "تسجيل الدخول"
 }

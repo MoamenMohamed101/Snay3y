@@ -35,5 +35,11 @@
   "signUPIdNumberValidate": "Enter your ID number",
   "signUPJobNameValidate": "Enter your job name",
   "signUPDropBoxCountryValidate": "Choose your Country",
-  "signUPDropBoxGenderValidate": "Choose your Gender"
+  "signUPDropBoxGenderValidate": "Choose your Gender",
+  "userSignUPEmailTitle": "Email Address",
+  "userSignUPEmailDescription": "Example@gmail.com",
+  "userSignUPEmailValidate": "Enter your Email Address",
+  "userSignUPShowButtonSheet": "The account has been created",
+  "userSignUPShowButtonSheetTitle": "Please log in first before requesting a technician \n. !Thank you",
+  "userSignUPShowButtonSheetButton": "sign in"
 }

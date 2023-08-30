@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:snay3y/components.dart';
 import 'package:snay3y/generated/l10n.dart';
-
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
 
@@ -72,24 +71,24 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 },
                 items: type == true
                     ? listItem.map((valueItem) {
-                        return DropdownMenuItem(
-                          value: valueItem,
-                          child: Text(valueItem),
-                        );
-                      }).toList()
+                  return DropdownMenuItem(
+                    value: valueItem,
+                    child: Text(valueItem),
+                  );
+                }).toList()
                     : chooseType.map((valueItem) {
-                        return DropdownMenuItem(
-                          value: valueItem,
-                          child: Text(valueItem),
-                        );
-                      }).toList(),
+                  return DropdownMenuItem(
+                    value: valueItem,
+                    child: Text(valueItem),
+                  );
+                }).toList(),
               ),
             ),
           ],
         ),
       );
     }
-
+// why the design disapear ? because the design is in the main.dart file
     return Scaffold(
       backgroundColor: const Color(0xFF91C8E4),
       body: Form(
@@ -121,83 +120,79 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   physics: const BouncingScrollPhysics(),
                   child: Container(
                     width: double.infinity,
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 8,
-                          blurRadius: 5,
-                          offset:
-                              const Offset(0, 3), // changes position of shadow
-                        ),
-                      ],
-                      color: Colors.white,
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(100),
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/Rectangle 1.png'),
+                        fit: BoxFit.cover,
                       ),
                     ),
-                    child: Column(
-                      children: [
-                        inputData(
-                          title: S.of(context).signUPQuadrupleName,
-                          hintText:
-                              S.of(context).signUPQuadrupleNameDescription,
-                          keyboardType: TextInputType.name,
-                          showPrefixIcon: false,
-                          validator: S.of(context).signUPQuadrupleNameValidate,
-                        ),
-                        inputData(
-                          title: S.of(context).signUPUserName,
-                          hintText: S.of(context).signUPUserNameDescription,
-                          keyboardType: TextInputType.name,
-                          showPrefixIcon: false,
-                          validator: S.of(context).signUPUserNameNameValidate,
-                        ),
-                        inputData(
-                          title: S.of(context).signUPPassword,
-                          hintText: S.of(context).signUPPasswordDescription,
-                          keyboardType: TextInputType.name,
-                          showPrefixIcon: true,
-                          validator: S.of(context).signUPPasswordValidate,
-                        ),
-                        inputData(
-                          title: S.of(context).signUPPhoneNumber,
-                          hintText: S.of(context).signUPPhoneNumberDescription,
-                          keyboardType: TextInputType.phone,
-                          showPrefixIcon: false,
-                          validator: S.of(context).signUPPhoneNumberValidate,
-                        ),
-                        inputData(
-                          title: S.of(context).signUPIDNumber,
-                          hintText: S.of(context).signUPIDNumberDescription,
-                          keyboardType: TextInputType.name,
-                          showPrefixIcon: false,
-                          validator: S.of(context).signUPIdNumberValidate,
-                        ),
-                        inputData(
-                          title: S.of(context).signUPJobName,
-                          hintText: S.of(context).signUPJobNameDescription,
-                          keyboardType: TextInputType.name,
-                          showPrefixIcon: false,
-                          validator: S.of(context).signUPJobNameValidate,
-                        ),
-                        dropDownButton(
-                            type: true,
-                            governorate: S.of(context).signUPCountryTitle),
-                        dropDownButton(
-                            type: false,
-                            gender: S.of(context).signUPGenderTitle),
-                        defaultButton(
-                          voidCallback: () {
-                            if (formState.currentState!.validate()) {
-                              debugPrint('Done');
-                            }
-                          },
-                          text: S.of(context).signUPButton,
-                          width: double.infinity,
-                          isUpperCase: true,
-                        ),
-                      ],
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Column(
+                        children: [
+                          inputData(
+                            title: S.of(context).signUPQuadrupleName,
+                            hintText:
+                            S.of(context).signUPQuadrupleNameDescription,
+                            keyboardType: TextInputType.name,
+                            showPrefixIcon: false,
+                            validator: S.of(context).signUPQuadrupleNameValidate,
+                          ),
+                          inputData(
+                            title: S.of(context).signUPUserName,
+                            hintText: S.of(context).signUPUserNameDescription,
+                            keyboardType: TextInputType.name,
+                            showPrefixIcon: false,
+                            validator: S.of(context).signUPUserNameNameValidate,
+                          ),
+                          inputData(
+                            title: S.of(context).signUPPassword,
+                            hintText: S.of(context).signUPPasswordDescription,
+                            keyboardType: TextInputType.name,
+                            showPrefixIcon: true,
+                            validator: S.of(context).signUPPasswordValidate,
+                          ),
+                          inputData(
+                            title: S.of(context).signUPPhoneNumber,
+                            hintText: S.of(context).signUPPhoneNumberDescription,
+                            keyboardType: TextInputType.phone,
+                            showPrefixIcon: false,
+                            validator: S.of(context).signUPPhoneNumberValidate,
+                          ),
+                          inputData(
+                            title: S.of(context).signUPIDNumber,
+                            hintText: S.of(context).signUPIDNumberDescription,
+                            keyboardType: TextInputType.name,
+                            showPrefixIcon: false,
+                            validator: S.of(context).signUPIdNumberValidate,
+                          ),
+                          inputData(
+                            title: S.of(context).signUPJobName,
+                            hintText: S.of(context).signUPJobNameDescription,
+                            keyboardType: TextInputType.name,
+                            showPrefixIcon: false,
+                            validator: S.of(context).signUPJobNameValidate,
+                          ),
+                          dropDownButton(
+                              type: true,
+                              governorate: S.of(context).signUPCountryTitle),
+                          dropDownButton(
+                              type: false,
+                              gender: S.of(context).signUPGenderTitle),
+                          defaultButton(
+                            color: const Color(0xFF4682A9), // background: #4682A9;
+
+                            voidCallback: () {
+                              if (formState.currentState!.validate()) {
+                                debugPrint('Done');
+                              }
+                            },
+                            text: S.of(context).signUPButton,
+                            width: double.infinity,
+                            isUpperCase: true,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:snay3y/generated/l10n.dart';
 
 inputData({
   required String title,
@@ -51,7 +52,7 @@ defaultButton({
   @required VoidCallback? voidCallback,
   @required String? text,
   bool? isUpperCase = true,
-  double? radius = 10.0,
+  double? radius = 8.0,
 }) =>
     Padding(
       padding: const EdgeInsets.all(20.0),
@@ -65,8 +66,7 @@ defaultButton({
               color: Colors.grey.withOpacity(0.5),
               spreadRadius: 5,
               blurRadius: 5,
-              offset:
-              const Offset(0, 3), // changes position of shadow
+              offset: const Offset(0, 3), // changes position of shadow
             ),
           ],
         ),
@@ -79,3 +79,71 @@ defaultButton({
         ),
       ),
     );
+
+showButtonSheet(BuildContext context, top, bottom) {
+  showModalBottomSheet(
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+        ),
+      ),
+      context: context,
+      builder: (value) {
+        return ListView(
+          shrinkWrap: true,
+          padding: EdgeInsets.only(top: top, bottom: bottom),
+          children: [
+            const SizedBox(
+              height: 10,
+            ),
+            const Stack(
+              alignment: AlignmentDirectional.center,
+              children: [
+                Image(
+                  image: AssetImage('assets/images/Aura.png'),
+                  width: 100,
+                  height: 100,
+                ),
+                Image(
+                  image: AssetImage('assets/images/Success.png'),
+                  width: 70,
+                  height: 70,
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            Text(
+              S.of(context).userSignUPShowButtonSheet,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                  color: Color(0xFF322653)),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Text(
+              S.of(context).userSignUPShowButtonSheetTitle,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+                color: Color(0xFF322653),
+              ),
+            ),
+            // const SizedBox(
+            //   height: 20,
+            // ),
+            // defaultButton(
+            //   voidCallback: () {},
+            //   text: S.of(context).userSignUPShowButtonSheetButton,
+            //   color: const Color(0xFF4682A9),
+            // ),
+          ],
+        );
+      });
+}
