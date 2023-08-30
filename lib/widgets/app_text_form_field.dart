@@ -15,6 +15,7 @@ class AppTextFormField extends StatelessWidget {
     this.secure = false,
     this.suffixIcon,
     this.prefixIcon,
+    this.fontOfHint = 12,
   });
   final TextEditingController controller;
   final FocusNode? focusNode;
@@ -27,6 +28,7 @@ class AppTextFormField extends StatelessWidget {
   final bool secure;
   final Widget? suffixIcon;
   final Widget? prefixIcon;
+  final double? fontOfHint;
 
   @override
   Widget build(BuildContext context) {
@@ -44,10 +46,13 @@ class AppTextFormField extends StatelessWidget {
         decoration: InputDecoration(
           suffixIcon: suffixIcon,
           prefixIcon: prefixIcon,
-          suffixIconColor: kMainColor,
+          suffixIconColor: kPrimaryColor,
           hintText: hintText,
-          hintStyle: const TextStyle(
-              fontSize: 12, color: kGreyColor, fontWeight: FontWeight.w400),
+          hintStyle: TextStyle(
+            fontSize: fontOfHint!,
+            color: kGreyColor,
+            fontWeight: FontWeight.w400,
+          ),
           border: const OutlineInputBorder(
             borderSide: BorderSide(color: kPrimaryColor),
           ),

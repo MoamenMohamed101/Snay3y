@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: S.delegate.supportedLocales,
       title: 'Snay3y',
       onGenerateRoute: onGenerate,
-      initialRoute: AppRoutes.resetPasswordPageRoute,
+      initialRoute: AppRoutes.userLoginPageRoute,
     );
   }
 }

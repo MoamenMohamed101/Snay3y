@@ -23,11 +23,11 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
   hidePassword() {
     if (isPasswordSecure) {
       isPasswordSecure = false;
-      print('no');
+
       emit(VisiblePassword());
     } else {
       isPasswordSecure = true;
-      print('yes');
+
       emit(HidePassword());
     }
   }

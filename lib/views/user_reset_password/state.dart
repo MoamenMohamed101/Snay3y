@@ -1,6 +1,13 @@
 part of 'cubit.dart';
 
-@immutable
-sealed class UserResetPasswordState {}
+abstract class UserResetPasswordState {}
 
 final class UserResetPasswordInitial extends UserResetPasswordState {}
+
+final class HidePassword extends UserResetPasswordState {}
+
+final class HideComfirmPassword extends UserResetPasswordInitial {}
+
+final class VisiblePassword extends UserResetPasswordInitial {}
+
+final class VisibleComfirmPassword extends UserResetPasswordInitial {}
