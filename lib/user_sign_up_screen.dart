@@ -88,100 +88,96 @@ class _UserSignUpScreenState extends State<UserSignUpScreen> {
         ),
       );
     }
-// why the design disapear ? because the design is in the main.dart file
     return Scaffold(
       backgroundColor: const Color(0xFF91C8E4),
       body: Form(
         key: formState,
-        child: NestedScrollView(
-          headerSliverBuilder: (context, innerBoxIsScrolled) => [],
-          body: Expanded(
-            child: SingleChildScrollView(
-              physics: const BouncingScrollPhysics(),
-              child: Container(
-                width: double.infinity,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/images/انشاء حساب.png'),
-                    fit: BoxFit.cover,
-                  ),
+        child: SingleChildScrollView(
+          child: Container(
+            width: double.infinity,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/images/انشاء حساب.png'),
+                fit: BoxFit.cover,
+              ),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                const SizedBox(
+                  height: 50,
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.max,
+                Row(
                   children: [
-                    const SizedBox(
-                      height: 50,
-                    ),
-                    Row(
-                      children: [
-                        IconButton(
-                          icon: const Icon(Icons.arrow_back, color: Colors.black),
-                          onPressed: () {},
-                        ),
-                        const SizedBox(
-                          width: 80,
-                        ),
-                        Text(
-                          textAlign: TextAlign.center,
-                          S.of(context).signUPAppBar,
-                          style: const TextStyle(
-                            color: Color(0xFF322653),
-                            fontSize: 25,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                      ],
-                    ),
-                    inputData(
-                      title: S.of(context).userSignUPEmailTitle,
-                      hintText:
-                      S.of(context).userSignUPEmailDescription,
-                      keyboardType: TextInputType.name,
-                      showPrefixIcon: false,
-                      validator: S.of(context).userSignUPEmailValidate,
-                    ),
-                    inputData(
-                      title: S.of(context).signUPPassword,
-                      hintText: S.of(context).signUPPasswordDescription,
-                      keyboardType: TextInputType.name,
-                      showPrefixIcon: true,
-                      validator: S.of(context).signUPPasswordValidate,
-                    ),
-                    inputData(
-                      title: S.of(context).signUPUserName,
-                      hintText: S.of(context).signUPUserNameDescription,
-                      keyboardType: TextInputType.name,
-                      showPrefixIcon: false,
-                      validator: S.of(context).signUPUserNameNameValidate,
-                    ),
-                    inputData(
-                      title: S.of(context).signUPPhoneNumber,
-                      hintText: S.of(context).signUPPhoneNumberDescription,
-                      keyboardType: TextInputType.phone,
-                      showPrefixIcon: false,
-                      validator: S.of(context).signUPPhoneNumberValidate,
-                    ),
-                    dropDownButton(
-                        type: true,
-                        governorate: S.of(context).signUPCountryTitle),
-                    dropDownButton(
-                        type: false,
-                        gender: S.of(context).signUPGenderTitle),
-                    defaultButton(
-                      color: const Color(0xFF4682A9),
-                      voidCallback: () {
-                        if (formState.currentState!.validate()) {
-                          showButtonSheet(context, 10.0, 10.0);
-                        }
+                    IconButton(
+                      icon: const Icon(Icons.arrow_back, color: Colors.black),
+                      onPressed: () {
+                        Navigator.of(context).pop();
                       },
-                      text: S.of(context).signUPButton,
-                      width: double.infinity,
-                      isUpperCase: true,
+                    ),
+                    const SizedBox(
+                      width: 80,
+                    ),
+                    Text(
+                      textAlign: TextAlign.center,
+                      S.of(context).signUPAppBar,
+                      style: const TextStyle(
+                        color: Color(0xFF322653),
+                        fontSize: 25,
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
                   ],
                 ),
-              ),
+                inputData(
+                  title: S.of(context).userSignUPEmailTitle,
+                  hintText:
+                  S.of(context).userSignUPEmailDescription,
+                  keyboardType: TextInputType.name,
+                  showPrefixIcon: false,
+                  validator: S.of(context).userSignUPEmailValidate,
+                ),
+                inputData(
+                  title: S.of(context).signUPPassword,
+                  hintText: S.of(context).signUPPasswordDescription,
+                  keyboardType: TextInputType.name,
+                  showPrefixIcon: true,
+                  validator: S.of(context).signUPPasswordValidate,
+                ),
+                inputData(
+                  title: S.of(context).signUPUserName,
+                  hintText: S.of(context).signUPUserNameDescription,
+                  keyboardType: TextInputType.name,
+                  showPrefixIcon: false,
+                  validator: S.of(context).signUPUserNameNameValidate,
+                ),
+                inputData(
+                  title: S.of(context).signUPPhoneNumber,
+                  hintText: S.of(context).signUPPhoneNumberDescription,
+                  keyboardType: TextInputType.phone,
+                  showPrefixIcon: false,
+                  validator: S.of(context).signUPPhoneNumberValidate,
+                ),
+                dropDownButton(
+                    type: true,
+                    governorate: S.of(context).signUPCountryTitle),
+                dropDownButton(
+                    type: false,
+                    gender: S.of(context).signUPGenderTitle),
+                defaultButton(
+                  color: const Color(0xFF4682A9),
+                  voidCallback: () {
+                    // if (formState.currentState!.validate()) {
+                    //
+                    // }
+                    showButtonSheet(context, 10.0, 10.0);
+                  },
+                  text: S.of(context).signUPButton,
+                  width: double.infinity,
+                  isUpperCase: true,
+                ),
+              ],
             ),
           ),
         ),

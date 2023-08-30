@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:snay3y/components.dart';
 import 'package:snay3y/generated/l10n.dart';
+import 'package:snay3y/route/routes.dart';
 class SignUpScreen extends StatefulWidget {
+
   const SignUpScreen({super.key});
 
   @override
@@ -9,6 +11,7 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+
   String? valueChoose;
   String? genderChoose;
   var formState = GlobalKey<FormState>();
@@ -88,7 +91,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
         ),
       );
     }
-// why the design disapear ? because the design is in the main.dart file
     return Scaffold(
       backgroundColor: const Color(0xFF91C8E4),
       body: Form(
@@ -101,7 +103,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
               backgroundColor: const Color(0xFF91C8E4),
               leading: IconButton(
                 icon: const Icon(Icons.arrow_back, color: Colors.black),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
               ),
               title: Text(
                 S.of(context).signUPAppBar,
@@ -117,7 +121,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
             children: [
               Expanded(
                 child: SingleChildScrollView(
-                  physics: const BouncingScrollPhysics(),
                   child: Container(
                     width: double.infinity,
                     decoration: const BoxDecoration(
@@ -127,7 +130,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 10),
+                      padding: const EdgeInsets.only(left: 15),
                       child: Column(
                         children: [
                           inputData(
@@ -183,10 +186,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             color: const Color(0xFF4682A9), // background: #4682A9;
 
                             voidCallback: () {
-                              if (formState.currentState!.validate()) {
-                                debugPrint('Done');
-                              }
-                            },
+                              // if (formState.currentState!.validate()) {
+                              //   debugPrint('Done');
+                              // }
+                              Navigator.of(context).pushNamed(Routes.userSignUp);                            },
                             text: S.of(context).signUPButton,
                             width: double.infinity,
                             isUpperCase: true,

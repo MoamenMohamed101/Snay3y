@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:snay3y/generated/l10n.dart';
-import 'package:snay3y/user_sign_up_screen.dart';
+import 'package:snay3y/route/router.dart';
+import 'package:snay3y/route/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      locale: const Locale('ar'),
+      locale: const Locale('en'),
         localizationsDelegates: const [
           S.delegate,
           GlobalMaterialLocalizations.delegate,
@@ -22,7 +23,8 @@ class MyApp extends StatelessWidget {
         ],
         supportedLocales: S.delegate.supportedLocales,
      debugShowCheckedModeBanner: false,
-      home: const UserSignUpScreen()
+      initialRoute: Routes.onBoarding,
+      onGenerateRoute: SpecialRouter.onGenerateRoutes,
     );
   }
 }

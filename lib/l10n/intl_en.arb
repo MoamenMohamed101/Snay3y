@@ -40,6 +40,6 @@
   "userSignUPEmailDescription": "Example@gmail.com",
   "userSignUPEmailValidate": "Enter your Email Address",
   "userSignUPShowButtonSheet": "The account has been created",
-  "userSignUPShowButtonSheetTitle": "Please log in first before requesting a technician \n. !Thank you",
+  "userSignUPShowButtonSheetTitle": "Please log in first before requesting a technician \n. Thank you!",
   "userSignUPShowButtonSheetButton": "sign in"
 }

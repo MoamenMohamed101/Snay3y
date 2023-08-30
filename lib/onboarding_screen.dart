@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:snay3y/generated/l10n.dart';
-import 'package:snay3y/signup_screen.dart';
+import 'package:snay3y/route/routes.dart';
 
 class OnBoardingScreen extends StatelessWidget {
+
+
   const OnBoardingScreen({super.key});
 
   @override
@@ -26,9 +28,7 @@ class OnBoardingScreen extends StatelessWidget {
           FloatingActionButton(
             elevation: 0.0,
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return const SignUpScreen();
-              }));
+              Navigator.of(context).pushNamed(Routes.signUp);
             },
             backgroundColor: const Color(0xFF91C8E4), // background: #;
 
