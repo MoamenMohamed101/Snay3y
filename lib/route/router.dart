@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:snay3y/onboarding_screen.dart';
+import 'package:snay3y/screens/onboarding_screen.dart';
 import 'package:snay3y/route/routes.dart';
-import 'package:snay3y/signup_screen.dart';
-import 'package:snay3y/user_sign_up_screen.dart';
+import 'package:snay3y/screens/signup_screen.dart';
+import 'package:snay3y/screens/user_sign_up_screen.dart';
 
 class SpecialRouter{
   static Route<dynamic> onGenerateRoutes(RouteSettings settings){

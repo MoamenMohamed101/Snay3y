@@ -30,7 +30,7 @@ class OnBoardingScreen extends StatelessWidget {
             onPressed: () {
               Navigator.of(context).pushNamed(Routes.signUp);
             },
-            backgroundColor: const Color(0xFF91C8E4), // background: #;
+            backgroundColor: const Color(0xFF91C8E4),
 
             child: const Icon(
               Icons.chevron_right_sharp,
