@@ -11,16 +11,16 @@ class UserSignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List listItem = [
-      S.of(context).signUPCountryCairo,
-      S.of(context).signUPCountryAlexandria,
-      S.of(context).signUPCountryGizeh,
-      S.of(context).signUPCountryShubraElKheima,
-      S.of(context).signUPCountryPortSaid,
-      S.of(context).signUPCountrySuez,
+      S.of(context).signUPCountryCairoFactor,
+      S.of(context).signUPCountryAlexandriaFactor,
+      S.of(context).signUPCountryGizehFactor,
+      S.of(context).signUPCountryShubraElKheimaFactor,
+      S.of(context).signUPCountryPortSaidFactor,
+      S.of(context).signUPCountrySuezFactor,
     ];
     List chooseType = [
-      S.of(context).signUPGenderMale,
-      S.of(context).signUPGenderFeMale,
+      S.of(context).signUPGenderMaleFactor,
+      S.of(context).signUPGenderFeMaleFactor,
     ];
     return BlocConsumer<SignUpCubit, SignUpStates>(
       builder: (BuildContext context, state) {
@@ -55,14 +55,14 @@ class UserSignUpScreen extends StatelessWidget {
                         : Text(S.of(context).signUPChooseGender),
                     isExpanded: true,
                     value:
-                        type == true ? cubit.valueChoose : cubit.genderChoose,
+                        type == true ? cubit.valueChooseFactor : cubit.genderChooseFactor,
                     iconSize: 36,
                     underline: const SizedBox(),
                     style: const TextStyle(color: Colors.black, fontSize: 19),
                     icon: const Icon(Icons.arrow_drop_down),
                     dropdownColor: Colors.white,
                     onChanged: (newValue) {
-                      cubit.inPutValue(type: type, value: newValue);
+                      cubit.inPutFactorValueDropDown(type: type, value: newValue);
                     },
                     items: type == true
                         ? listItem.map((valueItem) {

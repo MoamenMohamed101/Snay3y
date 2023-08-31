@@ -2,4 +2,5 @@ abstract class SignUpStates {}
 
 class SignUpInitialStates extends SignUpStates {}
 
-class SignUpInPutValueStates extends SignUpStates {}
+class SignUpInPutUserValueStates extends SignUpStates {}
+class SignUpInPutFactorValueStates extends SignUpStates {}

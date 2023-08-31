@@ -7,17 +7,23 @@ class SignUpCubit extends Cubit<SignUpStates> {
 
   static SignUpCubit get(context) => BlocProvider.of(context);
 
-  String? valueChoose;
-  String? genderChoose;
+  String? valueChooseUser;
+  String? genderChooseUser;
+  String? valueChooseFactor;
+  String? genderChooseFactor;
 
   var formStateUser = GlobalKey<FormState>();
   var formStateFactor = GlobalKey<FormState>();
 
-  inPutValue({required bool? type, required value}) {
-
+  inPutUserValueDropDown({required bool? type, required value}) {
     type == true
-        ? valueChoose = value as String?
-        : genderChoose = value as String?;
-    emit(SignUpInPutValueStates());
+        ? valueChooseUser = value as String?
+        : genderChooseUser = value as String?;
+    emit(SignUpInPutUserValueStates());
+  }
+
+  inPutFactorValueDropDown({required bool? type, required value}) {
+    type == true ? valueChooseFactor = value : genderChooseFactor = value;
+    emit(SignUpInPutFactorValueStates());
   }
 }

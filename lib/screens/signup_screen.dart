@@ -12,16 +12,16 @@ class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List listItem = [
-      S.of(context).signUPCountryCairo,
-      S.of(context).signUPCountryAlexandria,
-      S.of(context).signUPCountryGizeh,
-      S.of(context).signUPCountryShubraElKheima,
-      S.of(context).signUPCountryPortSaid,
-      S.of(context).signUPCountrySuez,
+      S.of(context).signUPCountryCairoUser,
+      S.of(context).signUPCountryAlexandriaUser,
+      S.of(context).signUPCountryGizehUser,
+      S.of(context).signUPCountryShubraElKheimaUser,
+      S.of(context).signUPCountryPortSaidUser,
+      S.of(context).signUPCountrySuezUser,
     ];
     List chooseType = [
-      S.of(context).signUPGenderMale,
-      S.of(context).signUPGenderFeMale,
+      S.of(context).signUPGenderMaleUser,
+      S.of(context).signUPGenderFeMaleUser,
     ];
     return BlocConsumer<SignUpCubit, SignUpStates>(
       builder: (builder, listener) {
@@ -55,15 +55,14 @@ class SignUpScreen extends StatelessWidget {
                         ? Text(S.of(context).signUPChooseCountry)
                         : Text(S.of(context).signUPChooseGender),
                     isExpanded: true,
-                    value:
-                    type == true ? cubit.valueChoose : cubit.genderChoose,
+                    value: type == true ? cubit.valueChooseUser : cubit.genderChooseUser,
                     iconSize: 36,
                     underline: const SizedBox(),
                     style: const TextStyle(color: Colors.black, fontSize: 19),
                     icon: const Icon(Icons.arrow_drop_down),
                     dropdownColor: Colors.white,
                     onChanged: (newValue) {
-                      cubit.inPutValue(type: type, value: newValue);
+                      cubit.inPutUserValueDropDown(type: type, value: newValue);
                     },
                     items: type == true
                         ? listItem.map((valueItem) {
@@ -216,9 +215,6 @@ class SignUpScreen extends StatelessWidget {
         );
       },
       listener: (builder, state) {
-        if(state is SignUpInPutValueStates){
-
-        }
       },
     );
   }
