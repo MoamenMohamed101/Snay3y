@@ -7,6 +7,8 @@ String? userButtonWord;
 String? userHintWord;
 
 class UserForgotPassWidget extends StatefulWidget {
+  const UserForgotPassWidget({super.key});
+
   @override
   State<UserForgotPassWidget> createState() => _UserForgotPassWidgetState();
 }
@@ -52,6 +54,8 @@ class UserCustomTextForm extends StatelessWidget {
   GlobalKey<FormState> userFormKey = GlobalKey();
   String? phoneNumber;
 
+  UserCustomTextForm({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -93,36 +97,41 @@ class UserCustomTextForm extends StatelessWidget {
           ),
           const SizedBox(height: 40),
           ElevatedButton(
-              onPressed: () {
-                // if (userFormKey.currentState!.validate()) {
-                //   Navigator.pushNamed(context, Routes.userConfirmCodeRouteName);
-                // }
-              },
-              child: wordOfElevatedButton(userButtonWord!),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xff4682A9),
-                padding: const EdgeInsets.all(15),
-              )),
+            onPressed: () {
+              // if (userFormKey.currentState!.validate()) {
+              //   Navigator.pushNamed(context, Routes.userConfirmCodeRouteName);
+              // }
+              Navigator.of(context).pushNamed(Routes.userConfirmCodeRouteName);
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: const Color(0xff4682A9),
+              padding: const EdgeInsets.all(15),
+            ),
+            child: wordOfElevatedButton(userButtonWord!),
+          ),
         ],
       ),
     );
   }
 
   Widget wordOfElevatedButton(String word) {
-    return Text(word, style: const TextStyle(fontSize: 20, fontFamily: "Tajawal"));
+    return Text(word,
+        style: const TextStyle(fontSize: 20, fontFamily: "Tajawal"));
   }
 }
 
 class PinPutWidget extends StatelessWidget {
   String? oTPCode;
-  final defaultPinTheme = PinTheme(
+  final defaultPinTheme = const PinTheme(
       width: 40,
       height: 68,
-      margin: const EdgeInsets.all(8),
-      decoration: const BoxDecoration(
+      margin: EdgeInsets.all(8),
+      decoration: BoxDecoration(
           color: Colors.transparent,
           border: Border(bottom: BorderSide(color: Colors.grey, width: 3))),
-      textStyle: const TextStyle(fontSize: 22, color: Colors.black));
+      textStyle: TextStyle(fontSize: 22, color: Colors.black));
+
+  PinPutWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -147,6 +156,7 @@ class PinPutWidget extends StatelessWidget {
       onCompleted: (code) {
         oTPCode = code;
         print(oTPCode);
+        Navigator.of(context).pushNamed(Routes.userResetPasswordPageRoute);
       },
     );
   }

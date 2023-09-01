@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:snay3y/components/components.dart';
 import 'package:snay3y/generated/l10n.dart';
-import 'package:snay3y/screens/signUp/cubit/cubit.dart';
-import 'package:snay3y/screens/signUp/cubit/states.dart';
+import 'package:snay3y/screens/technician_screens/signUp/cubit/cubit.dart';
+import 'package:snay3y/screens/technician_screens/signUp/cubit/states.dart';
 
 class UserSignUpScreen extends StatelessWidget {
   const UserSignUpScreen({super.key});

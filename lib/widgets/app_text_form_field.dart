@@ -15,6 +15,7 @@ class AppTextFormField extends StatelessWidget {
     this.secure = false,
     this.suffixIcon,
     this.prefixIcon,
+    this.fontOfHint = 12,
   });
   final TextEditingController controller;
   final FocusNode? focusNode;
@@ -27,6 +28,7 @@ class AppTextFormField extends StatelessWidget {
   final bool secure;
   final Widget? suffixIcon;
   final Widget? prefixIcon;
+  final double? fontOfHint;
 
   @override
   Widget build(BuildContext context) {

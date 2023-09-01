@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:snay3y/widgets/technicianWidgets.dart';
 
 class TechnicianForgotPassScreen extends StatefulWidget {
+  const TechnicianForgotPassScreen({super.key});
+
   @override
   State<TechnicianForgotPassScreen> createState() => _ForgotPassScreenState();
 }

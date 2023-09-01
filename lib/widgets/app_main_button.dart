@@ -3,6 +3,7 @@ import 'package:snay3y/constants.dart';
 
 class AppMainButton extends StatelessWidget {
   const AppMainButton({super.key, required this.title, this.onTap});
+
   final String title;
   final void Function()? onTap;
 
@@ -18,13 +19,14 @@ class AppMainButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
         ),
         child: Align(
-            child: Text(
-          title,
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 20,
+          child: Text(
+            title,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+            ),
           ),
-        )),
+        ),
       ),
     );
   }

@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_margin_widget/flutter_margin_widget.dart';
 import 'package:snay3y/constants.dart';
 import 'package:snay3y/core/validator/validation.dart';
-import 'package:snay3y/screens/reset_password/cubit.dart';
+import 'package:snay3y/screens/technician_screens/reset_password/cubit.dart';
 import 'package:snay3y/widgets/app_main_button.dart';
 import 'package:snay3y/widgets/app_text_form_field.dart';
 
@@ -62,12 +62,21 @@ class ResetPasswordView extends StatelessWidget {
                             Stack(
                               fit: StackFit.passthrough,
                               children: [
-                                const Image(
-                                  image: AssetImage(
-                                    'assets/images/Rectangle 1.png',
+                                Container(
+                                  decoration: const BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(100),
+                                    ),
                                   ),
-                                  fit: BoxFit.cover,
-                                  width: double.infinity,
+                                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                                  child: const Image(
+                                    image: AssetImage(
+                                      'assets/images/Rectangle 1.png',
+                                    ),
+                                    fit: BoxFit.cover,
+                                    width: double.infinity,
+                                    height: 300,
+                                  ),
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.symmetric(

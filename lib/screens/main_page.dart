@@ -19,25 +19,30 @@ class MainPage extends StatelessWidget {
             const SizedBox(
               height: 50,
             ),
-            Container(
-              width: double.infinity,
-              height: 140,
-              color: Colors.blue,
-              child: const Padding(
-                padding: EdgeInsets.only(right: 20),
-                child: Row(
-                  children: [
-                    Text(
-                      'هل انت مستخدم؟',
-                      style: TextStyle(color: Colors.white, fontSize: 35),
-                    ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Image(
-                      image: AssetImage('assets/images/Success.png'),
-                    )
-                  ],
+            InkWell(
+              onTap: (){
+                Navigator.of(context).pushNamed(Routes.loginPageRouteUser);
+              },
+              child: Container(
+                width: double.infinity,
+                height: 140,
+                color: Colors.blue,
+                child: const Padding(
+                  padding: EdgeInsets.only(right: 20),
+                  child: Row(
+                    children: [
+                      Text(
+                        'هل انت مستخدم؟',
+                        style: TextStyle(color: Colors.white, fontSize: 35),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Image(
+                        image: AssetImage('assets/images/Success.png'),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -65,7 +70,7 @@ class MainPage extends StatelessWidget {
                       ),
                       Image(
                         image: AssetImage('assets/images/Success.png'),
-                      )
+                      ),
                     ],
                   ),
                 ),

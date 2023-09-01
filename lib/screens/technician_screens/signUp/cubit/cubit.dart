@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:snay3y/screens/signUp/cubit/states.dart';
+import 'package:snay3y/screens/technician_screens/signUp/cubit/states.dart';
 
 class SignUpCubit extends Cubit<SignUpStates> {
   SignUpCubit() : super(SignUpInitialStates());
