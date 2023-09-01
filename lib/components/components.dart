@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:snay3y/generated/l10n.dart';
-
+// Items in sign up screen
 inputData({
   required String title,
   required String hintText,

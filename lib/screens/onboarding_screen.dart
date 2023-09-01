@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:snay3y/core/route/routes.dart';
 import 'package:snay3y/generated/l10n.dart';
-import 'package:snay3y/route/routes.dart';
 
 class OnBoardingScreen extends StatelessWidget {
 
@@ -28,7 +28,7 @@ class OnBoardingScreen extends StatelessWidget {
           FloatingActionButton(
             elevation: 0.0,
             onPressed: () {
-              Navigator.of(context).pushNamed(Routes.signUp);
+              Navigator.of(context).pushNamed(Routes.mainPage);
             },
             backgroundColor: const Color(0xFF91C8E4),
 

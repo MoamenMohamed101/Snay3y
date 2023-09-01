@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:snay3y/components/components.dart';
+import 'package:snay3y/core/route/routes.dart';
 import 'package:snay3y/cubit/cubit.dart';
 import 'package:snay3y/cubit/states.dart';
 import 'package:snay3y/generated/l10n.dart';
-import 'package:snay3y/route/routes.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
