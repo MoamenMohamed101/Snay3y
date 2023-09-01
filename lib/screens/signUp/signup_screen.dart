@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:snay3y/components/components.dart';
-import 'package:snay3y/core/route/routes.dart';
-import 'package:snay3y/cubit/cubit.dart';
-import 'package:snay3y/cubit/states.dart';
 import 'package:snay3y/generated/l10n.dart';
+import 'package:snay3y/screens/signUp/cubit/cubit.dart';
+import 'package:snay3y/screens/signUp/cubit/states.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
@@ -84,17 +83,36 @@ class SignUpScreen extends StatelessWidget {
           );
         }
         return Scaffold(
+          appBar: AppBar(
+            elevation: 0,
+            backgroundColor: const Color(0xFF91C8E4),
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back, color: Colors.black),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            title: Text(
+              S.of(context).signUPAppBar,
+              style: const TextStyle(
+                color: Color(0xFF322653),
+                fontSize: 25,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            centerTitle: true,
+          ),
           backgroundColor: const Color(0xFF91C8E4),
           body: SafeArea(
             child: Form(
-              key: cubit.formStateUser,
+              key: cubit.formStateFactor,
               child: SingleChildScrollView(
                 child: Container(
                   width: double.infinity,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                       image:
-                      AssetImage('assets/images/Rectangle 1.png'),
+                      AssetImage('assets/images/Rectangle 2.png'),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -103,30 +121,7 @@ class SignUpScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         const SizedBox(
-                          height: 50,
-                        ),
-                        Row(
-                          children: [
-                            IconButton(
-                              icon:
-                              const Icon(Icons.arrow_back, color: Colors.black),
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                            ),
-                            const SizedBox(
-                              width: 80,
-                            ),
-                            Text(
-                              textAlign: TextAlign.center,
-                              S.of(context).signUPAppBar,
-                              style: const TextStyle(
-                                color: Color(0xFF322653),
-                                fontSize: 25,
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                          ],
+                          height: 20,
                         ),
                         inputData(
                           title: S.of(context).signUPQuadrupleName,
@@ -195,11 +190,9 @@ class SignUpScreen extends StatelessWidget {
                         defaultButton(
                           color: const Color(0xFF4682A9),
                           voidCallback: () {
-                            // if (cubit.formState.currentState!.validate()) {
-                            //   debugPrint('Done');
-                            // }
-                            Navigator.of(context)
-                                .pushNamed(Routes.userSignUp);
+                            if (cubit.formStateFactor.currentState!.validate()) {
+
+                            }
                           },
                           text: S.of(context).signUPButton,
                           width: double.infinity,

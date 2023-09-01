@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_margin_widget/flutter_margin_widget.dart';
 import 'package:snay3y/constants.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:snay3y/core/route/routes.dart';
 import 'package:snay3y/core/validator/validation.dart';
-import 'package:snay3y/screens/login/cubit.dart';
+import 'package:snay3y/screens/login/cubit/cubit.dart';
 import 'package:snay3y/widgets/app_main_button.dart';
 import 'package:snay3y/widgets/app_text_form_field.dart';
 
@@ -155,7 +154,11 @@ class LoginView extends StatelessWidget {
                                           'كلمة المرور الخاصة بك على التطبيق',
                                     ),
                                     TextButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        Navigator.of(context).pushNamed(
+                                          Routes.technicianForgotPassRouteName,
+                                        );
+                                      },
                                       style: ButtonStyle(
                                         overlayColor:
                                             MaterialStateColor.resolveWith(

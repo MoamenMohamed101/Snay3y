@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:snay3y/components/components.dart';
-import 'package:snay3y/cubit/cubit.dart';
-import 'package:snay3y/cubit/states.dart';
 import 'package:snay3y/generated/l10n.dart';
+import 'package:snay3y/screens/signUp/cubit/cubit.dart';
+import 'package:snay3y/screens/signUp/cubit/states.dart';
 
 class UserSignUpScreen extends StatelessWidget {
   const UserSignUpScreen({super.key});
@@ -87,7 +87,7 @@ class UserSignUpScreen extends StatelessWidget {
         return Scaffold(
           backgroundColor: const Color(0xFF91C8E4),
           body: Form(
-            key: cubit.formStateFactor,
+            key: cubit.formStateUser,
             child: SingleChildScrollView(
               child: Container(
                 width: double.infinity,
@@ -163,9 +163,9 @@ class UserSignUpScreen extends StatelessWidget {
                     defaultButton(
                       color: const Color(0xFF4682A9),
                       voidCallback: () {
-                        // if (formState.currentState!.validate()) {
-                        //
-                        // }
+                        if (cubit.formStateUser.currentState!.validate()) {
+
+                        }
                         showButtonSheet(context, 10.0, 10.0);
                       },
                       text: S.of(context).signUPButton,

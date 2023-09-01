@@ -3,8 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:snay3y/core/route/router.dart';
 import 'package:snay3y/core/route/routes.dart';
-import 'package:snay3y/cubit/cubit.dart';
 import 'package:snay3y/generated/l10n.dart';
+import 'package:snay3y/screens/reset_password/view.dart';
+import 'package:snay3y/screens/signUp/cubit/cubit.dart';
 
 void main() {
   runApp(const MyApp());
