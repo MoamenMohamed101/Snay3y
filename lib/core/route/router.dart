@@ -6,12 +6,12 @@ import 'package:snay3y/screens/technician_screens/confirm_code_screen.dart';
 import 'package:snay3y/screens/main_page.dart';
 import 'package:snay3y/screens/onboarding_screen.dart';
 import 'package:snay3y/screens/technician_screens/forget_password_screen.dart';
-import 'package:snay3y/screens/technician_screens/login/LoginView.dart';
-import 'package:snay3y/screens/technician_screens/reset_password/view.dart';
+import 'package:snay3y/screens/technician_screens/login/Login_screen.dart';
+import 'package:snay3y/screens/technician_screens/reset_password/reset_password.dart';
 import 'package:snay3y/screens/technician_screens/signUp/signup_screen.dart';
 import 'package:snay3y/screens/user_screens/login/login_screen.dart';
 import 'package:snay3y/screens/user_screens/signUp/user_sign_up_screen.dart';
-import 'package:snay3y/screens/user_screens/user_reset_password/view.dart';
+import 'package:snay3y/screens/user_screens/user_reset_password/user_reset_password_screen.dart';
 
 class SpecialRouter {
   static Route<dynamic> onGenerateRoutes(RouteSettings settings) {

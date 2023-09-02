@@ -123,7 +123,7 @@ class SignUpScreen extends StatelessWidget {
                         const SizedBox(
                           height: 20,
                         ),
-                        inputData(
+                        defaultTextFormField(
                           title: S.of(context).signUPQuadrupleName,
                           hintText: S
                               .of(context)
@@ -133,7 +133,7 @@ class SignUpScreen extends StatelessWidget {
                           validator:
                           S.of(context).signUPQuadrupleNameValidate,
                         ),
-                        inputData(
+                        defaultTextFormField(
                           title: S.of(context).signUPUserName,
                           hintText:
                           S.of(context).signUPUserNameDescription,
@@ -142,7 +142,7 @@ class SignUpScreen extends StatelessWidget {
                           validator:
                           S.of(context).signUPUserNameNameValidate,
                         ),
-                        inputData(
+                        defaultTextFormField(
                           title: S.of(context).signUPPassword,
                           hintText:
                           S.of(context).signUPPasswordDescription,
@@ -151,7 +151,7 @@ class SignUpScreen extends StatelessWidget {
                           validator:
                           S.of(context).signUPPasswordValidate,
                         ),
-                        inputData(
+                        defaultTextFormField(
                           title: S.of(context).signUPPhoneNumber,
                           hintText: S
                               .of(context)
@@ -161,7 +161,7 @@ class SignUpScreen extends StatelessWidget {
                           validator:
                           S.of(context).signUPPhoneNumberValidate,
                         ),
-                        inputData(
+                        defaultTextFormField(
                           title: S.of(context).signUPIDNumber,
                           hintText:
                           S.of(context).signUPIDNumberDescription,
@@ -170,7 +170,7 @@ class SignUpScreen extends StatelessWidget {
                           validator:
                           S.of(context).signUPIdNumberValidate,
                         ),
-                        inputData(
+                        defaultTextFormField(
                           title: S.of(context).signUPJobName,
                           hintText:
                           S.of(context).signUPJobNameDescription,

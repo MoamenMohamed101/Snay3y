@@ -127,28 +127,28 @@ class UserSignUpScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    inputData(
+                    defaultTextFormField(
                       title: S.of(context).userSignUPEmailTitle,
                       hintText: S.of(context).userSignUPEmailDescription,
                       keyboardType: TextInputType.name,
                       showPrefixIcon: false,
                       validator: S.of(context).userSignUPEmailValidate,
                     ),
-                    inputData(
+                    defaultTextFormField(
                       title: S.of(context).signUPPassword,
                       hintText: S.of(context).signUPPasswordDescription,
                       keyboardType: TextInputType.name,
                       showPrefixIcon: true,
                       validator: S.of(context).signUPPasswordValidate,
                     ),
-                    inputData(
+                    defaultTextFormField(
                       title: S.of(context).signUPUserName,
                       hintText: S.of(context).signUPUserNameDescription,
                       keyboardType: TextInputType.name,
                       showPrefixIcon: false,
                       validator: S.of(context).signUPUserNameNameValidate,
                     ),
-                    inputData(
+                    defaultTextFormField(
                       title: S.of(context).signUPPhoneNumber,
                       hintText: S.of(context).signUPPhoneNumberDescription,
                       keyboardType: TextInputType.phone,

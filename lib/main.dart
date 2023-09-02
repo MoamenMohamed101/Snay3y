@@ -11,9 +11,6 @@ void main() {
 }
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-// comment
-
-  // My name
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
