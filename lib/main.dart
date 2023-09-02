@@ -4,14 +4,14 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:snay3y/core/route/router.dart';
 import 'package:snay3y/core/route/routes.dart';
 import 'package:snay3y/generated/l10n.dart';
-import 'package:snay3y/screens/user_screens/forget_password.dart';
 import 'package:snay3y/screens/technician_screens/signUp/cubit/cubit.dart';
-import 'package:snay3y/screens/user_screens/login/login_screen.dart';
 
 void main() {
   runApp(const MyApp());
 }
+// Hi
 
+// My name is Moamen
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
