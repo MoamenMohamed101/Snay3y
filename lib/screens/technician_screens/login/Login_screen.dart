@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_margin_widget/flutter_margin_widget.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snay3y/constants.dart';
 import 'package:snay3y/core/route/routes.dart';
 import 'package:snay3y/core/validator/validation.dart';
@@ -24,8 +25,8 @@ class LoginView extends StatelessWidget {
             child: Stack(
               children: [
                 Container(
-                  width: double.infinity,
-                  height: 300,
+                  width: double.infinity.w ,
+                  height: 300.h,
                   color: kMainColor,
                 ),
                 // appBar part
@@ -38,14 +39,14 @@ class LoginView extends StatelessWidget {
                         onPressed: () {
                           Navigator.of(context).pop();
                         },
-                        icon: const Icon(
+                        icon:  Icon(
                           Icons.arrow_back,
-                          size: 20,
+                          size: 20.sp,
                           color: Color(0xff15224F),
                         ),
                       ),
-                      const SizedBox(
-                        width: 70,
+                       SizedBox(
+                        width: 70.w,
                       ),
                       const CircleAvatar(
                         backgroundColor: kGreyColor,
@@ -75,11 +76,11 @@ class LoginView extends StatelessWidget {
                             //   'assets/images/Rectangle 1.svg',
                             //   fit: BoxFit.cover,
                             // ),
-                            const Image(
+                             Image(
                               image:
                                   AssetImage('assets/images/Rectangle 1.png'),
                               fit: BoxFit.cover,
-                              height: 300,
+                              height: 300.h,
                             ),
                             Padding(
                               padding:
@@ -90,25 +91,25 @@ class LoginView extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    const SizedBox(
-                                      height: 80,
+                                     SizedBox(
+                                      height: 80.h,
                                     ),
-                                    const Align(
+                                     Align(
                                       child: Text(
                                         'تسجيل الدخول ',
                                         style: TextStyle(
-                                            fontSize: 20,
+                                            fontSize: 20.sp,
                                             color: kTextColor,
                                             fontWeight: FontWeight.w700),
                                       ),
                                     ),
-                                    const SizedBox(
-                                      height: 50,
+                                     SizedBox(
+                                      height: 50.h,
                                     ),
-                                    const Text(
+                                     Text(
                                       'رقم الهاتف',
                                       style: TextStyle(
-                                          fontSize: 18,
+                                          fontSize: 18.sp,
                                           fontWeight: FontWeight.w500),
                                     ),
                                     AppTextFormField(
@@ -128,13 +129,13 @@ class LoginView extends StatelessWidget {
                                       },
                                       hintText: 'ادخل رقم الهاتف',
                                     ),
-                                    const SizedBox(
-                                      height: 35,
+                                     SizedBox(
+                                      height: 35.h,
                                     ),
-                                    const Text(
+                                     Text(
                                       'كلمة المرور',
                                       style: TextStyle(
-                                          fontSize: 18,
+                                          fontSize: 18.sp,
                                           fontWeight: FontWeight.w500),
                                     ),
                                     AppTextFormField(
@@ -164,16 +165,16 @@ class LoginView extends StatelessWidget {
                                             MaterialStateColor.resolveWith(
                                                 (states) => Colors.transparent),
                                       ),
-                                      child: const Text(
+                                      child:  Text(
                                         'هل نسيت كلمه المرور؟',
                                         style: TextStyle(
-                                            fontSize: 14,
+                                            fontSize: 14.sp,
                                             fontWeight: FontWeight.w500,
                                             color: kMainColor),
                                       ),
                                     ),
-                                    const SizedBox(
-                                      height: 50,
+                                     SizedBox(
+                                      height: 50.h,
                                     ),
                                     AppMainButton(
                                       title: 'تسجيل الدخول',
@@ -191,8 +192,8 @@ class LoginView extends StatelessWidget {
                                         }
                                       },
                                     ),
-                                    const SizedBox(
-                                      height: 5,
+                                     SizedBox(
+                                      height: 5.h,
                                     ),
                                     InkWell(
                                       onTap: () {

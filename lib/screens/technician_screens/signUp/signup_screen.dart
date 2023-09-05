@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snay3y/components/components.dart';
 import 'package:snay3y/generated/l10n.dart';
 import 'package:snay3y/screens/technician_screens/signUp/cubit/cubit.dart';
@@ -33,17 +34,17 @@ class SignUpScreen extends StatelessWidget {
               children: [
                 Text(
                   type == true ? governorate! : gender!,
-                  style: const TextStyle(
+                  style:  TextStyle(
                     color: Colors.black,
-                    fontSize: 20,
+                    fontSize: 20.sp,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
+                 SizedBox(
+                  height: 10.h,
                 ),
                 Container(
-                  height: 60,
+                  height: 60.h,
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.grey, width: 1),
@@ -55,9 +56,9 @@ class SignUpScreen extends StatelessWidget {
                         : Text(S.of(context).signUPChooseGender),
                     isExpanded: true,
                     value: type == true ? cubit.valueChooseUser : cubit.genderChooseUser,
-                    iconSize: 36,
+                    iconSize: 36.sp,
                     underline: const SizedBox(),
-                    style: const TextStyle(color: Colors.black, fontSize: 19),
+                    style:  TextStyle(color: Colors.black, fontSize: 19.sp),
                     icon: const Icon(Icons.arrow_drop_down),
                     dropdownColor: Colors.white,
                     onChanged: (newValue) {
@@ -94,9 +95,9 @@ class SignUpScreen extends StatelessWidget {
             ),
             title: Text(
               S.of(context).signUPAppBar,
-              style: const TextStyle(
+              style:  TextStyle(
                 color: Color(0xFF322653),
-                fontSize: 25,
+                fontSize: 25.sp,
                 fontWeight: FontWeight.w700,
               ),
             ),
@@ -120,8 +121,8 @@ class SignUpScreen extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 15),
                     child: Column(
                       children: [
-                        const SizedBox(
-                          height: 20,
+                         SizedBox(
+                          height: 20.h,
                         ),
                         defaultTextFormField(
                           title: S.of(context).signUPQuadrupleName,

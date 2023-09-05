@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_margin_widget/flutter_margin_widget.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snay3y/constants.dart';
 import 'package:snay3y/core/validator/validation.dart';
 import 'package:snay3y/screens/technician_screens/reset_password/cubit.dart';
@@ -23,7 +24,7 @@ class ResetPasswordView extends StatelessWidget {
               children: [
                 Container(
                   width: double.infinity,
-                  height: 300,
+                  height: 300.h,
                   color: kMainColor,
                 ),
                 Padding(
@@ -35,14 +36,14 @@ class ResetPasswordView extends StatelessWidget {
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        icon: const Icon(
+                        icon:  Icon(
                           Icons.arrow_back,
-                          size: 20,
+                          size: 20.sp,
                           color: Color(0xff15224F),
                         ),
                       ),
-                      const SizedBox(
-                        width: 70,
+                       SizedBox(
+                        width: 70.w,
                       ),
                       const CircleAvatar(
                         backgroundColor: kGreyColor,
@@ -69,13 +70,13 @@ class ResetPasswordView extends StatelessWidget {
                                     ),
                                   ),
                                   clipBehavior: Clip.antiAliasWithSaveLayer,
-                                  child: const Image(
+                                  child:  Image(
                                     image: AssetImage(
                                       'assets/images/Rectangle 1.png',
                                     ),
                                     fit: BoxFit.cover,
-                                    width: double.infinity,
-                                    height: 300,
+                                    width: double.infinity.w,
+                                    height: 300.h,
                                   ),
                                 ),
                                 Padding(
@@ -87,25 +88,25 @@ class ResetPasswordView extends StatelessWidget {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      const SizedBox(
-                                        height: 50,
+                                       SizedBox(
+                                        height: 50.h,
                                       ),
-                                      const Align(
+                                       Align(
                                         child: Text(
                                           'إعادة تعيين كلمة المرور',
                                           style: TextStyle(
-                                              fontSize: 20,
+                                              fontSize: 20.sp,
                                               color: kTextColor,
                                               fontWeight: FontWeight.w700),
                                         ),
                                       ),
-                                      const SizedBox(
-                                        height: 50,
+                                       SizedBox(
+                                        height: 50.h,
                                       ),
-                                      const Text(
+                                       Text(
                                         'كلمة المرور',
                                         style: TextStyle(
-                                            fontSize: 18,
+                                            fontSize: 18.sp,
                                             fontWeight: FontWeight.w500),
                                       ),
                                       AppTextFormField(
@@ -141,13 +142,13 @@ class ResetPasswordView extends StatelessWidget {
                                                 icon: const Icon(Icons
                                                     .visibility_off_outlined)),
                                       ),
-                                      const SizedBox(
-                                        height: 35,
+                                       SizedBox(
+                                        height: 35.h,
                                       ),
-                                      const Text(
+                                       Text(
                                         'تأكيد كلمة المرور',
                                         style: TextStyle(
-                                            fontSize: 18,
+                                            fontSize: 18.sp,
                                             fontWeight: FontWeight.w500),
                                       ),
                                       AppTextFormField(
@@ -189,8 +190,8 @@ class ResetPasswordView extends StatelessWidget {
                                           }
                                         },
                                       ),
-                                      const SizedBox(
-                                        height: 50,
+                                       SizedBox(
+                                        height: 50.h,
                                       ),
                                       AppMainButton(
                                         title: 'تأكيد',
@@ -209,8 +210,8 @@ class ResetPasswordView extends StatelessWidget {
                                           }
                                         },
                                       ),
-                                      const SizedBox(
-                                        height: 5,
+                                       SizedBox(
+                                        height: 5.h,
                                       ),
                                     ],
                                   ),

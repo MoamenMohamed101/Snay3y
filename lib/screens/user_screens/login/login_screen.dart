@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snay3y/constants.dart';
 import 'package:snay3y/core/route/routes.dart';
 import 'package:snay3y/core/validator/validation.dart';
@@ -44,13 +45,13 @@ class UserLoginView extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const SizedBox(
-                              height: 224,
+                             SizedBox(
+                              height: 224.h,
                             ),
-                            const Text(
+                             Text(
                               'البريد الإلكتروني',
                               style: TextStyle(
-                                fontSize: 20,
+                                fontSize: 20.sp,
                                 fontWeight: FontWeight.w500,
                                 color: kTextColor,
                               ),
@@ -72,15 +73,15 @@ class UserLoginView extends StatelessWidget {
                                 return Validator.validateEmail(value);
                               },
                               hintText: 'Example@gmail.com',
-                              fontOfHint: 16,
+                              fontOfHint: 16.sp,
                             ),
-                            const SizedBox(
-                              height: 35,
+                             SizedBox(
+                              height: 35.h,
                             ),
-                            const Text(
+                             Text(
                               'كلمة المرور',
                               style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.w500),
+                                  fontSize: 20.sp, fontWeight: FontWeight.w500),
                             ),
                             AppTextFormField(
                               controller: cubit.passwordController,
@@ -94,7 +95,7 @@ class UserLoginView extends StatelessWidget {
                                 return Validator.validatePassword(value);
                               },
                               hintText: '*******************',
-                              fontOfHint: 16,
+                              fontOfHint: 16.sp,
                               secure: cubit.isPasswordSecure,
                               suffixIcon: cubit.isPasswordSecure
                                   ? IconButton(
@@ -118,17 +119,17 @@ class UserLoginView extends StatelessWidget {
                                 overlayColor: MaterialStateColor.resolveWith(
                                     (states) => Colors.transparent),
                               ),
-                              child: const Text(
+                              child:  Text(
                                 'هل نسيت كلمه المرور؟',
                                 style: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 14.sp,
                                   fontWeight: FontWeight.w500,
                                   color: kGreyColor,
                                 ),
                               ),
                             ),
-                            const SizedBox(
-                              height: 50,
+                             SizedBox(
+                              height: 50.h,
                             ),
                             AppMainButton(
                               title: 'تسجيل الدخول',
@@ -145,8 +146,8 @@ class UserLoginView extends StatelessWidget {
                                 }
                               },
                             ),
-                            const SizedBox(
-                              height: 5,
+                             SizedBox(
+                              height: 5.h,
                             ),
                             InkWell(
                               onTap: (){
@@ -154,24 +155,24 @@ class UserLoginView extends StatelessWidget {
                               },
                               child: Align(
                                 child: RichText(
-                                  text: const TextSpan(
+                                  text:  TextSpan(
                                       text: 'ليس لدي حساب ؟ ',
                                       style: TextStyle(
-                                          color: kTextColor, fontSize: 12),
+                                          color: kTextColor, fontSize: 12.sp),
                                       children: [
                                         TextSpan(
                                           text: 'إنشاء حساب',
                                           style: TextStyle(
                                             color: kPrimaryColor,
-                                            fontSize: 12,
+                                            fontSize: 12.sp,
                                           ),
                                         ),
                                       ]),
                                 ),
                               ),
                             ),
-                            const SizedBox(
-                              height: 20,
+                             SizedBox(
+                              height: 20.h,
                             ),
                           ],
                         ),
