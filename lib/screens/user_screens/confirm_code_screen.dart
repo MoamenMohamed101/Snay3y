@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snay3y/widgets/userWidgets.dart';
 
 class UserConfirmCodeScreen extends StatelessWidget {
@@ -21,29 +22,29 @@ class UserConfirmCodeScreen extends StatelessWidget {
       ),
       body: Center(
         child: Column(children: [
-          const SizedBox(
-            height: 80,
+           SizedBox(
+            height: 80.h,
           ),
-          const Text(
+           Text(
             "اهلا بك!",
             style: TextStyle(
               fontFamily: "Tajawal",
               fontWeight: FontWeight.w700,
-              fontSize: 32,
+              fontSize: 32.sp,
             ),
           ),
-          const SizedBox(height: 25),
-          Container(
-            alignment: Alignment.center,
-            // height: 48,
-            // width: 270,
-            child: const Text(
+           SizedBox(height: 25.h),
+           Container(
+           alignment: Alignment.center,
+           height: 48.h,
+           width: 270.w,
+            child:  Text(
               textAlign: TextAlign.center,
               "من فضلك ادخل الكود الخاص بك للتاكيد علي تغيير كلمة المرور",
               style: TextStyle(
                 fontWeight: FontWeight.w400,
                 fontFamily: "Tajawal",
-                fontSize: 20,
+                fontSize: 20.sp,
               ),
             ),
           ),

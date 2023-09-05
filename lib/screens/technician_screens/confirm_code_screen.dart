@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snay3y/core/route/routes.dart';
 import 'package:snay3y/widgets/technicianWidgets.dart';
 import 'package:snay3y/widgets/userWidgets.dart';
@@ -47,11 +48,11 @@ class _TechnicianConfirmCodeScreenState
                 Column(
                   children: [
                     const SizedBox(height: 240),
-                    const Text(
+                     Text(
                       "سوف نرسل لك الكود التأكيدى علي رقم الهاتف",
                       style: TextStyle(
                         fontFamily: "Tajawal",
-                        fontSize: 16,
+                        fontSize: 16.sp,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -60,19 +61,19 @@ class _TechnicianConfirmCodeScreenState
                       children: [
                         Text(
                           "$timeLeft",
-                          style: const TextStyle(
+                          style:  TextStyle(
                             fontWeight: FontWeight.w500,
-                            fontSize: 16,
+                            fontSize: 16.sp,
                             fontFamily: "Tajawal",
                           ),
                         ),
                         TextButton(
                           onPressed: () {},
-                          child: const Text(
+                          child:  Text(
                             " إعادة إرسال الكود",
                             style: TextStyle(
                               fontWeight: FontWeight.w500,
-                              fontSize: 14,
+                              fontSize: 14.sp,
                               fontFamily: "Tajawal",
                               color: Color(0xff91c8e4),
                             ),
@@ -84,12 +85,20 @@ class _TechnicianConfirmCodeScreenState
                       padding: const EdgeInsets.all(20.0),
                       child: PinPutWidget(),
                     ),
-                    ElevatedButton(
-                      onPressed: () {
-                       Navigator.of(context).pushNamed(Routes.resetPasswordPageRoute);
-                      },
-                      child: const Text('تأكيد'),
-                    )
+// SizedBox(height: 30,),
+//                     ElevatedButton(
+//
+//
+//                         onPressed: () {
+//                           Navigator.of(context).pushNamed(Routes.resetPasswordPageRoute);
+//
+//                         },
+//                         style: ElevatedButton.styleFrom(
+//                           backgroundColor: const Color(0xff4682A9),
+//                           padding: const EdgeInsets.symmetric(horizontal: 150,vertical: 12),
+//                         ),child: Text("تأكيد",style:  TextStyle(fontSize: 24.sp, fontFamily: "Tajawal")),)
+
+
                   ],
                 ),
               ],

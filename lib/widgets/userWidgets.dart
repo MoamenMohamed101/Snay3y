@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';
 import 'package:snay3y/core/route/routes.dart';
 import '../core/validator/validation.dart';
@@ -19,26 +20,26 @@ class _UserForgotPassWidgetState extends State<UserForgotPassWidget> {
     return Column(
       children: [
         const SizedBox(height: 180),
-        const Center(
+         Center(
             child: Padding(
           padding: EdgeInsets.all(8.0),
           child: Text(
             "هل نسيت كلمة المرور؟",
             style: TextStyle(
                 fontFamily: 'Tajawal',
-                fontSize: 26,
+                fontSize: 24.sp,
                 fontWeight: FontWeight.bold),
           ),
         )),
         Container(
-          width: 180,
-          height: 72,
-          child: const Text(
+          width: 270.w,
+          height: 75.h,
+          child:  Text(
               textAlign: TextAlign.center,
               "ادخل رقم الهاتف الخاص بك وسوف نرسل لك الكود التأكيدى عليه",
               style: TextStyle(
                   color: Color(0xffC6C7D5),
-                  fontSize: 14,
+                  fontSize: 20.sp,
                   fontFamily: "Tajawal")),
         ),
         Padding(
@@ -63,31 +64,32 @@ class UserCustomTextForm extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const Padding(
+           Padding(
             padding: EdgeInsets.all(8.0),
             child: Text(
               "رقم الهاتف",
               style: TextStyle(
                   fontWeight: FontWeight.w500,
-                  fontSize: 22,
+                  fontSize: 20.sp,
                   fontFamily: "Tajawal"),
             ),
           ),
           //phone field with country code
 
           TextFormField(
+
             validator: (data) {
               return Validator.validatePhone(data);
             },
             keyboardType: TextInputType.phone,
-            onChanged: (data) {
+            onFieldSubmitted: (data) {
               phoneNumber = data;
             },
-            decoration: const InputDecoration(
+            decoration:  InputDecoration(
                 prefixIcon: Icon(
                   Icons.phone_android_sharp,
                   color: Color(0xff91c8e4),
-                  size: 20,
+                  size: 16.sp,
                 ),
                 hintText: "ادخل رقم الهاتف",
                 hintStyle: TextStyle(
@@ -95,13 +97,13 @@ class UserCustomTextForm extends StatelessWidget {
                 enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Color(0xff91c8e4)))),
           ),
-          const SizedBox(height: 40),
+           SizedBox(height: 40.h),
           ElevatedButton(
             onPressed: () {
-              // if (userFormKey.currentState!.validate()) {
-              //   Navigator.pushNamed(context, Routes.userConfirmCodeRouteName);
-              // }
-              Navigator.of(context).pushNamed(Routes.userConfirmCodeRouteName);
+              if (userFormKey.currentState!.validate()) {
+                Navigator.of(context).pushNamed(Routes.userConfirmCodeRouteName);
+
+              }
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color(0xff4682A9),
@@ -116,19 +118,19 @@ class UserCustomTextForm extends StatelessWidget {
 
   Widget wordOfElevatedButton(String word) {
     return Text(word,
-        style: const TextStyle(fontSize: 20, fontFamily: "Tajawal"));
+        style:  TextStyle(fontSize: 24.sp, fontFamily: "Tajawal"));
   }
 }
 
 class PinPutWidget extends StatelessWidget {
   String? oTPCode;
-  final defaultPinTheme = const PinTheme(
-      width: 40,
-      height: 68,
+  final defaultPinTheme =  PinTheme(
+      width: 40.w,
+      height: 68.h,
       margin: EdgeInsets.all(8),
       decoration: BoxDecoration(
           color: Colors.transparent,
-          border: Border(bottom: BorderSide(color: Colors.grey, width: 3))),
+          border: Border(bottom: BorderSide(color: Colors.grey, width: 3.w))),
       textStyle: TextStyle(fontSize: 22, color: Colors.black));
 
   PinPutWidget({super.key});
@@ -146,10 +148,10 @@ class PinPutWidget extends StatelessWidget {
         ),
       ),
       submittedPinTheme: defaultPinTheme.copyWith(
-        decoration: const BoxDecoration(
+        decoration:  BoxDecoration(
           color: Colors.transparent,
           border: Border(
-            bottom: BorderSide(color: Colors.black, width: 3),
+            bottom: BorderSide(color: Colors.black, width: 3.w),
           ),
         ),
       ),
