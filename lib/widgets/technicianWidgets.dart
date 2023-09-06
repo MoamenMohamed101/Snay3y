@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snay3y/core/route/routes.dart';
 import 'package:snay3y/core/validator/validation.dart';
 
@@ -32,13 +33,13 @@ class TechnicianCustomTextForm extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const Padding(
-            padding: EdgeInsets.all(8.0),
+           Padding(
+            padding: EdgeInsets.all(0.0),
             child: Text(
               "رقم الهاتف",
               style: TextStyle(
                 fontWeight: FontWeight.w500,
-                fontSize: 22,
+                fontSize: 18.sp,
                 fontFamily: "Tajawal",
               ),
             ),
@@ -50,11 +51,11 @@ class TechnicianCustomTextForm extends StatelessWidget {
               return Validator.validatePhone(data);
             },
             keyboardType: TextInputType.phone,
-            onChanged: (data) {
+            onFieldSubmitted: (data) {
               phoneNumber = data;
               Navigator.of(context).pushNamed(Routes.technicianConfirmCodeRouteName,);
             },
-            decoration: const InputDecoration(
+            decoration:  InputDecoration(
               prefixIcon: Icon(
                 Icons.phone_android_sharp,
                 color: Color(0xff91c8e4),
@@ -62,7 +63,7 @@ class TechnicianCustomTextForm extends StatelessWidget {
               ),
               hintText: "ادخل رقم الهاتف",
               hintStyle: TextStyle(
-                  color: Colors.grey, fontSize: 14, fontFamily: "Tajawal"),
+                  color: Colors.grey, fontSize: 12.sp, fontFamily: "Tajawal"),
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Color(0xff91c8e4)),
               ),
@@ -89,7 +90,7 @@ class TechnicianCustomTextForm extends StatelessWidget {
 
   Widget wordOfElevatedButton(String word) {
     return Text(word,
-        style: const TextStyle(fontSize: 20, fontFamily: "Tajawal"));
+        style:  TextStyle(fontSize: 24.sp, fontFamily: "Tajawal"));
   }
 }
 
@@ -100,7 +101,9 @@ class RectangleImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.bottomCenter,
-      height: 800,
+      height: 720.h,
+      width: 380.w,
+
       child: Container(
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.only(
@@ -113,7 +116,7 @@ class RectangleImage extends StatelessWidget {
         height: MediaQuery.of(context).size.height * .77,
         width: MediaQuery.of(context).size.width,
         child: Image.asset(
-          "assets/images/Rectangle 1.png",
+          "assets/images/Rectangle 3.png",
           fit: BoxFit.cover,
         ),
       ),

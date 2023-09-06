@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snay3y/widgets/technicianWidgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TechnicianForgotPassScreen extends StatefulWidget {
   const TechnicianForgotPassScreen({super.key});
@@ -26,33 +28,34 @@ class _ForgotPassScreenState extends State<TechnicianForgotPassScreen> {
                 Column(
                   children: [
                     const SizedBox(height: 240),
-                    const Center(
+                     Center(
                       child: Padding(
-                        padding: EdgeInsets.all(8.0),
+                        padding: EdgeInsets.only(top: 10.0),
                         child: Text(
                           "نسيت كلمة المرور",
                           style: TextStyle(
-                              fontFamily: 'Tajawal',
-                              fontSize: 26,
+                              fontFamily: "Tajawal",
+                              fontSize: 20.sp,
                               fontWeight: FontWeight.bold),
                         ),
                       ),
                     ),
                     Container(
                       width: 180,
-                      height: 72,
-                      child: const Text(
+                      height: 60,
+                      padding: EdgeInsets.only(top: 10),
+                      child:  Text(
                         textAlign: TextAlign.center,
                         "ادخل رقم الهاتف الخاص بك وسوف نرسل لك الكود التأكيدى عليه",
                         style: TextStyle(
                           color: Color(0xffC6C7D5),
-                          fontSize: 14,
+                          fontSize: 12.sp,
                           fontFamily: "Tajawal",
                         ),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(20.0),
+                      padding: const EdgeInsets.only(left: 20.0,right: 20.0),
                       child: TechnicianCustomTextForm(),
                     ),
                   ],

@@ -42,6 +42,8 @@ dependencies:
   flutter_margin_widget: ^0.0.3
   flutter_svg: ^2.0.7
   pinput: ^2.2.31
+  flutter_screenutil: ^5.9.0
+
 
 
 dev_dependencies:
@@ -82,19 +84,14 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-  #
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: fonts/Poppins/Poppins-Regular.ttf
+    - family: Tajawal
+      fonts:
+        - asset: fonts/Tajawal/Tajawal-Regular.ttf
+
 flutter_intl:
   enabled: true
+  generate: true
