@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snay3y/generated/l10n.dart';
 // Items in sign up screen
 defaultTextFormField({
@@ -15,14 +16,14 @@ defaultTextFormField({
       children: [
         Text(
           title,
-          style: const TextStyle(
+          style:  TextStyle(
             color: Colors.black,
-            fontSize: 20,
+            fontSize: 20.sp,
             fontWeight: FontWeight.w700,
           ),
         ),
-        const SizedBox(
-          height: 10,
+         SizedBox(
+          height: 10.h,
         ),
         TextFormField(
           validator: (value) {
@@ -74,7 +75,7 @@ defaultButton({
           onPressed: voidCallback,
           child: Text(
             isUpperCase! ? text!.toUpperCase() : text!,
-            style: const TextStyle(color: Colors.white, fontSize: 20),
+            style:  TextStyle(color: Colors.white, fontSize: 20.sp),
           ),
         ),
       ),
@@ -94,43 +95,43 @@ showButtonSheet(BuildContext context, top, bottom) {
           shrinkWrap: true,
           padding: EdgeInsets.only(top: top, bottom: bottom),
           children: [
-            const SizedBox(
-              height: 10,
+             SizedBox(
+              height: 10.h,
             ),
-            const Stack(
+             Stack(
               alignment: AlignmentDirectional.center,
               children: [
                 Image(
                   image: AssetImage('assets/images/Aura.png'),
-                  width: 100,
-                  height: 100,
+                  width: 100.w,
+                  height: 100.h,
                 ),
                 Image(
                   image: AssetImage('assets/images/Success.png'),
-                  width: 70,
-                  height: 70,
+                  width: 70.w,
+                  height: 70.h,
                 ),
               ],
             ),
-            const SizedBox(
-              height: 30,
+             SizedBox(
+              height: 30.h,
             ),
             Text(
               S.of(context).userSignUPShowButtonSheet,
               textAlign: TextAlign.center,
-              style: const TextStyle(
-                  fontSize: 20,
+              style:  TextStyle(
+                  fontSize: 20.sp,
                   fontWeight: FontWeight.w600,
                   color: Color(0xFF322653)),
             ),
-            const SizedBox(
-              height: 20,
+             SizedBox(
+              height: 20.h,
             ),
             Text(
               S.of(context).userSignUPShowButtonSheetTitle,
               textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 14,
+              style:  TextStyle(
+                fontSize: 14.sp,
                 fontWeight: FontWeight.w500,
                 color: Color(0xFF322653),
               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snay3y/constants.dart';
 
 class AppTextFormField extends StatelessWidget {
@@ -49,8 +50,8 @@ class AppTextFormField extends StatelessWidget {
           prefixIcon: prefixIcon,
           suffixIconColor: kMainColor,
           hintText: hintText,
-          hintStyle: const TextStyle(
-            fontSize: 12,
+          hintStyle:  TextStyle(
+            fontSize: 12.sp,
             color: kGreyColor,
             fontWeight: FontWeight.w400,
           ),

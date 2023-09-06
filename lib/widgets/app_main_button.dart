@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snay3y/constants.dart';
 
 class AppMainButton extends StatelessWidget {
@@ -12,8 +13,8 @@ class AppMainButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: double.infinity,
-        height: 48,
+        width: double.infinity.w,
+        height: 48.h,
         decoration: BoxDecoration(
           color: kPrimaryColor,
           borderRadius: BorderRadius.circular(8),
@@ -21,9 +22,9 @@ class AppMainButton extends StatelessWidget {
         child: Align(
           child: Text(
             title,
-            style: const TextStyle(
+            style:  TextStyle(
               color: Colors.white,
-              fontSize: 20,
+              fontSize: 20.sp,
             ),
           ),
         ),

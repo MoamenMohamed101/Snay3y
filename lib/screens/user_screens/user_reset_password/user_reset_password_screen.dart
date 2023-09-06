@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snay3y/constants.dart';
 import 'package:snay3y/core/validator/validation.dart';
 import 'package:snay3y/screens/user_screens/user_reset_password/cubit.dart';
@@ -35,9 +36,9 @@ class UserResetPasswordView extends StatelessWidget {
                     onPressed: () {
                       Navigator.of(context).pop();
                     },
-                    icon: const Icon(
+                    icon:  Icon(
                       Icons.arrow_back,
-                      size: 20,
+                      size: 20.sp,
                       color: Color(0xff15224F),
                     ),
                   ),
@@ -52,27 +53,27 @@ class UserResetPasswordView extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const SizedBox(
-                              height: 178,
+                             SizedBox(
+                              height: 178.h,
                             ),
-                            const Align(
+                             Align(
                               child: Text(
                                 'اعاده تسجيل كلمه المرور',
                                 style: TextStyle(
-                                    fontSize: 24,
+                                    fontSize: 24.sp,
                                     color: kTextColor,
                                     fontWeight: FontWeight.w700),
                               ),
                             ),
-                            const SizedBox(height: 59),
-                            const Text(
+                             SizedBox(height: 59.h),
+                             Text(
                               'كلمة المرور',
                               style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.w500),
+                                  fontSize: 20.sp, fontWeight: FontWeight.w500),
                             ),
-                            const SizedBox(height: 5),
+                             SizedBox(height: 5.h),
                             AppTextFormField(
-                              fontOfHint: 16,
+                              fontOfHint: 16.sp,
                               hintText: 'ادخل كلمة المرور ',
                               controller: cubit.passwordController,
                               focusNode: cubit.passwordFocusNode,
@@ -103,19 +104,19 @@ class UserResetPasswordView extends StatelessWidget {
                                       icon: const Icon(
                                           Icons.visibility_off_outlined)),
                             ),
-                            const SizedBox(
-                              height: 35,
+                             SizedBox(
+                              height: 35.h,
                             ),
-                            const Text(
+                             Text(
                               'تأكيد كلمة المرور',
                               style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.w500),
+                                  fontSize: 20.sp, fontWeight: FontWeight.w500),
                             ),
-                            const SizedBox(
-                              height: 5,
+                             SizedBox(
+                              height: 5.h,
                             ),
                             AppTextFormField(
-                              fontOfHint: 16,
+                              fontOfHint: 16.sp,
                               hintText: 'ادخل كلمة المرورالجديدة مره أخري',
                               secure: cubit.isComfirmPasswordSecure,
                               suffixIcon: cubit.isComfirmPasswordSecure
