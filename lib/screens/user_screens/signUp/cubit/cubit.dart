@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:snay3y/end_points.dart';
+import 'package:snay3y/helpers/dio_helper.dart';
 import 'package:snay3y/screens/user_screens/signUp/cubit/states.dart';
 
 class UserSignUpCubit extends Cubit<UserSignUpStates> {
@@ -9,6 +11,10 @@ class UserSignUpCubit extends Cubit<UserSignUpStates> {
 
   String? valueChooseUser;
   String? genderChooseUser;
+  var userEmailController = TextEditingController();
+  var userPasswordController = TextEditingController();
+  var userNameController = TextEditingController();
+  var userPhoneNumberController = TextEditingController();
 
   var formStateUser = GlobalKey<FormState>();
 
@@ -17,5 +23,34 @@ class UserSignUpCubit extends Cubit<UserSignUpStates> {
         ? valueChooseUser = value as String?
         : genderChooseUser = value as String?;
     emit(UserSignUpInPutUserValueStates());
+  }
+
+  void userSignUp({
+    required String? name,
+    required String? email,
+    required String? password,
+    required String? phone,
+    required String? government,
+    required String? gender,
+  }) async{
+    emit(UserSignUpLoadingStates());
+    await DioHelper.postData(
+      url: Register,
+      data: {
+        'email': email,
+        'username': name,
+        'password': password,
+        'phoneNumber': phone,
+        'government': government,
+        'gender': gender,
+      },
+    )!
+        .then((value) {
+      print(value.data);
+      emit(UserSignUpSuccessStates());
+    }).catchError((error) {
+      print(error.toString());
+      emit(UserSignUpErrorStates(error.toString()));
+    });
   }
 }

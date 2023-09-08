@@ -9,6 +9,10 @@ class SignUpCubit extends Cubit<SignUpStates> {
 
   String? valueChooseFactor;
   String? genderChooseFactor;
+  var technicianEmailController = TextEditingController();
+  var technicianPasswordController = TextEditingController();
+  var technicianNameController = TextEditingController();
+  var technicianPhoneController = TextEditingController();
 
   var formStateFactor = GlobalKey<FormState>();
 

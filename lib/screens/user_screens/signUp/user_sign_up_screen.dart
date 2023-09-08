@@ -1,10 +1,9 @@
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snay3y/components/components.dart';
 import 'package:snay3y/generated/l10n.dart';
-import 'package:snay3y/screens/technician_screens/signUp/cubit/cubit.dart';
-import 'package:snay3y/screens/technician_screens/signUp/cubit/states.dart';
 import 'package:snay3y/screens/user_screens/signUp/cubit/cubit.dart';
 import 'package:snay3y/screens/user_screens/signUp/cubit/states.dart';
 
@@ -38,18 +37,18 @@ class UserSignUpScreen extends StatelessWidget {
                 children: [
                   Text(
                     type == true ? governorate! : gender!,
-                    style:  TextStyle(
+                    style: TextStyle(
                       color: Colors.black,
                       fontSize: 20.sp,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
-                   SizedBox(
+                  SizedBox(
                     height: 10.h,
                   ),
                   Container(
                     height: 60,
-                    padding:  EdgeInsets.symmetric(horizontal: 10.h),
+                    padding: EdgeInsets.symmetric(horizontal: 10.h),
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.grey, width: 1.w),
                       borderRadius: BorderRadius.circular(10),
@@ -59,15 +58,17 @@ class UserSignUpScreen extends StatelessWidget {
                           ? Text(S.of(context).signUPChooseCountry)
                           : Text(S.of(context).signUPChooseGender),
                       isExpanded: true,
-                      value:
-                          type == true ? cubit.valueChooseUser : cubit.genderChooseUser,
+                      value: type == true
+                          ? cubit.valueChooseUser
+                          : cubit.genderChooseUser,
                       iconSize: 36.sp,
                       underline: const SizedBox(),
-                      style:  TextStyle(color: Colors.black, fontSize: 19.sp),
+                      style: TextStyle(color: Colors.black, fontSize: 19.sp),
                       icon: const Icon(Icons.arrow_drop_down),
                       dropdownColor: Colors.white,
                       onChanged: (newValue) {
-                        cubit.inPutUserValueDropDown(type: type, value: newValue);
+                        cubit.inPutUserValueDropDown(
+                            type: type, value: newValue);
                       },
                       items: type == true
                           ? listItem.map((valueItem) {
@@ -106,25 +107,25 @@ class UserSignUpScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                       SizedBox(
+                      SizedBox(
                         height: 50.h,
                       ),
                       Row(
                         children: [
                           IconButton(
-                            icon:
-                                const Icon(Icons.arrow_back, color: Colors.black),
+                            icon: const Icon(Icons.arrow_back,
+                                color: Colors.black),
                             onPressed: () {
                               Navigator.of(context).pop();
                             },
                           ),
-                           SizedBox(
+                          SizedBox(
                             width: 80.w,
                           ),
                           Text(
                             textAlign: TextAlign.center,
                             S.of(context).signUPAppBar,
-                            style:  TextStyle(
+                            style: TextStyle(
                               color: Color(0xFF322653),
                               fontSize: 25.sp,
                               fontWeight: FontWeight.w700,
@@ -133,6 +134,7 @@ class UserSignUpScreen extends StatelessWidget {
                         ],
                       ),
                       defaultTextFormField(
+                        textEditingController: cubit.userEmailController,
                         title: S.of(context).userSignUPEmailTitle,
                         hintText: S.of(context).userSignUPEmailDescription,
                         keyboardType: TextInputType.name,
@@ -140,6 +142,7 @@ class UserSignUpScreen extends StatelessWidget {
                         validator: S.of(context).userSignUPEmailValidate,
                       ),
                       defaultTextFormField(
+                        textEditingController: cubit.userPasswordController,
                         title: S.of(context).signUPPassword,
                         hintText: S.of(context).signUPPasswordDescription,
                         keyboardType: TextInputType.name,
@@ -147,6 +150,7 @@ class UserSignUpScreen extends StatelessWidget {
                         validator: S.of(context).signUPPasswordValidate,
                       ),
                       defaultTextFormField(
+                        textEditingController: cubit.userNameController,
                         title: S.of(context).signUPUserName,
                         hintText: S.of(context).signUPUserNameDescription,
                         keyboardType: TextInputType.name,
@@ -154,6 +158,7 @@ class UserSignUpScreen extends StatelessWidget {
                         validator: S.of(context).signUPUserNameNameValidate,
                       ),
                       defaultTextFormField(
+                        textEditingController: cubit.userPhoneNumberController,
                         title: S.of(context).signUPPhoneNumber,
                         hintText: S.of(context).signUPPhoneNumberDescription,
                         keyboardType: TextInputType.phone,
@@ -165,18 +170,45 @@ class UserSignUpScreen extends StatelessWidget {
                           governorate: S.of(context).signUPCountryTitle),
                       dropDownButton(
                           type: false, gender: S.of(context).signUPGenderTitle),
-                      defaultButton(
-                        color: const Color(0xFF4682A9),
-                        voidCallback: () {
-                          if (cubit.formStateUser.currentState!.validate()) {
-
-                          }
-                          showButtonSheet(context, 10.0, 10.0);
-                        },
-                        text: S.of(context).signUPButton,
-                        width: double.infinity,
-                        isUpperCase: true,
-                      ),
+                      ConditionalBuilder(
+                        condition: state is! UserSignUpLoadingStates,
+                        builder: (context) => defaultButton(
+                          color: const Color(0xFF4682A9),
+                          voidCallback: () {
+                            cubit.userSignUp(
+                              name: 'moamen mohamed ',
+                              email:'moamen101@gmail.com',
+                              password: 'Mm123456#',
+                              phone: '+201270492019',
+                              government: 'cairo',
+                              gender: 'male',
+                            );
+                            // if (cubit.formStateUser.currentState!.validate()) {
+                            //   print(cubit.userEmailController.text);
+                            //   print(cubit.userPasswordController.text);
+                            //   print(cubit.userNameController.text);
+                            //   print(cubit.userPhoneNumberController.text);
+                            //   print(cubit.valueChooseUser);
+                            //   print(cubit.genderChooseUser);
+                            //   cubit.userSignUp(
+                            //     name: 'moamen mohamed magdy',
+                            //     email:'moamen101@gmail.com',
+                            //     password: 'Mm123456@',
+                            //     phone: '+201270492019',
+                            //     governorate: 'cairo',
+                            //     gender: 'male',
+                            //   );
+                            // }
+                            //showButtonSheet(context, 10.0, 10.0);
+                          },
+                          text: S.of(context).signUPButton,
+                          width: double.infinity,
+                          isUpperCase: true,
+                        ),
+                        fallback: (context) => const Center(
+                          child: CircularProgressIndicator(),
+                        )
+                      )
                     ],
                   ),
                 ),
