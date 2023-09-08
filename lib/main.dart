@@ -14,33 +14,26 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (BuildContext context) => SignUpCubit(),
-        )
-      ],
-      child: ScreenUtilInit(
-        designSize:  const Size(360, 690),
-        minTextAdapt: true,
-        splitScreenMode: true,
-        builder: (_ , child) {
-          return
-          MaterialApp(
-            locale: const Locale('ar'),
-            localizationsDelegates: const [
-              S.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
-            supportedLocales: S.delegate.supportedLocales,
-            debugShowCheckedModeBanner: false,
-            initialRoute: Routes.mainPage,
-            onGenerateRoute: SpecialRouter.onGenerateRoutes,
-          );
-        },
-      ),
+    return ScreenUtilInit(
+      designSize:  const Size(360, 690),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (_ , child) {
+        return
+        MaterialApp(
+          locale: const Locale('ar'),
+          localizationsDelegates: const [
+            S.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: S.delegate.supportedLocales,
+          debugShowCheckedModeBanner: false,
+          initialRoute: Routes.mainPage,
+          onGenerateRoute: SpecialRouter.onGenerateRoutes,
+        );
+      },
     );
   }
 }
