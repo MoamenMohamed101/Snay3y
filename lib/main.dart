@@ -9,7 +9,7 @@ import 'package:snay3y/screens/technician_screens/signUp/cubit/cubit.dart';
 void main() {
   runApp(const MyApp());
 }
-// My name is Moamen Mohamed
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
