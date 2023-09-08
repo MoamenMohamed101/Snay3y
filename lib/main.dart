@@ -38,11 +38,8 @@ class MyApp extends StatelessWidget {
             initialRoute: Routes.mainPage,
             onGenerateRoute: SpecialRouter.onGenerateRoutes,
           );
-        }
-         ,
+        },
       ),
     );
   }
-  // tring
 }
-

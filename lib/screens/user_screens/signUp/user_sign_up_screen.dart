@@ -121,7 +121,7 @@ class UserSignUpScreen extends StatelessWidget {
                           textAlign: TextAlign.center,
                           S.of(context).signUPAppBar,
                           style:  TextStyle(
-                            color: Color(0xFF322653),
+                            color: const Color(0xFF322653),
                             fontSize: 25.sp,
                             fontWeight: FontWeight.w700,
                           ),
