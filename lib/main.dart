@@ -8,7 +8,6 @@ import 'package:snay3y/core/route/routes.dart';
 import 'package:snay3y/generated/l10n.dart';
 import 'package:snay3y/helpers/dio_helper.dart';
 import 'package:snay3y/screens/technician_screens/signUp/cubit/cubit.dart';
-import 'package:snay3y/screens/user_screens/signUp/user_sign_up_screen.dart';
 
 void main() {
   DioHelper.init();
@@ -24,7 +23,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (BuildContext context) => SignUpCubit(),
+          create: (BuildContext context) => TechSignUpCubit(),
         ),
       ],
       child: ScreenUtilInit(

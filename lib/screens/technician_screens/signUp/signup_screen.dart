@@ -23,9 +23,9 @@ class SignUpScreen extends StatelessWidget {
       S.of(context).signUPGenderMaleFactor,
       S.of(context).signUPGenderFeMaleFactor,
     ];
-    return BlocConsumer<SignUpCubit, SignUpStates>(
+    return BlocConsumer<TechSignUpCubit, TechSignUpStates>(
       builder: (builder, listener) {
-        var cubit = SignUpCubit.get(context);
+        var cubit = TechSignUpCubit.get(context);
         dropDownButton({String? governorate, String? gender, bool? type}) {
           return Padding(
             padding: const EdgeInsets.all(20.0),
@@ -55,7 +55,7 @@ class SignUpScreen extends StatelessWidget {
                         ? Text(S.of(context).signUPChooseCountry)
                         : Text(S.of(context).signUPChooseGender),
                     isExpanded: true,
-                    value: type == true ? cubit.valueChooseFactor : cubit.genderChooseFactor,
+                    value: type == true ? cubit.valueChooseTech : cubit.genderChooseTech,
                     iconSize: 36.sp,
                     underline: const SizedBox(),
                     style:  TextStyle(color: Colors.black, fontSize: 19.sp),
@@ -106,7 +106,7 @@ class SignUpScreen extends StatelessWidget {
           backgroundColor: const Color(0xFF91C8E4),
           body: SafeArea(
             child: Form(
-              key: cubit.formStateFactor,
+              key: cubit.formStateTech,
               child: SingleChildScrollView(
                 child: Container(
                   width: double.infinity,
@@ -197,7 +197,7 @@ class SignUpScreen extends StatelessWidget {
                         defaultButton(
                           color: const Color(0xFF4682A9),
                           voidCallback: () {
-                            if (cubit.formStateFactor.currentState!.validate()) {
+                            if (cubit.formStateTech.currentState!.validate()) {
 
                             }
                           },

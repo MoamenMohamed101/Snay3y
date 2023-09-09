@@ -2,6 +2,7 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:snay3y/constants.dart';
 import 'package:snay3y/core/route/routes.dart';
 import 'package:snay3y/core/validator/validation.dart';
@@ -17,22 +18,18 @@ class UserLoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => UserLoginCubit(),
-      child: Builder(
-        builder: (context) {
+      child: BlocConsumer<UserLoginCubit , UserLoginState>(
+        builder: (BuildContext context, state) {
           final cubit = UserLoginCubit.of(context);
           return Scaffold(
             resizeToAvoidBottomInset: false,
             body: Stack(
               children: [
-                // Image.asset(
-                //   'assets/images/userLoginbackgroung.png',
-                //   height: MediaQuery.of(context).viewInsets.bottom == 0 ? 812 : 900,
-                // ),
                 Container(
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                         image:
-                            AssetImage('assets/images/userLoginbackgroung.png'),
+                        AssetImage('assets/images/userLoginbackgroung.png'),
                         fit: BoxFit.cover),
                   ),
                 ),
@@ -81,9 +78,28 @@ class UserLoginView extends StatelessWidget {
                             Text(
                               'كلمة المرور',
                               style: TextStyle(
-                                  fontSize: 20.sp, fontWeight: FontWeight.w500),
+                                fontSize: 20.sp,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                             AppTextFormField(
+                              onFieldSubmitted: (value) {
+                                if (cubit.formKey.currentState!.validate()) {
+                                  //cubit.formKey.currentState!.save();
+                                  cubit.userLogin(
+                                    email: cubit.emailController.text,
+                                    password: cubit.passwordController.text,
+                                  );
+                                } else {
+                                  const snackBar = SnackBar(
+                                    content: Text('Faild to login!'),
+                                  );
+
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(snackBar);
+                                }
+                                return null;
+                              },
                               controller: cubit.passwordController,
                               focusNode: cubit.passwordFocusNode,
                               keyBoardType: TextInputType.visiblePassword,
@@ -99,21 +115,21 @@ class UserLoginView extends StatelessWidget {
                               secure: cubit.isPasswordSecure,
                               suffixIcon: cubit.isPasswordSecure
                                   ? IconButton(
-                                      onPressed: () {
-                                        cubit.hidePassword();
-                                      },
-                                      icon: const Icon(
-                                        Icons.visibility_outlined,
-                                      ),
-                                    )
+                                onPressed: () {
+                                  cubit.hidePassword();
+                                },
+                                icon: const Icon(
+                                  Icons.visibility_outlined,
+                                ),
+                              )
                                   : IconButton(
-                                      onPressed: () {
-                                        cubit.hidePassword();
-                                      },
-                                      icon: const Icon(
-                                        Icons.visibility_off_outlined,
-                                      ),
-                                    ),
+                                onPressed: () {
+                                  cubit.hidePassword();
+                                },
+                                icon: const Icon(
+                                  Icons.visibility_off_outlined,
+                                ),
+                              ),
                             ),
                             TextButton(
                               onPressed: () {
@@ -122,7 +138,7 @@ class UserLoginView extends StatelessWidget {
                               },
                               style: ButtonStyle(
                                 overlayColor: MaterialStateColor.resolveWith(
-                                    (states) => Colors.transparent),
+                                        (states) => Colors.transparent),
                               ),
                               child: Text(
                                 'هل نسيت كلمه المرور؟',
@@ -200,6 +216,31 @@ class UserLoginView extends StatelessWidget {
               ],
             ),
           );
+        },
+        listener: (BuildContext context, Object? state) {
+          if(state is UserLoginSuccessStates){
+            if(state.userLoginModel!.message == "loged in successfully"){
+              Fluttertoast.showToast(
+                msg: state.userLoginModel!.message!,
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.BOTTOM,
+                timeInSecForIosWeb: 5,
+                backgroundColor: Colors.green,
+                textColor: Colors.white,
+                fontSize: 16.0,
+              );
+            }else{
+              Fluttertoast.showToast(
+                msg: state.userLoginModel!.message!,
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.BOTTOM,
+                timeInSecForIosWeb: 5,
+                backgroundColor: Colors.red,
+                textColor: Colors.white,
+                fontSize: 16.0,
+              );
+            }
+          }
         },
       ),
     );

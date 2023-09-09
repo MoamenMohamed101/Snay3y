@@ -35,7 +35,7 @@ class UserSignUpCubit extends Cubit<UserSignUpStates> {
   }) async {
     emit(UserSignUpLoadingStates());
     await DioHelper.postData(
-      url: Register,
+      url: user_register,
       data: {
         'email': email,
         'username': name,

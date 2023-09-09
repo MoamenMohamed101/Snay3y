@@ -1,3 +1,5 @@
-const USER_LOGIN = 'login';
+const LOGIN = 'login';
 
-const Register = 'client/register'; //https://tech-o6js.onrender.com/api/auth/
+const user_register = 'client/register';
+
+const tech_register = 'tech/register';

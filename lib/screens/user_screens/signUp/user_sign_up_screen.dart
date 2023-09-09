@@ -1,5 +1,4 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -127,7 +126,7 @@ class UserSignUpScreen extends StatelessWidget {
                             textAlign: TextAlign.center,
                             S.of(context).signUPAppBar,
                             style: TextStyle(
-                              color: Color(0xFF322653),
+                              color: const Color(0xFF322653),
                               fontSize: 25.sp,
                               fontWeight: FontWeight.w700,
                             ),
@@ -177,7 +176,7 @@ class UserSignUpScreen extends StatelessWidget {
                       // status code 502 mean ? server is down or server is not working
                       ConditionalBuilder(
                         condition: state is! UserSignUpLoadingStates,
-                        builder: (context)=>  defaultButton(
+                        builder: (context) => defaultButton(
                           color: const Color(0xFF4682A9),
                           voidCallback: () async {
                             cubit.userSignUp(
@@ -188,13 +187,14 @@ class UserSignUpScreen extends StatelessWidget {
                               government: cubit.valueChooseUser,
                               gender: cubit.genderChooseUser,
                             );
-
                           },
                           text: S.of(context).signUPButton,
                           width: double.infinity,
                           isUpperCase: true,
                         ),
-                        fallback: (context)=> Center(child: CircularProgressIndicator()),
+                        fallback: (context) => const Center(
+                          child: CircularProgressIndicator(),
+                        ),
                       )
                     ],
                   ),
