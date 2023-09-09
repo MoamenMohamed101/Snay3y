@@ -22,9 +22,7 @@ class DioHelper {
     String? lang = 'en',
     String? authorization,
   }) async {
-    dio!.options.headers = {
-      'Content-Type': 'application/json'
-    };
+    dio!.options.headers = {'Content-Type': 'application/json'};
     return await dio!.get(url, queryParameters: query);
   }
 
@@ -32,8 +30,19 @@ class DioHelper {
     required String url,
     required Map<String, dynamic> data,
   }) async {
-    return await dio!.post(url, data: data);
+     var response = await dio!.post(
+       url,
+       data: data,
+       options: Options(
+         validateStatus: (status) => true,
+         headers: {
+           "Content-Type": "application/json",
+         },
+       ),
+     );
+      return response;
   }
+
   static Future<Response>? putData({
     @required String? url,
     Map<String, dynamic>? query,
@@ -48,5 +57,4 @@ class DioHelper {
     };
     return await dio!.put(url!, data: data);
   }
-
 }

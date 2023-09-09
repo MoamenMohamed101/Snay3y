@@ -1,4 +1,5 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,7 +9,7 @@ import 'package:snay3y/screens/user_screens/signUp/cubit/cubit.dart';
 import 'package:snay3y/screens/user_screens/signUp/cubit/states.dart';
 
 class UserSignUpScreen extends StatelessWidget {
-  const UserSignUpScreen({super.key});
+  UserSignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -169,45 +170,31 @@ class UserSignUpScreen extends StatelessWidget {
                           type: true,
                           governorate: S.of(context).signUPCountryTitle),
                       dropDownButton(
-                          type: false, gender: S.of(context).signUPGenderTitle),
+                        type: false,
+                        gender: S.of(context).signUPGenderTitle,
+                      ),
+
+                      // status code 502 mean ? server is down or server is not working
                       ConditionalBuilder(
                         condition: state is! UserSignUpLoadingStates,
-                        builder: (context) => defaultButton(
+                        builder: (context)=>  defaultButton(
                           color: const Color(0xFF4682A9),
-                          voidCallback: () {
+                          voidCallback: () async {
                             cubit.userSignUp(
-                              name: 'moamen mohamed ',
-                              email:'moamen101@gmail.com',
-                              password: 'Mm123456#',
-                              phone: '+201270492019',
-                              government: 'cairo',
-                              gender: 'male',
+                              name: cubit.userNameController.text,
+                              email: cubit.userEmailController.text,
+                              password: cubit.userPasswordController.text,
+                              phone: cubit.userPhoneNumberController.text,
+                              government: cubit.valueChooseUser,
+                              gender: cubit.genderChooseUser,
                             );
-                            // if (cubit.formStateUser.currentState!.validate()) {
-                            //   print(cubit.userEmailController.text);
-                            //   print(cubit.userPasswordController.text);
-                            //   print(cubit.userNameController.text);
-                            //   print(cubit.userPhoneNumberController.text);
-                            //   print(cubit.valueChooseUser);
-                            //   print(cubit.genderChooseUser);
-                            //   cubit.userSignUp(
-                            //     name: 'moamen mohamed magdy',
-                            //     email:'moamen101@gmail.com',
-                            //     password: 'Mm123456@',
-                            //     phone: '+201270492019',
-                            //     governorate: 'cairo',
-                            //     gender: 'male',
-                            //   );
-                            // }
-                            //showButtonSheet(context, 10.0, 10.0);
+
                           },
                           text: S.of(context).signUPButton,
                           width: double.infinity,
                           isUpperCase: true,
                         ),
-                        fallback: (context) => const Center(
-                          child: CircularProgressIndicator(),
-                        )
+                        fallback: (context)=> Center(child: CircularProgressIndicator()),
                       )
                     ],
                   ),

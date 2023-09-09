@@ -32,7 +32,7 @@ class UserSignUpCubit extends Cubit<UserSignUpStates> {
     required String? phone,
     required String? government,
     required String? gender,
-  }) async{
+  }) async {
     emit(UserSignUpLoadingStates());
     await DioHelper.postData(
       url: Register,
@@ -47,6 +47,8 @@ class UserSignUpCubit extends Cubit<UserSignUpStates> {
     )!
         .then((value) {
       print(value.data);
+      print(value.statusCode);
+      print(value.statusMessage);
       emit(UserSignUpSuccessStates());
     }).catchError((error) {
       print(error.toString());

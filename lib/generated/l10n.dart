@@ -250,160 +250,160 @@ class S {
     );
   }
 
-  /// `Cairo`
+  /// `cairo`
   String get signUPCountryCairoUser {
     return Intl.message(
-      'Cairo',
+      'cairo',
       name: 'signUPCountryCairoUser',
       desc: '',
       args: [],
     );
   }
 
-  /// `Alexandria`
+  /// `alexandria`
   String get signUPCountryAlexandriaUser {
     return Intl.message(
-      'Alexandria',
+      'alexandria',
       name: 'signUPCountryAlexandriaUser',
       desc: '',
       args: [],
     );
   }
 
-  /// `Gizeh`
+  /// `gizeh`
   String get signUPCountryGizehUser {
     return Intl.message(
-      'Gizeh',
+      'gizeh',
       name: 'signUPCountryGizehUser',
       desc: '',
       args: [],
     );
   }
 
-  /// `Shubra El-Kheima`
+  /// `shubra El-Kheima`
   String get signUPCountryShubraElKheimaUser {
     return Intl.message(
-      'Shubra El-Kheima',
+      'shubra El-Kheima',
       name: 'signUPCountryShubraElKheimaUser',
       desc: '',
       args: [],
     );
   }
 
-  /// `Port Said`
+  /// `port Said`
   String get signUPCountryPortSaidUser {
     return Intl.message(
-      'Port Said',
+      'port Said',
       name: 'signUPCountryPortSaidUser',
       desc: '',
       args: [],
     );
   }
 
-  /// `Suez`
+  /// `suez`
   String get signUPCountrySuezUser {
     return Intl.message(
-      'Suez',
+      'suez',
       name: 'signUPCountrySuezUser',
       desc: '',
       args: [],
     );
   }
 
-  /// `Male`
+  /// `male`
   String get signUPGenderMaleUser {
     return Intl.message(
-      'Male',
+      'male',
       name: 'signUPGenderMaleUser',
       desc: '',
       args: [],
     );
   }
 
-  /// `FeMale`
+  /// `feMale`
   String get signUPGenderFeMaleUser {
     return Intl.message(
-      'FeMale',
+      'feMale',
       name: 'signUPGenderFeMaleUser',
       desc: '',
       args: [],
     );
   }
 
-  /// `Cairo`
+  /// `cairo`
   String get signUPCountryCairoFactor {
     return Intl.message(
-      'Cairo',
+      'cairo',
       name: 'signUPCountryCairoFactor',
       desc: '',
       args: [],
     );
   }
 
-  /// `Alexandria`
+  /// `alexandria`
   String get signUPCountryAlexandriaFactor {
     return Intl.message(
-      'Alexandria',
+      'alexandria',
       name: 'signUPCountryAlexandriaFactor',
       desc: '',
       args: [],
     );
   }
 
-  /// `Gizeh`
+  /// `gizeh`
   String get signUPCountryGizehFactor {
     return Intl.message(
-      'Gizeh',
+      'gizeh',
       name: 'signUPCountryGizehFactor',
       desc: '',
       args: [],
     );
   }
 
-  /// `Shubra El-Kheima`
+  /// `shubra El-Kheima`
   String get signUPCountryShubraElKheimaFactor {
     return Intl.message(
-      'Shubra El-Kheima',
+      'shubra El-Kheima',
       name: 'signUPCountryShubraElKheimaFactor',
       desc: '',
       args: [],
     );
   }
 
-  /// `Port Said`
+  /// `port Said`
   String get signUPCountryPortSaidFactor {
     return Intl.message(
-      'Port Said',
+      'port Said',
       name: 'signUPCountryPortSaidFactor',
       desc: '',
       args: [],
     );
   }
 
-  /// `Suez`
+  /// `suez`
   String get signUPCountrySuezFactor {
     return Intl.message(
-      'Suez',
+      'suez',
       name: 'signUPCountrySuezFactor',
       desc: '',
       args: [],
     );
   }
 
-  /// `Male`
+  /// `male`
   String get signUPGenderMaleFactor {
     return Intl.message(
-      'Male',
+      'male',
       name: 'signUPGenderMaleFactor',
       desc: '',
       args: [],
     );
   }
 
-  /// `FeMale`
+  /// `feMale`
   String get signUPGenderFeMaleFactor {
     return Intl.message(
-      'FeMale',
+      'feMale',
       name: 'signUPGenderFeMaleFactor',
       desc: '',
       args: [],

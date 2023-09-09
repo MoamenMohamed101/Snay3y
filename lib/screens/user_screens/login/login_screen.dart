@@ -1,3 +1,4 @@
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -30,10 +31,9 @@ class UserLoginView extends StatelessWidget {
                 Container(
                   decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image:
-                          AssetImage('assets/images/userLoginbackgroung.png'),
-                      fit: BoxFit.cover
-                    ),
+                        image:
+                            AssetImage('assets/images/userLoginbackgroung.png'),
+                        fit: BoxFit.cover),
                   ),
                 ),
                 Padding(
@@ -45,10 +45,10 @@ class UserLoginView extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                             SizedBox(
+                            SizedBox(
                               height: 224.h,
                             ),
-                             Text(
+                            Text(
                               'البريد الإلكتروني',
                               style: TextStyle(
                                 fontSize: 20.sp,
@@ -75,10 +75,10 @@ class UserLoginView extends StatelessWidget {
                               hintText: 'Example@gmail.com',
                               fontOfHint: 16.sp,
                             ),
-                             SizedBox(
+                            SizedBox(
                               height: 35.h,
                             ),
-                             Text(
+                            Text(
                               'كلمة المرور',
                               style: TextStyle(
                                   fontSize: 20.sp, fontWeight: FontWeight.w500),
@@ -91,9 +91,9 @@ class UserLoginView extends StatelessWidget {
                                 cubit.password = data;
                               },
                               textInputAction: TextInputAction.done,
-                              validator: (value) {
-                                return Validator.validatePassword(value);
-                              },
+                              // validator: (value) {
+                              //   return Validator.validatePassword(value);
+                              // },
                               hintText: '*******************',
                               fontOfHint: 16.sp,
                               secure: cubit.isPasswordSecure,
@@ -102,24 +102,29 @@ class UserLoginView extends StatelessWidget {
                                       onPressed: () {
                                         cubit.hidePassword();
                                       },
-                                      icon:
-                                          const Icon(Icons.visibility_outlined))
+                                      icon: const Icon(
+                                        Icons.visibility_outlined,
+                                      ),
+                                    )
                                   : IconButton(
                                       onPressed: () {
                                         cubit.hidePassword();
                                       },
                                       icon: const Icon(
-                                          Icons.visibility_off_outlined)),
+                                        Icons.visibility_off_outlined,
+                                      ),
+                                    ),
                             ),
                             TextButton(
                               onPressed: () {
-                                Navigator.of(context).pushNamed(Routes.userForgotPassRouteName);
+                                Navigator.of(context)
+                                    .pushNamed(Routes.userForgotPassRouteName);
                               },
                               style: ButtonStyle(
                                 overlayColor: MaterialStateColor.resolveWith(
                                     (states) => Colors.transparent),
                               ),
-                              child:  Text(
+                              child: Text(
                                 'هل نسيت كلمه المرور؟',
                                 style: TextStyle(
                                   fontSize: 14.sp,
@@ -128,50 +133,62 @@ class UserLoginView extends StatelessWidget {
                                 ),
                               ),
                             ),
-                             SizedBox(
+                            SizedBox(
                               height: 50.h,
                             ),
-                            AppMainButton(
-                              title: 'تسجيل الدخول',
-                              onTap: () {
-                                if (cubit.formKey.currentState!.validate()) {
-                                  cubit.formKey.currentState!.save();
-                                } else {
-                                  const snackBar = SnackBar(
-                                    content: Text('Faild to login!'),
-                                  );
+                            ConditionalBuilder(
+                              condition: state is! UserLoginLoadingStates,
+                              builder: (context) => AppMainButton(
+                                title: 'تسجيل الدخول',
+                                onTap: () {
+                                  if (cubit.formKey.currentState!.validate()) {
+                                    //cubit.formKey.currentState!.save();
+                                    cubit.userLogin(
+                                      email: cubit.emailController.text,
+                                      password: cubit.passwordController.text,
+                                    );
+                                  } else {
+                                    const snackBar = SnackBar(
+                                      content: Text('Faild to login!'),
+                                    );
 
-                                  ScaffoldMessenger.of(context)
-                                      .showSnackBar(snackBar);
-                                }
-                              },
+                                    ScaffoldMessenger.of(context)
+                                        .showSnackBar(snackBar);
+                                  }
+                                },
+                              ),
+                              fallback: (context) => const Center(
+                                child: CircularProgressIndicator(),
+                              ),
                             ),
-                             SizedBox(
+                            SizedBox(
                               height: 5.h,
                             ),
                             InkWell(
-                              onTap: (){
-                                Navigator.of(context).pushNamed(Routes.signUpPageRouteUser);
+                              onTap: () {
+                                Navigator.of(context)
+                                    .pushNamed(Routes.signUpPageRouteUser);
                               },
                               child: Align(
                                 child: RichText(
-                                  text:  TextSpan(
-                                      text: 'ليس لدي حساب ؟ ',
-                                      style: TextStyle(
-                                          color: kTextColor, fontSize: 12.sp),
-                                      children: [
-                                        TextSpan(
-                                          text: 'إنشاء حساب',
-                                          style: TextStyle(
-                                            color: kPrimaryColor,
-                                            fontSize: 12.sp,
-                                          ),
+                                  text: TextSpan(
+                                    text: 'ليس لدي حساب ؟ ',
+                                    style: TextStyle(
+                                        color: kTextColor, fontSize: 12.sp),
+                                    children: [
+                                      TextSpan(
+                                        text: 'إنشاء حساب',
+                                        style: TextStyle(
+                                          color: kPrimaryColor,
+                                          fontSize: 12.sp,
                                         ),
-                                      ]),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
-                             SizedBox(
+                            SizedBox(
                               height: 20.h,
                             ),
                           ],
