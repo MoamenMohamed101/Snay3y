@@ -8,6 +8,7 @@ defaultTextFormField({
   required String validator,
   required TextInputType keyboardType,
   required bool showPrefixIcon,
+  required TextEditingController textEditingController,
 }) {
   return Padding(
     padding: const EdgeInsets.all(20),
@@ -26,6 +27,7 @@ defaultTextFormField({
           height: 10.h,
         ),
         TextFormField(
+          controller: textEditingController,
           validator: (value) {
             if (value!.isEmpty) {
               return validator;

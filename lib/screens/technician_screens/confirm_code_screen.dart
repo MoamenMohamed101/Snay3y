@@ -1,7 +1,7 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:snay3y/core/route/routes.dart';
 import 'package:snay3y/widgets/technicianWidgets.dart';
 import 'package:snay3y/widgets/userWidgets.dart';
 

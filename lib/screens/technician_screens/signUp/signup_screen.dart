@@ -12,20 +12,20 @@ class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List listItem = [
-      S.of(context).signUPCountryCairoUser,
-      S.of(context).signUPCountryAlexandriaUser,
-      S.of(context).signUPCountryGizehUser,
-      S.of(context).signUPCountryShubraElKheimaUser,
-      S.of(context).signUPCountryPortSaidUser,
-      S.of(context).signUPCountrySuezUser,
+      S.of(context).signUPCountryCairoFactor,
+      S.of(context).signUPCountryAlexandriaFactor,
+      S.of(context).signUPCountryGizehFactor,
+      S.of(context).signUPCountryShubraElKheimaFactor,
+      S.of(context).signUPCountryPortSaidFactor,
+      S.of(context).signUPCountrySuezFactor,
     ];
     List chooseType = [
-      S.of(context).signUPGenderMaleUser,
-      S.of(context).signUPGenderFeMaleUser,
+      S.of(context).signUPGenderMaleFactor,
+      S.of(context).signUPGenderFeMaleFactor,
     ];
-    return BlocConsumer<SignUpCubit, SignUpStates>(
+    return BlocConsumer<TechSignUpCubit, TechSignUpStates>(
       builder: (builder, listener) {
-        var cubit = SignUpCubit.get(context);
+        var cubit = TechSignUpCubit.get(context);
         dropDownButton({String? governorate, String? gender, bool? type}) {
           return Padding(
             padding: const EdgeInsets.all(20.0),
@@ -55,14 +55,14 @@ class SignUpScreen extends StatelessWidget {
                         ? Text(S.of(context).signUPChooseCountry)
                         : Text(S.of(context).signUPChooseGender),
                     isExpanded: true,
-                    value: type == true ? cubit.valueChooseUser : cubit.genderChooseUser,
+                    value: type == true ? cubit.valueChooseTech : cubit.genderChooseTech,
                     iconSize: 36.sp,
                     underline: const SizedBox(),
                     style:  TextStyle(color: Colors.black, fontSize: 19.sp),
                     icon: const Icon(Icons.arrow_drop_down),
                     dropdownColor: Colors.white,
                     onChanged: (newValue) {
-                      cubit.inPutUserValueDropDown(type: type, value: newValue);
+                      cubit.inPutFactorValueDropDown(type: type, value: newValue);
                     },
                     items: type == true
                         ? listItem.map((valueItem) {
@@ -106,7 +106,7 @@ class SignUpScreen extends StatelessWidget {
           backgroundColor: const Color(0xFF91C8E4),
           body: SafeArea(
             child: Form(
-              key: cubit.formStateFactor,
+              key: cubit.formStateTech,
               child: SingleChildScrollView(
                 child: Container(
                   width: double.infinity,
@@ -125,6 +125,7 @@ class SignUpScreen extends StatelessWidget {
                           height: 20.h,
                         ),
                         defaultTextFormField(
+                          textEditingController: cubit.technicianEmailController,
                           title: S.of(context).signUPQuadrupleName,
                           hintText: S
                               .of(context)
@@ -135,6 +136,7 @@ class SignUpScreen extends StatelessWidget {
                           S.of(context).signUPQuadrupleNameValidate,
                         ),
                         defaultTextFormField(
+                          textEditingController: cubit.technicianPasswordController,
                           title: S.of(context).signUPUserName,
                           hintText:
                           S.of(context).signUPUserNameDescription,
@@ -144,6 +146,7 @@ class SignUpScreen extends StatelessWidget {
                           S.of(context).signUPUserNameNameValidate,
                         ),
                         defaultTextFormField(
+                          textEditingController: cubit.technicianNameController,
                           title: S.of(context).signUPPassword,
                           hintText:
                           S.of(context).signUPPasswordDescription,
@@ -153,6 +156,7 @@ class SignUpScreen extends StatelessWidget {
                           S.of(context).signUPPasswordValidate,
                         ),
                         defaultTextFormField(
+                          textEditingController: cubit.technicianPhoneController,
                           title: S.of(context).signUPPhoneNumber,
                           hintText: S
                               .of(context)
@@ -163,6 +167,7 @@ class SignUpScreen extends StatelessWidget {
                           S.of(context).signUPPhoneNumberValidate,
                         ),
                         defaultTextFormField(
+                          textEditingController: cubit.technicianPhoneController,
                           title: S.of(context).signUPIDNumber,
                           hintText:
                           S.of(context).signUPIDNumberDescription,
@@ -172,6 +177,7 @@ class SignUpScreen extends StatelessWidget {
                           S.of(context).signUPIdNumberValidate,
                         ),
                         defaultTextFormField(
+                          textEditingController: cubit.technicianPhoneController,
                           title: S.of(context).signUPJobName,
                           hintText:
                           S.of(context).signUPJobNameDescription,
@@ -191,7 +197,7 @@ class SignUpScreen extends StatelessWidget {
                         defaultButton(
                           color: const Color(0xFF4682A9),
                           voidCallback: () {
-                            if (cubit.formStateFactor.currentState!.validate()) {
+                            if (cubit.formStateTech.currentState!.validate()) {
 
                             }
                           },

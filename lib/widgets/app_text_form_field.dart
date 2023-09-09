@@ -16,7 +16,7 @@ class AppTextFormField extends StatelessWidget {
     this.secure = false,
     this.suffixIcon,
     this.prefixIcon,
-    this.fontOfHint = 12,
+    this.fontOfHint = 12, this.onFieldSubmitted,
   });
 
   final TextEditingController controller;
@@ -25,6 +25,7 @@ class AppTextFormField extends StatelessWidget {
   final VoidCallback? onEditingComplete;
   final void Function(String?)? onSave;
   final String? Function(String?)? validator;
+  final String? Function(String?)? onFieldSubmitted;
   final String hintText;
   final TextInputAction? textInputAction;
   final bool secure;
@@ -36,6 +37,7 @@ class AppTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       child: TextFormField(
+        onFieldSubmitted: onFieldSubmitted,
         controller: controller,
         cursorColor: kPrimaryColor,
         focusNode: focusNode,

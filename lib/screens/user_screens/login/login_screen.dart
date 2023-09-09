@@ -1,6 +1,8 @@
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:snay3y/constants.dart';
 import 'package:snay3y/core/route/routes.dart';
 import 'package:snay3y/core/validator/validation.dart';
@@ -16,24 +18,19 @@ class UserLoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => UserLoginCubit(),
-      child: Builder(
-        builder: (context) {
+      child: BlocConsumer<UserLoginCubit , UserLoginState>(
+        builder: (BuildContext context, state) {
           final cubit = UserLoginCubit.of(context);
           return Scaffold(
             resizeToAvoidBottomInset: false,
             body: Stack(
               children: [
-                // Image.asset(
-                //   'assets/images/userLoginbackgroung.png',
-                //   height: MediaQuery.of(context).viewInsets.bottom == 0 ? 812 : 900,
-                // ),
                 Container(
                   decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image:
-                          AssetImage('assets/images/userLoginbackgroung.png'),
-                      fit: BoxFit.cover
-                    ),
+                        image:
+                        AssetImage('assets/images/userLoginbackgroung.png'),
+                        fit: BoxFit.cover),
                   ),
                 ),
                 Padding(
@@ -45,10 +42,10 @@ class UserLoginView extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                             SizedBox(
+                            SizedBox(
                               height: 224.h,
                             ),
-                             Text(
+                            Text(
                               'البريد الإلكتروني',
                               style: TextStyle(
                                 fontSize: 20.sp,
@@ -75,67 +72,24 @@ class UserLoginView extends StatelessWidget {
                               hintText: 'Example@gmail.com',
                               fontOfHint: 16.sp,
                             ),
-                             SizedBox(
+                            SizedBox(
                               height: 35.h,
                             ),
-                             Text(
+                            Text(
                               'كلمة المرور',
                               style: TextStyle(
-                                  fontSize: 20.sp, fontWeight: FontWeight.w500),
+                                fontSize: 20.sp,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                             AppTextFormField(
-                              controller: cubit.passwordController,
-                              focusNode: cubit.passwordFocusNode,
-                              keyBoardType: TextInputType.visiblePassword,
-                              onSave: (data) {
-                                cubit.password = data;
-                              },
-                              textInputAction: TextInputAction.done,
-                              validator: (value) {
-                                return Validator.validatePassword(value);
-                              },
-                              hintText: '*******************',
-                              fontOfHint: 16.sp,
-                              secure: cubit.isPasswordSecure,
-                              suffixIcon: cubit.isPasswordSecure
-                                  ? IconButton(
-                                      onPressed: () {
-                                        cubit.hidePassword();
-                                      },
-                                      icon:
-                                          const Icon(Icons.visibility_outlined))
-                                  : IconButton(
-                                      onPressed: () {
-                                        cubit.hidePassword();
-                                      },
-                                      icon: const Icon(
-                                          Icons.visibility_off_outlined)),
-                            ),
-                            TextButton(
-                              onPressed: () {
-                                Navigator.of(context).pushNamed(Routes.userForgotPassRouteName);
-                              },
-                              style: ButtonStyle(
-                                overlayColor: MaterialStateColor.resolveWith(
-                                    (states) => Colors.transparent),
-                              ),
-                              child:  Text(
-                                'هل نسيت كلمه المرور؟',
-                                style: TextStyle(
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.w500,
-                                  color: kGreyColor,
-                                ),
-                              ),
-                            ),
-                             SizedBox(
-                              height: 50.h,
-                            ),
-                            AppMainButton(
-                              title: 'تسجيل الدخول',
-                              onTap: () {
+                              onFieldSubmitted: (value) {
                                 if (cubit.formKey.currentState!.validate()) {
-                                  cubit.formKey.currentState!.save();
+                                  //cubit.formKey.currentState!.save();
+                                  cubit.userLogin(
+                                    email: cubit.emailController.text,
+                                    password: cubit.passwordController.text,
+                                  );
                                 } else {
                                   const snackBar = SnackBar(
                                     content: Text('Faild to login!'),
@@ -144,34 +98,113 @@ class UserLoginView extends StatelessWidget {
                                   ScaffoldMessenger.of(context)
                                       .showSnackBar(snackBar);
                                 }
+                                return null;
                               },
-                            ),
-                             SizedBox(
-                              height: 5.h,
-                            ),
-                            InkWell(
-                              onTap: (){
-                                Navigator.of(context).pushNamed(Routes.signUpPageRouteUser);
+                              controller: cubit.passwordController,
+                              focusNode: cubit.passwordFocusNode,
+                              keyBoardType: TextInputType.visiblePassword,
+                              onSave: (data) {
+                                cubit.password = data;
                               },
-                              child: Align(
-                                child: RichText(
-                                  text:  TextSpan(
-                                      text: 'ليس لدي حساب ؟ ',
-                                      style: TextStyle(
-                                          color: kTextColor, fontSize: 12.sp),
-                                      children: [
-                                        TextSpan(
-                                          text: 'إنشاء حساب',
-                                          style: TextStyle(
-                                            color: kPrimaryColor,
-                                            fontSize: 12.sp,
-                                          ),
-                                        ),
-                                      ]),
+                              textInputAction: TextInputAction.done,
+                              // validator: (value) {
+                              //   return Validator.validatePassword(value);
+                              // },
+                              hintText: '*******************',
+                              fontOfHint: 16.sp,
+                              secure: cubit.isPasswordSecure,
+                              suffixIcon: cubit.isPasswordSecure
+                                  ? IconButton(
+                                onPressed: () {
+                                  cubit.hidePassword();
+                                },
+                                icon: const Icon(
+                                  Icons.visibility_outlined,
+                                ),
+                              )
+                                  : IconButton(
+                                onPressed: () {
+                                  cubit.hidePassword();
+                                },
+                                icon: const Icon(
+                                  Icons.visibility_off_outlined,
                                 ),
                               ),
                             ),
-                             SizedBox(
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context)
+                                    .pushNamed(Routes.userForgotPassRouteName);
+                              },
+                              style: ButtonStyle(
+                                overlayColor: MaterialStateColor.resolveWith(
+                                        (states) => Colors.transparent),
+                              ),
+                              child: Text(
+                                'هل نسيت كلمه المرور؟',
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.w500,
+                                  color: kGreyColor,
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 50.h,
+                            ),
+                            ConditionalBuilder(
+                              condition: state is! UserLoginLoadingStates,
+                              builder: (context) => AppMainButton(
+                                title: 'تسجيل الدخول',
+                                onTap: () {
+                                  if (cubit.formKey.currentState!.validate()) {
+                                    //cubit.formKey.currentState!.save();
+                                    cubit.userLogin(
+                                      email: cubit.emailController.text,
+                                      password: cubit.passwordController.text,
+                                    );
+                                  } else {
+                                    const snackBar = SnackBar(
+                                      content: Text('Faild to login!'),
+                                    );
+
+                                    ScaffoldMessenger.of(context)
+                                        .showSnackBar(snackBar);
+                                  }
+                                },
+                              ),
+                              fallback: (context) => const Center(
+                                child: CircularProgressIndicator(),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 5.h,
+                            ),
+                            InkWell(
+                              onTap: () {
+                                Navigator.of(context)
+                                    .pushNamed(Routes.signUpPageRouteUser);
+                              },
+                              child: Align(
+                                child: RichText(
+                                  text: TextSpan(
+                                    text: 'ليس لدي حساب ؟ ',
+                                    style: TextStyle(
+                                        color: kTextColor, fontSize: 12.sp),
+                                    children: [
+                                      TextSpan(
+                                        text: 'إنشاء حساب',
+                                        style: TextStyle(
+                                          color: kPrimaryColor,
+                                          fontSize: 12.sp,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
                               height: 20.h,
                             ),
                           ],
@@ -183,6 +216,31 @@ class UserLoginView extends StatelessWidget {
               ],
             ),
           );
+        },
+        listener: (BuildContext context, Object? state) {
+          if(state is UserLoginSuccessStates){
+            if(state.userLoginModel!.message == "loged in successfully"){
+              Fluttertoast.showToast(
+                msg: state.userLoginModel!.message!,
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.BOTTOM,
+                timeInSecForIosWeb: 5,
+                backgroundColor: Colors.green,
+                textColor: Colors.white,
+                fontSize: 16.0,
+              );
+            }else{
+              Fluttertoast.showToast(
+                msg: state.userLoginModel!.message!,
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.BOTTOM,
+                timeInSecForIosWeb: 5,
+                backgroundColor: Colors.red,
+                textColor: Colors.white,
+                fontSize: 16.0,
+              );
+            }
+          }
         },
       ),
     );

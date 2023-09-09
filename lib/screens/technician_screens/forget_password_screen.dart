@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snay3y/widgets/technicianWidgets.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TechnicianForgotPassScreen extends StatefulWidget {
   const TechnicianForgotPassScreen({super.key});

@@ -64,7 +64,7 @@ class SpecialRouter {
         );
       case Routes.signUpPageRouteUser:
         return MaterialPageRoute(
-          builder: (_) => const UserSignUpScreen(),
+          builder: (_) =>  UserSignUpScreen(),
         );
       default:
         return MaterialPageRoute(
