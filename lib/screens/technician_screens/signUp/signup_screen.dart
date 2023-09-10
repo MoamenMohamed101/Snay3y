@@ -145,7 +145,7 @@ class TechSignUpScreen extends StatelessWidget {
                           hintText: S.of(context).signUPUserNameDescription,
                           keyboardType: TextInputType.name,
                           showPrefixIcon: false,
-                          validator: S.of(context).signUPUserNameNameValidate,
+                          validator: S.of(context).signUPUserNameValidate,
                         ),
                         defaultTextFormField(
                           textEditingController:

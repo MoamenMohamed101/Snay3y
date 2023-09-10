@@ -155,7 +155,7 @@ class UserSignUpScreen extends StatelessWidget {
                         hintText: S.of(context).signUPUserNameDescription,
                         keyboardType: TextInputType.name,
                         showPrefixIcon: false,
-                        validator: S.of(context).signUPNameValidate,
+                        validator: S.of(context).signUPUserNameValidate,
                       ),
                       defaultTextFormField(
                         textEditingController: cubit.userPhoneNumberController,

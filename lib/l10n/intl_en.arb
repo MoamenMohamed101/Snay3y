@@ -37,7 +37,7 @@
   "signUPGenderFeMaleTech": "feMale",
   "signUPButton": "Sign Up",
   "signUPQuadrupleNameValidate": "Enter your quadruple name",
-  "signUPUserNameNameValidate": "Enter your user name",
+  "signUPUserNameValidate": "Enter your user name",
   "signUPPasswordValidate": "Enter your password",
   "signUPPhoneNumberValidate": "Enter your phone number",
   "signUPIdNumberValidate": "Enter your ID number",

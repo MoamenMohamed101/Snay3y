@@ -331,7 +331,7 @@ class S {
   }
 
   /// `cairo`
-  String get signUPCountryCairoFactor {
+  String get signUPCountryCairoTech {
     return Intl.message(
       'cairo',
       name: 'signUPCountryCairoTech',
@@ -341,7 +341,7 @@ class S {
   }
 
   /// `alexandria`
-  String get signUPCountryAlexandriaFactor {
+  String get signUPCountryAlexandriaTech {
     return Intl.message(
       'alexandria',
       name: 'signUPCountryAlexandriaTech',
@@ -351,7 +351,7 @@ class S {
   }
 
   /// `gizeh`
-  String get signUPCountryGizehFactor {
+  String get signUPCountryGizehTech {
     return Intl.message(
       'gizeh',
       name: 'signUPCountryGizehTech',
@@ -361,7 +361,7 @@ class S {
   }
 
   /// `shubra El-Kheima`
-  String get signUPCountryShubraElKheimaFactor {
+  String get signUPCountryShubraElKheimaTech {
     return Intl.message(
       'shubra El-Kheima',
       name: 'signUPCountryShubraElKheimaTech',
@@ -371,7 +371,7 @@ class S {
   }
 
   /// `port Said`
-  String get signUPCountryPortSaidFactor {
+  String get signUPCountryPortSaidTech {
     return Intl.message(
       'port Said',
       name: 'signUPCountryPortSaidTech',
@@ -381,7 +381,7 @@ class S {
   }
 
   /// `suez`
-  String get signUPCountrySuezFactor {
+  String get signUPCountrySuezTech {
     return Intl.message(
       'suez',
       name: 'signUPCountrySuezTech',
@@ -391,7 +391,7 @@ class S {
   }
 
   /// `male`
-  String get signUPGenderMaleFactor {
+  String get signUPGenderMaleTech {
     return Intl.message(
       'male',
       name: 'signUPGenderMaleTech',
@@ -401,7 +401,7 @@ class S {
   }
 
   /// `feMale`
-  String get signUPGenderFeMaleFactor {
+  String get signUPGenderFeMaleTech {
     return Intl.message(
       'feMale',
       name: 'signUPGenderFeMaleTech',
@@ -431,10 +431,10 @@ class S {
   }
 
   /// `Enter your user name`
-  String get signUPUserNameNameValidate {
+  String get signUPUserNameValidate {
     return Intl.message(
       'Enter your user name',
-      name: 'signUPUserNameNameValidate',
+      name: 'signUPUserNameValidate',
       desc: '',
       args: [],
     );

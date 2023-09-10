@@ -82,8 +82,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("الاسم المستخدم"),
         "signUPUserNameDescription":
             MessageLookupByLibrary.simpleMessage("اسمك علي التطبيق"),
-        "signUPUserNameNameValidate":
-            MessageLookupByLibrary.simpleMessage("ادخل اسمك الخاص بالتطبيق"),
         "userSignUPEmailDescription": MessageLookupByLibrary.simpleMessage(
             "ادخل البريد الالكتروني الخاص بك"),
         "userSignUPEmailTitle":
