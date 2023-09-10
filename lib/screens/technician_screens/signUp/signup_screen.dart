@@ -86,7 +86,6 @@ class TechSignUpScreen extends StatelessWidget {
             ),
           );
         }
-
         var idImage = cubit.idImage;
         var personalImage = cubit.personalImage;
         return Scaffold(
@@ -149,7 +148,8 @@ class TechSignUpScreen extends StatelessWidget {
                           validator: S.of(context).signUPUserNameNameValidate,
                         ),
                         defaultTextFormField(
-                          textEditingController: cubit.technicianNameController,
+                          textEditingController:
+                              cubit.technicianPasswordController,
                           title: S.of(context).signUPPassword,
                           hintText: S.of(context).signUPPasswordDescription,
                           keyboardType: TextInputType.name,

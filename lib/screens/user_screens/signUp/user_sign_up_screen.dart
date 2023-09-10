@@ -8,7 +8,7 @@ import 'package:snay3y/screens/user_screens/signUp/cubit/cubit.dart';
 import 'package:snay3y/screens/user_screens/signUp/cubit/states.dart';
 
 class UserSignUpScreen extends StatelessWidget {
-  UserSignUpScreen({super.key});
+  const UserSignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -155,7 +155,7 @@ class UserSignUpScreen extends StatelessWidget {
                         hintText: S.of(context).signUPUserNameDescription,
                         keyboardType: TextInputType.name,
                         showPrefixIcon: false,
-                        validator: S.of(context).signUPUserNameNameValidate,
+                        validator: S.of(context).signUPNameValidate,
                       ),
                       defaultTextFormField(
                         textEditingController: cubit.userPhoneNumberController,

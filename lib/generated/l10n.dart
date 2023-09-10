@@ -431,7 +431,7 @@ class S {
   }
 
   /// `Enter your user name`
-  String get signUPUserNameNameValidate {
+  String get signUPNameValidate {
     return Intl.message(
       'Enter your user name',
       name: 'signUPUserNameNameValidate',
