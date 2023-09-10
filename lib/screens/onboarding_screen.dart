@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snay3y/core/route/routes.dart';
 import 'package:snay3y/generated/l10n.dart';
+import 'package:snay3y/helpers/cash_helper.dart';
 
 class OnBoardingScreen extends StatelessWidget {
 
@@ -29,6 +30,7 @@ class OnBoardingScreen extends StatelessWidget {
           FloatingActionButton(
             elevation: 0.0,
             onPressed: () {
+              CachHelper.saveData(key: 'onBoarding', value: true);
               Navigator.of(context).pushNamed(Routes.mainPage);
             },
             backgroundColor: const Color(0xFF91C8E4),

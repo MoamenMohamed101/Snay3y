@@ -49,7 +49,7 @@ class SpecialRouter {
       // user routes
       case Routes.loginPageRouteUser:
         return MaterialPageRoute(
-          builder: (_) => const UserLoginView(),
+          builder: (_) => const UserLoginScreen(),
         );
       case Routes.userForgotPassRouteName:
         return MaterialPageRoute(

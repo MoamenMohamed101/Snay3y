@@ -4,23 +4,42 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snay3y/bloc_observer.dart';
 import 'package:snay3y/core/route/router.dart';
-import 'package:snay3y/core/route/routes.dart';
 import 'package:snay3y/generated/l10n.dart';
 import 'package:snay3y/helpers/cash_helper.dart';
 import 'package:snay3y/helpers/dio_helper.dart';
+import 'package:snay3y/screens/onboarding_screen.dart';
 import 'package:snay3y/screens/technician_screens/signUp/cubit/cubit.dart';
-import 'package:snay3y/screens/technician_screens/signUp/signup_screen.dart';
+import 'package:snay3y/screens/user_screens/login/login_screen.dart';
+import 'package:snay3y/screens/user_screens/user_home_screen.dart';
 
-void main()async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CachHelper.init();
   DioHelper.init();
   Bloc.observer = MyBlocObserver();
-  runApp(const MyApp());
+  Widget widget;
+  var onBoarding = CachHelper.getData(key: 'onBoarding');
+  var token = CachHelper.getData(key: 'token');
+  if (onBoarding != null) {
+    if (token != null) {
+      widget = const UserHomeScreen();
+    } else {
+      widget = const UserLoginScreen();
+    }
+  } else {
+    widget = const OnBoardingScreen();
+  }
+  runApp(
+    MyApp(
+      startWidget: widget,
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final Widget startWidget;
+
+  const MyApp({super.key, required this.startWidget});
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +64,8 @@ class MyApp extends StatelessWidget {
             ],
             supportedLocales: S.delegate.supportedLocales,
             debugShowCheckedModeBanner: false,
-            initialRoute: Routes.mainPage,
+            // initialRoute: ,
+            home: startWidget,
             onGenerateRoute: SpecialRouter.onGenerateRoutes,
           );
         },
