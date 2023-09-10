@@ -29,7 +29,7 @@ class MainPage extends StatelessWidget {
                 height: 140.h,
                 color: Colors.blue,
                 child:  Padding(
-                  padding: EdgeInsets.only(right: 20),
+                  padding: const EdgeInsets.only(right: 20),
                   child: Row(
                     children: [
                       Text(

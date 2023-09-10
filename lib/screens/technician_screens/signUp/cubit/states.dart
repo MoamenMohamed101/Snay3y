@@ -13,3 +13,6 @@ class TechSignUpErrorStates extends TechSignUpStates {
 
   TechSignUpErrorStates(this.error);
 }
+
+class TechSignUpImagePickedSuccessStates extends TechSignUpStates {}
+class TechSignUpImagePickedErrorStates extends TechSignUpStates {}
