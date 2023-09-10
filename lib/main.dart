@@ -6,10 +6,14 @@ import 'package:snay3y/bloc_observer.dart';
 import 'package:snay3y/core/route/router.dart';
 import 'package:snay3y/core/route/routes.dart';
 import 'package:snay3y/generated/l10n.dart';
+import 'package:snay3y/helpers/cash_helper.dart';
 import 'package:snay3y/helpers/dio_helper.dart';
 import 'package:snay3y/screens/technician_screens/signUp/cubit/cubit.dart';
+import 'package:snay3y/screens/technician_screens/signUp/signup_screen.dart';
 
-void main() {
+void main()async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await CachHelper.init();
   DioHelper.init();
   Bloc.observer = MyBlocObserver();
   runApp(const MyApp());

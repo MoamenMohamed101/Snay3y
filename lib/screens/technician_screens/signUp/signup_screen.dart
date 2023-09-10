@@ -6,22 +6,22 @@ import 'package:snay3y/generated/l10n.dart';
 import 'package:snay3y/screens/technician_screens/signUp/cubit/cubit.dart';
 import 'package:snay3y/screens/technician_screens/signUp/cubit/states.dart';
 
-class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({super.key});
+class TechSignUpScreen extends StatelessWidget {
+  const TechSignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     List listItem = [
-      S.of(context).signUPCountryCairoFactor,
-      S.of(context).signUPCountryAlexandriaFactor,
-      S.of(context).signUPCountryGizehFactor,
-      S.of(context).signUPCountryShubraElKheimaFactor,
-      S.of(context).signUPCountryPortSaidFactor,
-      S.of(context).signUPCountrySuezFactor,
+      S.of(context).signUPCountryCairoTech,
+      S.of(context).signUPCountryAlexandriaTech,
+      S.of(context).signUPCountryGizehTech,
+      S.of(context).signUPCountryShubraElKheimaTech,
+      S.of(context).signUPCountryPortSaidTech,
+      S.of(context).signUPCountrySuezTech,
     ];
     List chooseType = [
-      S.of(context).signUPGenderMaleFactor,
-      S.of(context).signUPGenderFeMaleFactor,
+      S.of(context).signUPGenderMaleTech,
+      S.of(context).signUPGenderFeMaleTech,
     ];
     return BlocConsumer<TechSignUpCubit, TechSignUpStates>(
       builder: (builder, listener) {
@@ -34,13 +34,13 @@ class SignUpScreen extends StatelessWidget {
               children: [
                 Text(
                   type == true ? governorate! : gender!,
-                  style:  TextStyle(
+                  style: TextStyle(
                     color: Colors.black,
                     fontSize: 20.sp,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
-                 SizedBox(
+                SizedBox(
                   height: 10.h,
                 ),
                 Container(
@@ -55,34 +55,40 @@ class SignUpScreen extends StatelessWidget {
                         ? Text(S.of(context).signUPChooseCountry)
                         : Text(S.of(context).signUPChooseGender),
                     isExpanded: true,
-                    value: type == true ? cubit.valueChooseTech : cubit.genderChooseTech,
+                    value: type == true
+                        ? cubit.valueChooseTech
+                        : cubit.genderChooseTech,
                     iconSize: 36.sp,
                     underline: const SizedBox(),
-                    style:  TextStyle(color: Colors.black, fontSize: 19.sp),
+                    style: TextStyle(color: Colors.black, fontSize: 19.sp),
                     icon: const Icon(Icons.arrow_drop_down),
                     dropdownColor: Colors.white,
                     onChanged: (newValue) {
-                      cubit.inPutFactorValueDropDown(type: type, value: newValue);
+                      cubit.inPutFactorValueDropDown(
+                          type: type, value: newValue);
                     },
                     items: type == true
                         ? listItem.map((valueItem) {
-                      return DropdownMenuItem(
-                        value: valueItem,
-                        child: Text(valueItem),
-                      );
-                    }).toList()
+                            return DropdownMenuItem(
+                              value: valueItem,
+                              child: Text(valueItem),
+                            );
+                          }).toList()
                         : chooseType.map((valueItem) {
-                      return DropdownMenuItem(
-                        value: valueItem,
-                        child: Text(valueItem),
-                      );
-                    }).toList(),
+                            return DropdownMenuItem(
+                              value: valueItem,
+                              child: Text(valueItem),
+                            );
+                          }).toList(),
                   ),
                 ),
               ],
             ),
           );
         }
+
+        var idImage = cubit.idImage;
+        var personalImage = cubit.personalImage;
         return Scaffold(
           appBar: AppBar(
             elevation: 0,
@@ -95,8 +101,8 @@ class SignUpScreen extends StatelessWidget {
             ),
             title: Text(
               S.of(context).signUPAppBar,
-              style:  TextStyle(
-                color: Color(0xFF322653),
+              style: TextStyle(
+                color: const Color(0xFF322653),
                 fontSize: 25.sp,
                 fontWeight: FontWeight.w700,
               ),
@@ -112,8 +118,7 @@ class SignUpScreen extends StatelessWidget {
                   width: double.infinity,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image:
-                      AssetImage('assets/images/Rectangle 2.png'),
+                      image: AssetImage('assets/images/Rectangle 2.png'),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -121,70 +126,101 @@ class SignUpScreen extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 15),
                     child: Column(
                       children: [
-                         SizedBox(
+                        SizedBox(
                           height: 20.h,
                         ),
                         defaultTextFormField(
-                          textEditingController: cubit.technicianEmailController,
+                          textEditingController:
+                              cubit.technicianEmailController,
                           title: S.of(context).signUPQuadrupleName,
-                          hintText: S
-                              .of(context)
-                              .signUPQuadrupleNameDescription,
+                          hintText:
+                              S.of(context).signUPQuadrupleNameDescription,
                           keyboardType: TextInputType.name,
                           showPrefixIcon: false,
-                          validator:
-                          S.of(context).signUPQuadrupleNameValidate,
+                          validator: S.of(context).signUPQuadrupleNameValidate,
                         ),
                         defaultTextFormField(
-                          textEditingController: cubit.technicianPasswordController,
+                          textEditingController:
+                              cubit.technicianPasswordController,
                           title: S.of(context).signUPUserName,
-                          hintText:
-                          S.of(context).signUPUserNameDescription,
+                          hintText: S.of(context).signUPUserNameDescription,
                           keyboardType: TextInputType.name,
                           showPrefixIcon: false,
-                          validator:
-                          S.of(context).signUPUserNameNameValidate,
+                          validator: S.of(context).signUPUserNameNameValidate,
                         ),
                         defaultTextFormField(
                           textEditingController: cubit.technicianNameController,
                           title: S.of(context).signUPPassword,
-                          hintText:
-                          S.of(context).signUPPasswordDescription,
+                          hintText: S.of(context).signUPPasswordDescription,
                           keyboardType: TextInputType.name,
                           showPrefixIcon: true,
-                          validator:
-                          S.of(context).signUPPasswordValidate,
+                          validator: S.of(context).signUPPasswordValidate,
                         ),
                         defaultTextFormField(
-                          textEditingController: cubit.technicianPhoneController,
+                          textEditingController:
+                              cubit.technicianPhoneController,
                           title: S.of(context).signUPPhoneNumber,
-                          hintText: S
-                              .of(context)
-                              .signUPPhoneNumberDescription,
+                          hintText: S.of(context).signUPPhoneNumberDescription,
                           keyboardType: TextInputType.phone,
                           showPrefixIcon: false,
-                          validator:
-                          S.of(context).signUPPhoneNumberValidate,
+                          validator: S.of(context).signUPPhoneNumberValidate,
                         ),
                         defaultTextFormField(
-                          textEditingController: cubit.technicianPhoneController,
+                          textEditingController:
+                              cubit.technicianIdNumberController,
                           title: S.of(context).signUPIDNumber,
-                          hintText:
-                          S.of(context).signUPIDNumberDescription,
+                          hintText: S.of(context).signUPIDNumberDescription,
                           keyboardType: TextInputType.name,
                           showPrefixIcon: false,
-                          validator:
-                          S.of(context).signUPIdNumberValidate,
+                          validator: S.of(context).signUPIdNumberValidate,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Include a photo of your ID card',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 18.sp,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 10.h,
+                            ),
+                            InkWell(
+                              onTap: () {
+                                cubit.getIdImage();
+                              },
+                              child: Container(
+                                height: 132.27,
+                                width: 342,
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: idImage == null
+                                        ? const AssetImage(
+                                            'assets/images/ion_image.png',
+                                          )
+                                        : FileImage(idImage) as ImageProvider,
+                                  ),
+                                  border: Border.all(
+                                    color: const Color(0xFF4682A9),
+                                    width: 1,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                         defaultTextFormField(
-                          textEditingController: cubit.technicianPhoneController,
+                          textEditingController:
+                              cubit.technicianJobNameController,
                           title: S.of(context).signUPJobName,
-                          hintText:
-                          S.of(context).signUPJobNameDescription,
+                          hintText: S.of(context).signUPJobNameDescription,
                           keyboardType: TextInputType.name,
                           showPrefixIcon: false,
-                          validator:
-                          S.of(context).signUPJobNameValidate,
+                          validator: S.of(context).signUPJobNameValidate,
                         ),
                         dropDownButton(
                           type: true,
@@ -194,12 +230,50 @@ class SignUpScreen extends StatelessWidget {
                           type: false,
                           gender: S.of(context).signUPGenderTitle,
                         ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Insert a personal photo',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 18.sp,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 10.h,
+                            ),
+                            InkWell(
+                              onTap: () {
+                                cubit.getPersonalImage();
+                              },
+                              child: Container(
+                                height: 132.27,
+                                width: 342,
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: personalImage == null
+                                        ? const AssetImage(
+                                            'assets/images/ion_image.png',
+                                          )
+                                        : FileImage(personalImage)
+                                            as ImageProvider,
+                                  ),
+                                  border: Border.all(
+                                    color: const Color(0xFF4682A9),
+                                    width: 1,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                         defaultButton(
                           color: const Color(0xFF4682A9),
                           voidCallback: () {
-                            if (cubit.formStateTech.currentState!.validate()) {
-
-                            }
+                            if (cubit.formStateTech.currentState!.validate()) {}
                           },
                           text: S.of(context).signUPButton,
                           width: double.infinity,
@@ -214,8 +288,7 @@ class SignUpScreen extends StatelessWidget {
           ),
         );
       },
-      listener: (builder, state) {
-      },
+      listener: (builder, state) {},
     );
   }
 }

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snay3y/generated/l10n.dart';
@@ -149,4 +151,12 @@ showButtonSheet(BuildContext context, top, bottom) {
           ],
         );
       });
+}
+
+pickImage({
+  required void Function()? onTap,
+  required String? title,
+  ImageProvider? image,
+}){
+
 }

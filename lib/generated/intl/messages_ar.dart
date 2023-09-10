@@ -33,38 +33,23 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("اختر المحافظة"),
         "signUPChooseGender":
             MessageLookupByLibrary.simpleMessage("اختر النوع"),
-        "signUPCountryAlexandriaFactor":
-            MessageLookupByLibrary.simpleMessage("الاسكندرية"),
         "signUPCountryAlexandriaUser":
             MessageLookupByLibrary.simpleMessage("الاسكندرية"),
-        "signUPCountryCairoFactor":
-            MessageLookupByLibrary.simpleMessage("القاهرة"),
         "signUPCountryCairoUser":
             MessageLookupByLibrary.simpleMessage("القاهرة"),
-        "signUPCountryGizehFactor":
-            MessageLookupByLibrary.simpleMessage("الجيزه"),
         "signUPCountryGizehUser":
             MessageLookupByLibrary.simpleMessage("الجيزه"),
-        "signUPCountryPortSaidFactor":
-            MessageLookupByLibrary.simpleMessage("بورسعيد"),
         "signUPCountryPortSaidUser":
             MessageLookupByLibrary.simpleMessage("بورسعيد"),
-        "signUPCountryShubraElKheimaFactor":
-            MessageLookupByLibrary.simpleMessage("اشبرا الخيمة"),
         "signUPCountryShubraElKheimaUser":
             MessageLookupByLibrary.simpleMessage("اشبرا الخيمة"),
-        "signUPCountrySuezFactor":
-            MessageLookupByLibrary.simpleMessage("السويس"),
         "signUPCountrySuezUser": MessageLookupByLibrary.simpleMessage("السويس"),
         "signUPCountryTitle": MessageLookupByLibrary.simpleMessage("المحافظة"),
         "signUPDropBoxCountryValidate":
             MessageLookupByLibrary.simpleMessage("اختر دولتك"),
         "signUPDropBoxGenderValidate":
             MessageLookupByLibrary.simpleMessage("اختر النوع"),
-        "signUPGenderFeMaleFactor":
-            MessageLookupByLibrary.simpleMessage("انثي"),
         "signUPGenderFeMaleUser": MessageLookupByLibrary.simpleMessage("انثي"),
-        "signUPGenderMaleFactor": MessageLookupByLibrary.simpleMessage("ذكر"),
         "signUPGenderMaleUser": MessageLookupByLibrary.simpleMessage("ذكر"),
         "signUPGenderTitle": MessageLookupByLibrary.simpleMessage("النوع"),
         "signUPIDNumber": MessageLookupByLibrary.simpleMessage("الرقم القومي"),

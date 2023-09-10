@@ -11,6 +11,7 @@ import 'package:snay3y/screens/technician_screens/reset_password/reset_password.
 import 'package:snay3y/screens/technician_screens/signUp/signup_screen.dart';
 import 'package:snay3y/screens/user_screens/login/login_screen.dart';
 import 'package:snay3y/screens/user_screens/signUp/user_sign_up_screen.dart';
+import 'package:snay3y/screens/user_screens/user_home_screen.dart';
 import 'package:snay3y/screens/user_screens/user_reset_password/user_reset_password_screen.dart';
 
 class SpecialRouter {
@@ -43,7 +44,7 @@ class SpecialRouter {
         );
       case Routes.signUpPageRoute:
         return MaterialPageRoute(
-          builder: (_) => const SignUpScreen(),
+          builder: (_) => const TechSignUpScreen(),
         );
       // user routes
       case Routes.loginPageRouteUser:
@@ -64,7 +65,11 @@ class SpecialRouter {
         );
       case Routes.signUpPageRouteUser:
         return MaterialPageRoute(
-          builder: (_) =>  UserSignUpScreen(),
+          builder: (_) => UserSignUpScreen(),
+        );
+      case Routes.userHomePageRoute:
+        return MaterialPageRoute(
+          builder: (_) => const UserHomeScreen(),
         );
       default:
         return MaterialPageRoute(
