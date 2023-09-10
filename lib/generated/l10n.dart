@@ -334,7 +334,7 @@ class S {
   String get signUPCountryCairoTech {
     return Intl.message(
       'cairo',
-      name: 'signUPCountryCairoFactor',
+      name: 'signUPCountryCairoTech',
       desc: '',
       args: [],
     );
@@ -344,7 +344,7 @@ class S {
   String get signUPCountryAlexandriaTech {
     return Intl.message(
       'alexandria',
-      name: 'signUPCountryAlexandriaFactor',
+      name: 'signUPCountryAlexandriaTech',
       desc: '',
       args: [],
     );
@@ -354,7 +354,7 @@ class S {
   String get signUPCountryGizehTech {
     return Intl.message(
       'gizeh',
-      name: 'signUPCountryGizehFactor',
+      name: 'signUPCountryGizehTech',
       desc: '',
       args: [],
     );
@@ -364,7 +364,7 @@ class S {
   String get signUPCountryShubraElKheimaTech {
     return Intl.message(
       'shubra El-Kheima',
-      name: 'signUPCountryShubraElKheimaFactor',
+      name: 'signUPCountryShubraElKheimaTech',
       desc: '',
       args: [],
     );
@@ -374,7 +374,7 @@ class S {
   String get signUPCountryPortSaidTech {
     return Intl.message(
       'port Said',
-      name: 'signUPCountryPortSaidFactor',
+      name: 'signUPCountryPortSaidTech',
       desc: '',
       args: [],
     );
@@ -384,7 +384,7 @@ class S {
   String get signUPCountrySuezTech {
     return Intl.message(
       'suez',
-      name: 'signUPCountrySuezFactor',
+      name: 'signUPCountrySuezTech',
       desc: '',
       args: [],
     );
@@ -394,7 +394,7 @@ class S {
   String get signUPGenderMaleTech {
     return Intl.message(
       'male',
-      name: 'signUPGenderMaleFactor',
+      name: 'signUPGenderMaleTech',
       desc: '',
       args: [],
     );
@@ -404,7 +404,7 @@ class S {
   String get signUPGenderFeMaleTech {
     return Intl.message(
       'feMale',
-      name: 'signUPGenderFeMaleFactor',
+      name: 'signUPGenderFeMaleTech',
       desc: '',
       args: [],
     );

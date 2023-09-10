@@ -6,8 +6,8 @@ import 'package:snay3y/generated/l10n.dart';
 import 'package:snay3y/screens/technician_screens/signUp/cubit/cubit.dart';
 import 'package:snay3y/screens/technician_screens/signUp/cubit/states.dart';
 
-class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({super.key});
+class TechSignUpScreen extends StatelessWidget {
+  const TechSignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +86,8 @@ class SignUpScreen extends StatelessWidget {
             ),
           );
         }
-
+        var idImage = cubit.idImage;
+        var personalImage = cubit.personalImage;
         return Scaffold(
           appBar: AppBar(
             elevation: 0,
@@ -138,12 +139,13 @@ class SignUpScreen extends StatelessWidget {
                           validator: S.of(context).signUPQuadrupleNameValidate,
                         ),
                         defaultTextFormField(
-                          textEditingController: cubit.technicianNameController,
+                          textEditingController:
+                              cubit.technicianPasswordController,
                           title: S.of(context).signUPUserName,
                           hintText: S.of(context).signUPUserNameDescription,
                           keyboardType: TextInputType.name,
                           showPrefixIcon: false,
-                          validator: S.of(context).signUPNameValidate,
+                          validator: S.of(context).signUPUserNameNameValidate,
                         ),
                         defaultTextFormField(
                           textEditingController:
@@ -172,6 +174,45 @@ class SignUpScreen extends StatelessWidget {
                           showPrefixIcon: false,
                           validator: S.of(context).signUPIdNumberValidate,
                         ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Include a photo of your ID card',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 18.sp,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 10.h,
+                            ),
+                            InkWell(
+                              onTap: () {
+                                cubit.getIdImage();
+                              },
+                              child: Container(
+                                height: 132.27,
+                                width: 342,
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: idImage == null
+                                        ? const AssetImage(
+                                            'assets/images/ion_image.png',
+                                          )
+                                        : FileImage(idImage) as ImageProvider,
+                                  ),
+                                  border: Border.all(
+                                    color: const Color(0xFF4682A9),
+                                    width: 1,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                         defaultTextFormField(
                           textEditingController:
                               cubit.technicianJobNameController,
@@ -188,6 +229,46 @@ class SignUpScreen extends StatelessWidget {
                         dropDownButton(
                           type: false,
                           gender: S.of(context).signUPGenderTitle,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Insert a personal photo',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 18.sp,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 10.h,
+                            ),
+                            InkWell(
+                              onTap: () {
+                                cubit.getPersonalImage();
+                              },
+                              child: Container(
+                                height: 132.27,
+                                width: 342,
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: personalImage == null
+                                        ? const AssetImage(
+                                            'assets/images/ion_image.png',
+                                          )
+                                        : FileImage(personalImage)
+                                            as ImageProvider,
+                                  ),
+                                  border: Border.all(
+                                    color: const Color(0xFF4682A9),
+                                    width: 1,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                         defaultButton(
                           color: const Color(0xFF4682A9),

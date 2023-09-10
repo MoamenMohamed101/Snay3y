@@ -3,22 +3,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:snay3y/components/components.dart';
 import 'package:snay3y/constants.dart';
 import 'package:snay3y/core/route/routes.dart';
 import 'package:snay3y/core/validator/validation.dart';
+import 'package:snay3y/helpers/cash_helper.dart';
 import 'package:snay3y/screens/user_screens/login/cubit/cubit.dart';
 import 'package:snay3y/screens/user_screens/login/cubit/states.dart';
 import 'package:snay3y/widgets/app_main_button.dart';
 import 'package:snay3y/widgets/app_text_form_field.dart';
 
-class UserLoginView extends StatelessWidget {
-  const UserLoginView({super.key});
+class UserLoginScreen extends StatelessWidget {
+  const UserLoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => UserLoginCubit(),
-      child: BlocConsumer<UserLoginCubit , UserLoginState>(
+      child: BlocConsumer<UserLoginCubit, UserLoginState>(
         builder: (BuildContext context, state) {
           final cubit = UserLoginCubit.of(context);
           return Scaffold(
@@ -29,7 +31,7 @@ class UserLoginView extends StatelessWidget {
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                         image:
-                        AssetImage('assets/images/userLoginbackgroung.png'),
+                            AssetImage('assets/images/userLoginbackgroung.png'),
                         fit: BoxFit.cover),
                   ),
                 ),
@@ -115,21 +117,21 @@ class UserLoginView extends StatelessWidget {
                               secure: cubit.isPasswordSecure,
                               suffixIcon: cubit.isPasswordSecure
                                   ? IconButton(
-                                onPressed: () {
-                                  cubit.hidePassword();
-                                },
-                                icon: const Icon(
-                                  Icons.visibility_outlined,
-                                ),
-                              )
+                                      onPressed: () {
+                                        cubit.hidePassword();
+                                      },
+                                      icon: const Icon(
+                                        Icons.visibility_outlined,
+                                      ),
+                                    )
                                   : IconButton(
-                                onPressed: () {
-                                  cubit.hidePassword();
-                                },
-                                icon: const Icon(
-                                  Icons.visibility_off_outlined,
-                                ),
-                              ),
+                                      onPressed: () {
+                                        cubit.hidePassword();
+                                      },
+                                      icon: const Icon(
+                                        Icons.visibility_off_outlined,
+                                      ),
+                                    ),
                             ),
                             TextButton(
                               onPressed: () {
@@ -138,7 +140,7 @@ class UserLoginView extends StatelessWidget {
                               },
                               style: ButtonStyle(
                                 overlayColor: MaterialStateColor.resolveWith(
-                                        (states) => Colors.transparent),
+                                    (states) => Colors.transparent),
                               ),
                               child: Text(
                                 'هل نسيت كلمه المرور؟',
@@ -218,26 +220,23 @@ class UserLoginView extends StatelessWidget {
           );
         },
         listener: (BuildContext context, Object? state) {
-          if(state is UserLoginSuccessStates){
-            if(state.userLoginModel!.message == "loged in successfully"){
-              Fluttertoast.showToast(
-                msg: state.userLoginModel!.message!,
-                toastLength: Toast.LENGTH_SHORT,
-                gravity: ToastGravity.BOTTOM,
-                timeInSecForIosWeb: 5,
-                backgroundColor: Colors.green,
-                textColor: Colors.white,
-                fontSize: 16.0,
+          if (state is UserLoginSuccessStates) {
+            if (state.userLoginModel!.message == "loged in successfully") {
+              showToast(
+                message: state.userLoginModel!.message,
+                toastStates: ToastStates.SUCCESS,
               );
-            }else{
-              Fluttertoast.showToast(
-                msg: state.userLoginModel!.message!,
-                toastLength: Toast.LENGTH_SHORT,
-                gravity: ToastGravity.BOTTOM,
-                timeInSecForIosWeb: 5,
-                backgroundColor: Colors.red,
-                textColor: Colors.white,
-                fontSize: 16.0,
+              CachHelper.saveData(
+                      key: 'token', value: state.userLoginModel!.access_token)!
+                  .then(
+                (value) {
+                  Navigator.of(context).pushNamed(Routes.userHomePageRoute);
+                },
+              );
+            } else {
+              showToast(
+                message: state.userLoginModel!.message,
+                toastStates: ToastStates.ERROR,
               );
             }
           }

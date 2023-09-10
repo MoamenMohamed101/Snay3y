@@ -34,36 +34,34 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Choose Country"),
         "signUPChooseGender":
             MessageLookupByLibrary.simpleMessage("Choose Gender"),
-        "signUPCountryAlexandriaFactor":
+        "signUPCountryAlexandriaTech":
             MessageLookupByLibrary.simpleMessage("alexandria"),
         "signUPCountryAlexandriaUser":
             MessageLookupByLibrary.simpleMessage("alexandria"),
-        "signUPCountryCairoFactor":
-            MessageLookupByLibrary.simpleMessage("cairo"),
+        "signUPCountryCairoTech": MessageLookupByLibrary.simpleMessage("cairo"),
         "signUPCountryCairoUser": MessageLookupByLibrary.simpleMessage("cairo"),
-        "signUPCountryGizehFactor":
-            MessageLookupByLibrary.simpleMessage("gizeh"),
+        "signUPCountryGizehTech": MessageLookupByLibrary.simpleMessage("gizeh"),
         "signUPCountryGizehUser": MessageLookupByLibrary.simpleMessage("gizeh"),
-        "signUPCountryPortSaidFactor":
+        "signUPCountryPortSaidTech":
             MessageLookupByLibrary.simpleMessage("port Said"),
         "signUPCountryPortSaidUser":
             MessageLookupByLibrary.simpleMessage("port Said"),
-        "signUPCountryShubraElKheimaFactor":
+        "signUPCountryShubraElKheimaTech":
             MessageLookupByLibrary.simpleMessage("shubra El-Kheima"),
         "signUPCountryShubraElKheimaUser":
             MessageLookupByLibrary.simpleMessage("shubra El-Kheima"),
-        "signUPCountrySuezFactor": MessageLookupByLibrary.simpleMessage("suez"),
+        "signUPCountrySuezTech": MessageLookupByLibrary.simpleMessage("suez"),
         "signUPCountrySuezUser": MessageLookupByLibrary.simpleMessage("suez"),
         "signUPCountryTitle": MessageLookupByLibrary.simpleMessage("Country"),
         "signUPDropBoxCountryValidate":
             MessageLookupByLibrary.simpleMessage("Choose your Country"),
         "signUPDropBoxGenderValidate":
             MessageLookupByLibrary.simpleMessage("Choose your Gender"),
-        "signUPGenderFeMaleFactor":
+        "signUPGenderFeMaleTech":
             MessageLookupByLibrary.simpleMessage("feMale"),
         "signUPGenderFeMaleUser":
             MessageLookupByLibrary.simpleMessage("feMale"),
-        "signUPGenderMaleFactor": MessageLookupByLibrary.simpleMessage("male"),
+        "signUPGenderMaleTech": MessageLookupByLibrary.simpleMessage("male"),
         "signUPGenderMaleUser": MessageLookupByLibrary.simpleMessage("male"),
         "signUPGenderTitle": MessageLookupByLibrary.simpleMessage("Gender"),
         "signUPIDNumber": MessageLookupByLibrary.simpleMessage("ID number"),
