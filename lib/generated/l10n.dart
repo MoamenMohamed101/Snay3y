@@ -331,7 +331,7 @@ class S {
   }
 
   /// `cairo`
-  String get signUPCountryCairoFactor {
+  String get signUPCountryCairoTech {
     return Intl.message(
       'cairo',
       name: 'signUPCountryCairoFactor',
@@ -341,7 +341,7 @@ class S {
   }
 
   /// `alexandria`
-  String get signUPCountryAlexandriaFactor {
+  String get signUPCountryAlexandriaTech {
     return Intl.message(
       'alexandria',
       name: 'signUPCountryAlexandriaFactor',
@@ -351,7 +351,7 @@ class S {
   }
 
   /// `gizeh`
-  String get signUPCountryGizehFactor {
+  String get signUPCountryGizehTech {
     return Intl.message(
       'gizeh',
       name: 'signUPCountryGizehFactor',
@@ -361,7 +361,7 @@ class S {
   }
 
   /// `shubra El-Kheima`
-  String get signUPCountryShubraElKheimaFactor {
+  String get signUPCountryShubraElKheimaTech {
     return Intl.message(
       'shubra El-Kheima',
       name: 'signUPCountryShubraElKheimaFactor',
@@ -371,7 +371,7 @@ class S {
   }
 
   /// `port Said`
-  String get signUPCountryPortSaidFactor {
+  String get signUPCountryPortSaidTech {
     return Intl.message(
       'port Said',
       name: 'signUPCountryPortSaidFactor',
@@ -381,7 +381,7 @@ class S {
   }
 
   /// `suez`
-  String get signUPCountrySuezFactor {
+  String get signUPCountrySuezTech {
     return Intl.message(
       'suez',
       name: 'signUPCountrySuezFactor',
@@ -391,7 +391,7 @@ class S {
   }
 
   /// `male`
-  String get signUPGenderMaleFactor {
+  String get signUPGenderMaleTech {
     return Intl.message(
       'male',
       name: 'signUPGenderMaleFactor',
@@ -401,7 +401,7 @@ class S {
   }
 
   /// `feMale`
-  String get signUPGenderFeMaleFactor {
+  String get signUPGenderFeMaleTech {
     return Intl.message(
       'feMale',
       name: 'signUPGenderFeMaleFactor',
@@ -431,7 +431,7 @@ class S {
   }
 
   /// `Enter your user name`
-  String get signUPUserNameNameValidate {
+  String get signUPNameValidate {
     return Intl.message(
       'Enter your user name',
       name: 'signUPUserNameNameValidate',

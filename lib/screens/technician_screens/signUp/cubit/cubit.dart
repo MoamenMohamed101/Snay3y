@@ -15,6 +15,8 @@ class TechSignUpCubit extends Cubit<TechSignUpStates> {
   var technicianPasswordController = TextEditingController();
   var technicianNameController = TextEditingController();
   var technicianPhoneController = TextEditingController();
+  var technicianIdNumberController = TextEditingController();
+  var technicianJobNameController = TextEditingController();
 
   var formStateTech = GlobalKey<FormState>();
 
