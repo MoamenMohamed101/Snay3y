@@ -11,8 +11,9 @@ import 'package:snay3y/screens/technician_screens/reset_password/reset_password.
 import 'package:snay3y/screens/technician_screens/signUp/signup_screen.dart';
 import 'package:snay3y/screens/user_screens/login/login_screen.dart';
 import 'package:snay3y/screens/user_screens/signUp/user_sign_up_screen.dart';
-import 'package:snay3y/screens/user_screens/user_home_screen.dart';
 import 'package:snay3y/screens/user_screens/user_reset_password/user_reset_password_screen.dart';
+
+import '../../screens/user_screens/home/home_screen.dart';
 
 class SpecialRouter {
   static Route<dynamic> onGenerateRoutes(RouteSettings settings) {
@@ -69,7 +70,7 @@ class SpecialRouter {
         );
       case Routes.userHomePageRoute:
         return MaterialPageRoute(
-          builder: (_) => const UserHomeScreen(),
+          builder: (_) =>  UserHomeScreen(),
         );
       default:
         return MaterialPageRoute(
