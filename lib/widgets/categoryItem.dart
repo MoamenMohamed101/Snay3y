@@ -9,7 +9,8 @@ final CategoryItemModel category;
   const CategotyItem({super.key, required this.category});
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return
+      Container(
       height:85 ,
       width: 90,
       child: Column(
