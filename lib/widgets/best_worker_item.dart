@@ -12,7 +12,7 @@ class BestWorkerItem extends StatelessWidget{
     return
       Container(
         height:85 ,
-        width: 90,
+        width: 70,
         child: Column(
           children: [
             Padding(

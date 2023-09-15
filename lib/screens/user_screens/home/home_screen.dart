@@ -19,6 +19,12 @@ class UserHomeScreen extends StatelessWidget{
         builder:(context, state) {
           return
             Scaffold(
+              floatingActionButton: FloatingActionButton(onPressed: (){}
+              ,child: Icon(Icons.add,color: Color(0xff4682A9),size: 28,),
+                backgroundColor: Colors.white,
+                shape: RoundedRectangleBorder(side: BorderSide(color: Color(0xff4682A9)),borderRadius: BorderRadius.circular(30)),
+              ),
+              floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
               appBar: PreferredSize(
                 preferredSize: Size.fromHeight(150),
                 child: Container(

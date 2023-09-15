@@ -24,9 +24,9 @@ class HomeItem extends StatelessWidget{
  final List<BestWorkerModel> bestWorker=[
    BestWorkerModel(imagePath:"assets/images/unsplash_GjGRCD_qKEA (1).png" ,worker:"Omar" ),
    BestWorkerModel(imagePath:"assets/images/unsplash_GjGRCD_qKEA (1).png" ,worker:"Omar" ),
-   BestWorkerModel(imagePath:"assets/images/unsplash_GjGRCD_qKEA.png" ,worker:"Omar" ),
-   BestWorkerModel(imagePath:"assets/images/unsplash_GjGRCD_qKEA.png",worker: "Omar"),
-   BestWorkerModel(imagePath:"assets/images/unsplash_iFgRcqHznqg.png" ,worker: "Omar"),
+   BestWorkerModel(imagePath:"assets/images/unsplash_GjGRCD_qKEA (1).png" ,worker:"Omar" ),
+   BestWorkerModel(imagePath:"assets/images/unsplash_GjGRCD_qKEA (1).png" ,worker:"Omar" ),
+   BestWorkerModel(imagePath:"assets/images/unsplash_GjGRCD_qKEA (1).png",worker: "Omar"),
  ];
 
   @override
@@ -117,7 +117,7 @@ class HomeItem extends StatelessWidget{
           ),
             Text(textAlign: TextAlign.start,"Best Worker in the Community",style: TextStyle(fontWeight:FontWeight.w600 ,fontSize: 20.sp),),
             SizedBox(
-              height: 150.h,
+              height: 115.h,
               child: ListView.builder(
                 shrinkWrap: true,
                 physics: ClampingScrollPhysics(),
@@ -126,7 +126,6 @@ class HomeItem extends StatelessWidget{
                 itemBuilder: (context,index)=> BestWorkerItem(bestWorker: bestWorker[index]),
               ),
             ),
-          SizedBox(height: 20.h,),
             Text(textAlign: TextAlign.start,"Shopping Tools",style: TextStyle(fontWeight:FontWeight.w600 ,fontSize: 20.sp),),
           SizedBox(
             height: 150.h,
