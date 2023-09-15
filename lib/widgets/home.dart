@@ -3,8 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snay3y/widgets/categoryItem.dart';
 import 'package:snay3y/widgets/shopping_tool_item.dart';
 
+import '../models/best_worker_model.dart';
 import '../models/category_item_model.dart';
 import '../models/shopping_tool_model.dart';
+import 'best_worker_item.dart';
 class HomeItem extends StatelessWidget{
  final List <CategoryItemModel> categories =[
  CategoryItemModel(imagePath:"assets/images/image 6.png", title:"Cleaning Services",),
@@ -18,8 +20,15 @@ class HomeItem extends StatelessWidget{
    ShoppingToolModel(imagePath: "assets/images/image 8.png", toolName: "Bulb"),
    ShoppingToolModel(imagePath: "assets/images/image 9.png", toolName: "Wires"),
    ShoppingToolModel(imagePath: "assets/images/image 6.png", toolName: "Power"),
-
  ];
+ final List<BestWorkerModel> bestWorker=[
+   BestWorkerModel(imagePath:"assets/images/unsplash_GjGRCD_qKEA (1).png" ,worker:"Omar" ),
+   BestWorkerModel(imagePath:"assets/images/unsplash_GjGRCD_qKEA (1).png" ,worker:"Omar" ),
+   BestWorkerModel(imagePath:"assets/images/unsplash_GjGRCD_qKEA.png" ,worker:"Omar" ),
+   BestWorkerModel(imagePath:"assets/images/unsplash_GjGRCD_qKEA.png",worker: "Omar"),
+   BestWorkerModel(imagePath:"assets/images/unsplash_iFgRcqHznqg.png" ,worker: "Omar"),
+ ];
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -27,6 +36,7 @@ class HomeItem extends StatelessWidget{
       child:
       SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children:[
           Container(
@@ -105,8 +115,19 @@ class HomeItem extends StatelessWidget{
               itemBuilder: (context,index)=> CategotyItem(category:categories[index]),
             ),
           ),
+            Text(textAlign: TextAlign.start,"Best Worker in the Community",style: TextStyle(fontWeight:FontWeight.w600 ,fontSize: 20.sp),),
+            SizedBox(
+              height: 150.h,
+              child: ListView.builder(
+                shrinkWrap: true,
+                physics: ClampingScrollPhysics(),
+                scrollDirection: Axis.horizontal,
+                itemCount: shoppingTool.length,
+                itemBuilder: (context,index)=> BestWorkerItem(bestWorker: bestWorker[index]),
+              ),
+            ),
           SizedBox(height: 20.h,),
-            Text("Shopping Tools",style: TextStyle(fontWeight:FontWeight.w600 ,fontSize: 20.sp),),
+            Text(textAlign: TextAlign.start,"Shopping Tools",style: TextStyle(fontWeight:FontWeight.w600 ,fontSize: 20.sp),),
           SizedBox(
             height: 150.h,
             child: ListView.builder(
@@ -117,8 +138,11 @@ class HomeItem extends StatelessWidget{
               itemBuilder: (context,index)=> ShoppingToolItem(shoppingTool: shoppingTool[index]),
             ),
           ),
+
         ],),
       ),
     );
   }
 }
+
+
