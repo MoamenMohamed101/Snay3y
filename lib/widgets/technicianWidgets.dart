@@ -34,7 +34,7 @@ class TechnicianCustomTextForm extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
            Padding(
-            padding: EdgeInsets.all(0.0),
+            padding: const EdgeInsets.all(0.0),
             child: Text(
               "رقم الهاتف",
               style: TextStyle(
@@ -56,7 +56,7 @@ class TechnicianCustomTextForm extends StatelessWidget {
               Navigator.of(context).pushNamed(Routes.technicianConfirmCodeRouteName,);
             },
             decoration:  InputDecoration(
-              prefixIcon: Icon(
+              prefixIcon: const Icon(
                 Icons.phone_android_sharp,
                 color: Color(0xff91c8e4),
                 size: 20,
@@ -64,7 +64,7 @@ class TechnicianCustomTextForm extends StatelessWidget {
               hintText: "ادخل رقم الهاتف",
               hintStyle: TextStyle(
                   color: Colors.grey, fontSize: 12.sp, fontFamily: "Tajawal"),
-              enabledBorder: OutlineInputBorder(
+              enabledBorder: const OutlineInputBorder(
                 borderSide: BorderSide(color: Color(0xff91c8e4)),
               ),
             ),
