@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:snay3y/core/route/routes.dart';
+import 'package:snay3y/screens/technician_screens/home/home_screen.dart';
 import 'package:snay3y/screens/user_screens/confirm_code_screen.dart';
 import 'package:snay3y/screens/user_screens/forget_password.dart';
 import 'package:snay3y/screens/technician_screens/confirm_code_screen.dart';
@@ -47,6 +48,11 @@ class SpecialRouter {
         return MaterialPageRoute(
           builder: (_) => const TechSignUpScreen(),
         );
+      case Routes.technicianHomePageRoute:
+        return MaterialPageRoute(
+          builder: (_) =>  TechHomeScreen(),
+        );
+
       // user routes
       case Routes.loginPageRouteUser:
         return MaterialPageRoute(

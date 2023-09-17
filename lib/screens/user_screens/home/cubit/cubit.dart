@@ -1,10 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:snay3y/screens/user_screens/home/cubit/states.dart';
-
 import '../../../../widgets/booking.dart';
 import '../../../../widgets/home.dart';
-
 class UserHomeCubit extends Cubit<UserHomeStates>{
   int selectedIndex=0;
   UserHomeCubit(super.initialState);
@@ -16,12 +14,13 @@ class UserHomeCubit extends Cubit<UserHomeStates>{
     return
       BottomAppBar(surfaceTintColor: Colors.black,
         shape: CircularNotchedRectangle(),
-        clipBehavior: Clip.hardEdge, color: Colors.cyanAccent,height: 90,elevation: 0,
+        clipBehavior: Clip.hardEdge, color: Colors.black,height: 90,elevation: 0,
         notchMargin: 7,
-        child: Container(decoration: BoxDecoration(border: Border.all(color: Colors.black,width: 5),),
+         child: Container(
+           padding: EdgeInsets.only(top: 20),
+        // decoration: BoxDecoration(border: Border.all(color: Color(0xff4682A9))),
           child: BottomNavigationBar(
               items: [
-
             BottomNavigationBarItem(icon: Icon(Icons.home,),label: "Home" ,),
             BottomNavigationBarItem(icon:
             Icon(Icons.event_note_rounded,),label: "Booking" ),
@@ -40,9 +39,7 @@ class UserHomeCubit extends Cubit<UserHomeStates>{
       )
       // ,body: pages.elementAt(selectedIndex))
       ;
-
   }
-
   selectedWidget(Widget page) {
      if (selectedIndex==0){
        emit (HomeItemState());
@@ -51,5 +48,4 @@ class UserHomeCubit extends Cubit<UserHomeStates>{
        emit(BookingItemState());
      }
   }
-
 }
