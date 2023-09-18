@@ -6,9 +6,9 @@ import 'package:snay3y/screens/technician_screens/home/cubit/states.dart';
 import '../../../../widgets/tech_booking.dart';
 import '../../../../widgets/tech_home.dart';
 
-class UserHomeCubit extends Cubit<TechHomeStates>{
+class TechHomeCubit extends Cubit<TechHomeStates>{
   int selectedIndex=0;
-  UserHomeCubit(super.initialState);
+  TechHomeCubit(super.initialState);
   List <Widget> pages=[
     TechHomeItem(),
     TechBookingItem()
@@ -24,10 +24,9 @@ class UserHomeCubit extends Cubit<TechHomeStates>{
                 BottomNavigationBarItem(icon: Icon(Icons.home,),label: "Home" ,),
                 BottomNavigationBarItem(icon:
                 Icon(Icons.event_note_rounded,),label: "Booking" ),
-                BottomNavigationBarItem(icon:Icon(Icons.shopping_cart_outlined,),label: "Chat" ),
-                BottomNavigationBarItem(icon:Icon(Icons.person,),label: "Community" ),
+                BottomNavigationBarItem(icon:Icon(Icons.chat,),label: "Chat" ),
+                BottomNavigationBarItem(icon:Icon(Icons.people,),label: "Community" ),
                 BottomNavigationBarItem(icon:Icon(Icons.person,),label: "Profile" ),
-
               ],
               onTap: (index){
                 selectedIndex=index;

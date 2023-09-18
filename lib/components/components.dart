@@ -185,3 +185,17 @@ chooseToastColor(ToastStates toastStates) {
   }
   return color;
 }
+
+defaultListView({required itemCount ,required Widget listItem }){
+  return  SizedBox(
+    height: 115.h,
+    child: ListView.builder(
+      shrinkWrap: true,
+      physics: ClampingScrollPhysics(),
+      scrollDirection: Axis.horizontal,
+      itemCount: itemCount,
+      itemBuilder: (context,index)=> listItem,
+    ),
+  );
+
+}

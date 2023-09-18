@@ -42,7 +42,8 @@ class HomeItem extends StatelessWidget{
           Container(
             height: 40.h,
             padding: EdgeInsets.symmetric(horizontal: 40),
-            child: TextField(decoration: InputDecoration(enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10),borderSide: BorderSide(color: Color(0xff88C3EA),width: 1,)),
+            child:
+            TextField(decoration: InputDecoration(enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10),borderSide: BorderSide(color: Color(0xff88C3EA),width: 1,)),
                 suffixIcon: Icon(Icons.search,color:Color(0xff88C3EA)),
                 border:OutlineInputBorder(borderRadius: BorderRadius.circular(13.0,),),label: SearchBar(
               elevation: MaterialStateProperty.all(0),backgroundColor: MaterialStateProperty.all(Colors.transparent)
