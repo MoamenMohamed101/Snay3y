@@ -13,9 +13,7 @@ class CategoriesScreen extends StatelessWidget{
             icon: Icon(Icons.arrow_back,color: Colors.black,)) ,
      elevation: 0,
       toolbarHeight: 100.h,
-        actions: [
 
-        ],
       ),
       );
 
