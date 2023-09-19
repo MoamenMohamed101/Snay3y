@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snay3y/widgets/categoryItem.dart';
 import 'package:snay3y/widgets/shopping_tool_item.dart';
 
+import '../core/route/routes.dart';
 import '../models/best_worker_model.dart';
 import '../models/category_item_model.dart';
 import '../models/shopping_tool_model.dart';
@@ -101,7 +102,11 @@ class HomeItem extends StatelessWidget{
               children: [
                 Text("Categories",style: TextStyle(fontWeight:FontWeight.w600 ,fontSize: 20.sp),),
                 Spacer(),
-                Text("See All",style: TextStyle(fontSize:16.sp ,fontWeight:FontWeight.w500,color: Colors.grey ),)
+                InkWell(
+                    onTap: (){
+                      Navigator.pushNamed(context, Routes.userCategoriesRoute);
+                    },
+                    child: Text("See All",style: TextStyle(fontSize:16.sp ,fontWeight:FontWeight.w500,color: Colors.grey ),))
               ],
             ),
           ),

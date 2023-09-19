@@ -16,5 +16,6 @@ class Routes{
   static const String userConfirmCodeRouteName="User Confirm code screen";
   static const String userResetPasswordPageRoute = 'userResetPassword';
   static const String userHomePageRoute = 'userHomeScreen';
+  static const String userCategoriesRoute="userCategories";
 
 }

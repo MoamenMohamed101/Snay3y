@@ -12,20 +12,18 @@ class ClientfeedBackItem extends StatelessWidget{
       fit: StackFit.expand,
       children: [
         Container(
-
         ),
-
         Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children:[
+                Image.asset(clientfeedBack.image,alignment: Alignment.topCenter),
 
             Text(clientfeedBack.clientnName,style: TextStyle(fontSize: 12.sp , fontWeight: FontWeight.w700)),
             Text(clientfeedBack.feedBack,style: TextStyle(fontSize: 11.sp , fontWeight: FontWeight.w400))
           ]),
         ),
-        Image.asset(clientfeedBack.image,alignment: Alignment.topCenter),
 
       ],
     );
