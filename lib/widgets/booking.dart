@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:snay3y/components/components.dart';
-
 class BookingItem extends StatefulWidget {
 
   const BookingItem({super.key});
@@ -122,7 +120,6 @@ class _BookingItemState extends State<BookingItem> {
     );
   }
 }
-
 
 bookingCompletedCard() {
   return Padding(
