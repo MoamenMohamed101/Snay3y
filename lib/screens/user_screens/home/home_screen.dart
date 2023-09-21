@@ -90,7 +90,7 @@ class UserHomeScreen extends StatelessWidget {
           if (state is HomeItemState) {
             const HomeItem();
           } else if (state is BookingItemState) {
-            BookingItem();
+            const BookingItem();
           }
         },
       ),
