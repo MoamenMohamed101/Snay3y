@@ -9,8 +9,10 @@ import 'package:snay3y/helpers/cash_helper.dart';
 import 'package:snay3y/helpers/dio_helper.dart';
 import 'package:snay3y/screens/onboarding_screen.dart';
 import 'package:snay3y/screens/technician_screens/signUp/cubit/cubit.dart';
+import 'package:snay3y/screens/user_screens/home/home_screen.dart';
 import 'package:snay3y/screens/user_screens/login/login_screen.dart';
-import 'package:snay3y/screens/user_screens/user_home_screen.dart';
+
+import 'core/route/routes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,7 +24,7 @@ void main() async {
   var token = CachHelper.getData(key: 'token');
   if (onBoarding != null) {
     if (token != null) {
-      widget = const UserHomeScreen();
+      widget =  const UserHomeScreen();
     } else {
       widget = const UserLoginScreen();
     }
@@ -64,7 +66,7 @@ class MyApp extends StatelessWidget {
             ],
             supportedLocales: S.delegate.supportedLocales,
             debugShowCheckedModeBanner: false,
-            // initialRoute: ,
+             initialRoute: Routes.userHomePageRoute,
             home: startWidget,
             onGenerateRoute: SpecialRouter.onGenerateRoutes,
           );
