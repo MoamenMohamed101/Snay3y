@@ -3,11 +3,11 @@ import 'package:flutter/cupertino.dart';
 
 class DioHelper {
   static Dio? dio;
-
+// why this error is here ? because we didn't initialize dio
   static init() {
     dio = Dio(
       BaseOptions(
-        baseUrl: 'https://tech-o6js.onrender.com/api/auth/',
+        baseUrl: 'https://technicans.mooo.com:3000/api/auth/',
         receiveDataWhenStatusError: true,
         headers: {
           'Content-Type': 'application/json',

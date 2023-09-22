@@ -41,11 +41,10 @@ class UserHomeCubit extends Cubit<UserHomeStates>{
       ;
   }
   selectedWidget(Widget page) {
-     if (selectedIndex==0){
-       emit (HomeItemState());
-     }
-     else if (selectedIndex==1){
-       emit(BookingItemState());
-     }
+    if (selectedIndex == 0) {
+      emit(HomeItemState());
+    } else if (selectedIndex == 1) {
+      emit(BookingItemState());
+    }
   }
 }

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -11,20 +13,29 @@ import 'package:snay3y/screens/onboarding_screen.dart';
 import 'package:snay3y/screens/technician_screens/signUp/cubit/cubit.dart';
 import 'package:snay3y/screens/user_screens/home/home_screen.dart';
 import 'package:snay3y/screens/user_screens/login/login_screen.dart';
-
 import 'core/route/routes.dart';
 
+class MyHttpOverrides extends HttpOverrides {
+  @override
+  HttpClient createHttpClient(SecurityContext? context) {
+    return super.createHttpClient(context)
+      ..badCertificateCallback =
+          (X509Certificate cert, String host, int port) => true;
+  }
+}
+
 void main() async {
+  HttpOverrides.global = MyHttpOverrides();
+  DioHelper.init();
   WidgetsFlutterBinding.ensureInitialized();
   await CachHelper.init();
-  DioHelper.init();
   Bloc.observer = MyBlocObserver();
   Widget widget;
   var onBoarding = CachHelper.getData(key: 'onBoarding');
   var token = CachHelper.getData(key: 'token');
   if (onBoarding != null) {
     if (token != null) {
-      widget =  UserHomeScreen();
+      widget = const UserHomeScreen();
     } else {
       widget = const UserLoginScreen();
     }
@@ -32,9 +43,7 @@ void main() async {
     widget = const OnBoardingScreen();
   }
   runApp(
-    MyApp(
-      startWidget: widget,
-    ),
+    MyApp(startWidget: widget),
   );
 }
 
@@ -66,7 +75,7 @@ class MyApp extends StatelessWidget {
             ],
             supportedLocales: S.delegate.supportedLocales,
             debugShowCheckedModeBanner: false,
-             initialRoute: Routes.userHomePageRoute,
+            initialRoute: Routes.onBoarding,
             home: startWidget,
             onGenerateRoute: SpecialRouter.onGenerateRoutes,
           );

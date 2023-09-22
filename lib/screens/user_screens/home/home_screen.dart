@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,11 +8,11 @@ import 'package:snay3y/widgets/home.dart';
 import '../../../widgets/home_page_app_bar (tech-user).dart';
 import 'cubit/states.dart';
 
-class UserHomeScreen extends StatelessWidget{
+class UserHomeScreen extends StatelessWidget {
+  const UserHomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
-
-
     return BlocProvider(
       create: (context) => UserHomeCubit(initialState()),
       child: BlocConsumer<UserHomeCubit,UserHomeStates>(
@@ -36,9 +35,8 @@ class UserHomeScreen extends StatelessWidget{
           else if (state is BookingItemState){
              BookingItem();
           }
-      },
-
-    )
-    );}
-
+        },
+      ),
+    );
+  }
 }
