@@ -14,7 +14,7 @@ class TechSignUpCubit extends Cubit<TechSignUpStates> {
 
   String? valueChooseTech;
   String? genderChooseTech;
-  var technicianEmailController = TextEditingController();
+  var technicianQuadrupleNameController = TextEditingController();
   var technicianPasswordController = TextEditingController();
   var technicianNameController = TextEditingController();
   var technicianPhoneController = TextEditingController();
@@ -28,38 +28,8 @@ class TechSignUpCubit extends Cubit<TechSignUpStates> {
     emit(SignUpInPutFactorValueStates());
   }
 
-  void techSignUp({
-    required String? name,
-    required String? email,
-    required String? password,
-    required String? phone,
-    required String? government,
-    required String? gender,
-  }) async {
-    emit(TechSignUpLoadingStates());
-    await DioHelper.postData(
-      url: tech_register,
-      data: {
-        'email': email,
-        'username': name,
-        'password': password,
-        'phoneNumber': phone,
-        'government': government,
-        'gender': gender,
-      },
-    )!
-        .then((value) {
-      print(value.data);
-      print(value.statusCode);
-      print(value.statusMessage);
-      emit(TechSignUpSuccessStates());
-    }).catchError((error) {
-      print(error.toString());
-      emit(TechSignUpErrorStates(error.toString()));
-    });
-  }
-
   File? idImage;
+
   var picker = ImagePicker();
 
   getIdImage() async {
@@ -74,9 +44,12 @@ class TechSignUpCubit extends Cubit<TechSignUpStates> {
   }
 
   File? personalImage;
+
   var personalPicker = ImagePicker();
+
   getPersonalImage() async {
-    final pickedFile = await personalPicker.pickImage(source: ImageSource.gallery);
+    final pickedFile =
+        await personalPicker.pickImage(source: ImageSource.gallery);
     if (pickedFile != null) {
       personalImage = File(pickedFile.path);
       emit(TechSignUpImagePickedSuccessStates());
@@ -84,5 +57,43 @@ class TechSignUpCubit extends Cubit<TechSignUpStates> {
       print('No image selected.');
       emit(TechSignUpImagePickedErrorStates());
     }
+  }
+
+  void techSignUp(
+      {required String? name,
+      required email,
+      required password,
+      required phone,
+      required government,
+      required fullName,
+      required nationalId,
+      required jobTitle,
+      required nationalIdImage,
+      required gender}) async {
+    emit(TechSignUpLoadingStates());
+    await DioHelper.postData(
+      url: tech_register,
+      data: {
+        'email': email,
+        'username': name,
+        'password': password,
+        'phoneNumber': phone,
+        'government': government,
+        'fullName': fullName,
+        'nationalId': nationalId,
+        'jobTitle': jobTitle,
+        'nationalIdImage': nationalIdImage,
+        'gender': gender,
+      },
+    )!
+        .then((value) {
+      debugPrint(value.data);
+      debugPrint(value.statusCode.toString());
+      debugPrint(value.statusMessage);
+      emit(TechSignUpSuccessStates());
+    }).catchError((error) {
+      debugPrint(error.toString());
+      emit(TechSignUpErrorStates(error.toString()));
+    });
   }
 }

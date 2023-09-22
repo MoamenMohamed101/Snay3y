@@ -24,7 +24,8 @@ class TechSignUpScreen extends StatelessWidget {
       S.of(context).signUPGenderFeMaleTech,
     ];
     return BlocConsumer<TechSignUpCubit, TechSignUpStates>(
-      builder: (builder, listener) {
+      listener: (BuildContext context, TechSignUpStates state) {},
+      builder: (BuildContext context, TechSignUpStates state) {
         var cubit = TechSignUpCubit.get(context);
         dropDownButton({String? governorate, String? gender, bool? type}) {
           return Padding(
@@ -86,8 +87,9 @@ class TechSignUpScreen extends StatelessWidget {
             ),
           );
         }
+
         var idImage = cubit.idImage;
-        var personalImage = cubit.personalImage;
+        //var personalImage = cubit.personalImage;
         return Scaffold(
           appBar: AppBar(
             elevation: 0,
@@ -130,7 +132,7 @@ class TechSignUpScreen extends StatelessWidget {
                         ),
                         defaultTextFormField(
                           textEditingController:
-                              cubit.technicianEmailController,
+                              cubit.technicianQuadrupleNameController,
                           title: S.of(context).signUPQuadrupleName,
                           hintText:
                               S.of(context).signUPQuadrupleNameDescription,
@@ -140,7 +142,7 @@ class TechSignUpScreen extends StatelessWidget {
                         ),
                         defaultTextFormField(
                           textEditingController:
-                              cubit.technicianPasswordController,
+                              cubit.technicianNameController,
                           title: S.of(context).signUPUserName,
                           hintText: S.of(context).signUPUserNameDescription,
                           keyboardType: TextInputType.name,
@@ -230,50 +232,62 @@ class TechSignUpScreen extends StatelessWidget {
                           type: false,
                           gender: S.of(context).signUPGenderTitle,
                         ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Insert a personal photo',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 18.sp,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 10.h,
-                            ),
-                            InkWell(
-                              onTap: () {
-                                cubit.getPersonalImage();
-                              },
-                              child: Container(
-                                height: 132.27,
-                                width: 342,
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: personalImage == null
-                                        ? const AssetImage(
-                                            'assets/images/ion_image.png',
-                                          )
-                                        : FileImage(personalImage)
-                                            as ImageProvider,
-                                  ),
-                                  border: Border.all(
-                                    color: const Color(0xFF4682A9),
-                                    width: 1,
-                                  ),
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
+                        // Column(
+                        //   crossAxisAlignment: CrossAxisAlignment.start,
+                        //   children: [
+                        //     Text(
+                        //       'Insert a personal photo',
+                        //       style: TextStyle(
+                        //         color: Colors.black,
+                        //         fontSize: 18.sp,
+                        //         fontWeight: FontWeight.w500,
+                        //       ),
+                        //     ),
+                        //     SizedBox(
+                        //       height: 10.h,
+                        //     ),
+                        //     InkWell(
+                        //       onTap: () {
+                        //         cubit.getPersonalImage();
+                        //       },
+                        //       child: Container(
+                        //         height: 132.27,
+                        //         width: 342,
+                        //         decoration: BoxDecoration(
+                        //           image: DecorationImage(
+                        //             image: personalImage == null
+                        //                 ? const AssetImage(
+                        //                     'assets/images/ion_image.png',
+                        //                   )
+                        //                 : FileImage(personalImage)
+                        //                     as ImageProvider,
+                        //           ),
+                        //           border: Border.all(
+                        //             color: const Color(0xFF4682A9),
+                        //             width: 1,
+                        //           ),
+                        //           borderRadius: BorderRadius.circular(10),
+                        //         ),
+                        //       ),
+                        //     ),
+                        //   ],
+                        // ),
                         defaultButton(
                           color: const Color(0xFF4682A9),
                           voidCallback: () {
-                            if (cubit.formStateTech.currentState!.validate()) {}
+                            if (cubit.formStateTech.currentState!.validate()) {
+                              // cubit.techSignUp(
+                              //   name: cubit.technicianNameController.text,
+                              //   password: cubit.technicianPasswordController.text,
+                              //   phone: cubit.technicianPhoneController.text,
+                              //   government: cubit.valueChooseTech,
+                              //   fullName: cubit.technicianQuadrupleNameController.text,
+                              //   nationalId: cubit.technicianIdNumberController.text,
+                              //   jobTitle: cubit.technicianJobNameController.text,
+                              //   nationalIdImage: idImage,
+                              //   gender: cubit.genderChooseTech,
+                              // );
+                            }
                           },
                           text: S.of(context).signUPButton,
                           width: double.infinity,
@@ -288,7 +302,6 @@ class TechSignUpScreen extends StatelessWidget {
           ),
         );
       },
-      listener: (builder, state) {},
     );
   }
 }
