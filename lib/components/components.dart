@@ -183,3 +183,4 @@ chooseToastColor(ToastStates toastStates) {
   }
   return color;
 }
+
