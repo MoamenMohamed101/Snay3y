@@ -11,73 +11,91 @@ class MainPage extends StatelessWidget {
       appBar: AppBar(
         elevation: 0.0,
         centerTitle: true,
-        title: const Text('قم بتحديد صفحة انشاء الحساب'),
+        title: const Text('User types'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: Column(
-          children: [
-             SizedBox(
-              height: 50.sp,
-            ),
-            InkWell(
-              onTap: (){
-                Navigator.of(context).pushNamed(Routes.loginPageRouteUser);
-              },
-              child: Container(
-                width: double.infinity,
-                height: 140.h,
-                color: Colors.blue,
-                child:  Padding(
-                  padding: const EdgeInsets.only(right: 20),
-                  child: Row(
-                    children: [
-                      Text(
-                        'هل انت مستخدم؟',
-                        style: TextStyle(color: Colors.white, fontSize: 35.sp),
+        child: Center(
+          child: Column(
+            children: [
+              SizedBox(
+                height: 50.sp,
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.of(context).pushNamed(Routes.loginPageRouteUser);
+                },
+                child: Container(
+                  alignment: Alignment.bottomCenter,
+                  height: 188,
+                  width: 201,
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(20),
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black54.withOpacity(0.5),
+                        spreadRadius: 0,
+                        blurRadius: 4,
+                        offset: const Offset(0, 5), // changes position of shadow
                       ),
-                      SizedBox(
-                        width: 20.w,
-                      ),
-                      Image(
-                        image: AssetImage('assets/images/Success.png'),
-                      )
                     ],
+                    color: const Color(0xFFA7D5F4),
+                    image: const DecorationImage(
+                      image: AssetImage('assets/images/man 1.png'),
+                    ),
+                  ),
+                  child: const Text(
+                    'Client',
+                    style: TextStyle(
+                      fontSize: 32,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w900,
+                    ),
                   ),
                 ),
               ),
-            ),
-             SizedBox(
-              height: 50.h,
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.of(context).pushNamed(Routes.loginPageRoute);
-              },
-              child: Container(
-                width: double.infinity,
-                height: 140.h,
-                color: Colors.blue,
-                child:  Padding(
-                  padding: EdgeInsets.only(right: 20),
-                  child: Row(
-                    children: [
-                      Text(
-                        'هل انت صنايعي؟',
-                        style: TextStyle(color: Colors.white, fontSize: 35.sp),
-                      ),
-                      SizedBox(
-                        width: 20.w,
-                      ),
-                      Image(
-                        image: AssetImage('assets/images/Success.png'),
+              SizedBox(
+                height: 50.h,
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.of(context).pushNamed(Routes.loginPageRoute);
+                },
+                child: Container(
+                  alignment: Alignment.bottomCenter,
+                  height: 188,
+                  width: 201,
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(20),
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black54.withOpacity(0.5),
+                        spreadRadius: 0,
+                        blurRadius: 4,
+                        offset: const Offset(0, 5), // changes position of shadow
                       ),
                     ],
+                    color: const Color(0xFFA7D5F4),
+                    image: const DecorationImage(
+                      image: AssetImage('assets/images/engineer 1.png'),
+                    ),
+                  ),
+                  child: const Text(
+                    'Technicain',
+                    style: TextStyle(
+                      fontSize: 28,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

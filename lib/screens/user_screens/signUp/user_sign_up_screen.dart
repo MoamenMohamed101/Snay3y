@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snay3y/components/components.dart';
+import 'package:snay3y/core/route/routes.dart';
 import 'package:snay3y/generated/l10n.dart';
 import 'package:snay3y/screens/user_screens/signUp/cubit/cubit.dart';
 import 'package:snay3y/screens/user_screens/signUp/cubit/states.dart';
@@ -203,7 +204,24 @@ class UserSignUpScreen extends StatelessWidget {
             ),
           );
         },
-        listener: (BuildContext context, Object? state) {},
+        listener: (BuildContext context, Object? state) {
+          if (state is UserSignUpSuccessStates) {
+            if (state.userSignUpModel.message == "user has been created successfully") {
+              showToast(
+                message: state.userSignUpModel.message!,
+                toastStates: ToastStates.SUCCESS,
+              );
+              Navigator.of(context).pushNamed(
+                Routes.loginPageRouteUser,
+              );
+            } else {
+              showToast(
+                message: state.userSignUpModel.message!,
+                toastStates: ToastStates.ERROR,
+              );
+            }
+          }
+        },
       ),
     );
   }

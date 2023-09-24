@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -32,7 +31,7 @@ void main() async {
   Bloc.observer = MyBlocObserver();
   Widget widget;
   var onBoarding = CachHelper.getData(key: 'onBoarding');
-  var token = CachHelper.getData(key: 'token');
+  var token = CachHelper.getData(key: 'userLoginToken');
   if (onBoarding != null) {
     if (token != null) {
       widget = const UserHomeScreen();
