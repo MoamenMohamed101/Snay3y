@@ -21,16 +21,18 @@ class _UserForgotPassWidgetState extends State<UserForgotPassWidget> {
       children: [
         const SizedBox(height: 180),
         Center(
-            child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text(
-            "هل نسيت كلمة المرور؟",
-            style: TextStyle(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              "هل نسيت كلمة المرور؟",
+              style: TextStyle(
                 fontFamily: 'Tajawal',
                 fontSize: 24.sp,
-                fontWeight: FontWeight.bold),
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ),
-        )),
+        ),
         SizedBox(
           width: 270.w,
           height: 75.h,
@@ -52,10 +54,10 @@ class _UserForgotPassWidgetState extends State<UserForgotPassWidget> {
 }
 
 class UserCustomTextForm extends StatelessWidget {
-  GlobalKey<FormState> userFormKey = GlobalKey();
+  final GlobalKey<FormState> userFormKey = GlobalKey();
   String? phoneNumber;
 
-  UserCustomTextForm({super.key});
+  UserCustomTextForm({super.key, this.phoneNumber});
 
   @override
   Widget build(BuildContext context) {
@@ -69,9 +71,10 @@ class UserCustomTextForm extends StatelessWidget {
             child: Text(
               "رقم الهاتف",
               style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 20.sp,
-                  fontFamily: "Tajawal"),
+                fontWeight: FontWeight.w500,
+                fontSize: 20.sp,
+                fontFamily: "Tajawal",
+              ),
             ),
           ),
           //phone field with country code
@@ -85,16 +88,20 @@ class UserCustomTextForm extends StatelessWidget {
               phoneNumber = data;
             },
             decoration: InputDecoration(
-                prefixIcon: Icon(
-                  Icons.phone_android_sharp,
-                  color: const Color(0xff91c8e4),
-                  size: 16.sp,
+              prefixIcon: Icon(
+                Icons.phone_android_sharp,
+                color: const Color(0xff91c8e4),
+                size: 16.sp,
+              ),
+              hintText: "ادخل رقم الهاتف",
+              hintStyle: const TextStyle(
+                  color: Colors.grey, fontSize: 14, fontFamily: "Tajawal"),
+              enabledBorder: const OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0xff91c8e4),
                 ),
-                hintText: "ادخل رقم الهاتف",
-                hintStyle: const TextStyle(
-                    color: Colors.grey, fontSize: 14, fontFamily: "Tajawal"),
-                enabledBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xff91c8e4)))),
+              ),
+            ),
           ),
           SizedBox(height: 40.h),
           ElevatedButton(
