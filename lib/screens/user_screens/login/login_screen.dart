@@ -48,7 +48,7 @@ class UserLoginScreen extends StatelessWidget {
                               height: 224.h,
                             ),
                             Text(
-                              'البريد الإلكتروني',
+                              'E-mail Address',
                               style: TextStyle(
                                 fontSize: 20.sp,
                                 fontWeight: FontWeight.w500,
@@ -78,7 +78,7 @@ class UserLoginScreen extends StatelessWidget {
                               height: 35.h,
                             ),
                             Text(
-                              'كلمة المرور',
+                              'Password',
                               style: TextStyle(
                                 fontSize: 20.sp,
                                 fontWeight: FontWeight.w500,
@@ -87,7 +87,6 @@ class UserLoginScreen extends StatelessWidget {
                             AppTextFormField(
                               onFieldSubmitted: (value) {
                                 if (cubit.formKey.currentState!.validate()) {
-                                  //cubit.formKey.currentState!.save();
                                   cubit.userLogin(
                                     email: cubit.emailController.text,
                                     password: cubit.passwordController.text,
@@ -143,7 +142,7 @@ class UserLoginScreen extends StatelessWidget {
                                     (states) => Colors.transparent),
                               ),
                               child: Text(
-                                'هل نسيت كلمه المرور؟',
+                                'Did you forget your password?',
                                 style: TextStyle(
                                   fontSize: 14.sp,
                                   fontWeight: FontWeight.w500,
@@ -157,7 +156,7 @@ class UserLoginScreen extends StatelessWidget {
                             ConditionalBuilder(
                               condition: state is! UserLoginLoadingStates,
                               builder: (context) => AppMainButton(
-                                title: 'تسجيل الدخول',
+                                title: 'Login',
                                 onTap: () {
                                   if (cubit.formKey.currentState!.validate()) {
                                     //cubit.formKey.currentState!.save();
@@ -190,12 +189,12 @@ class UserLoginScreen extends StatelessWidget {
                               child: Align(
                                 child: RichText(
                                   text: TextSpan(
-                                    text: 'ليس لدي حساب ؟ ',
+                                    text: 'Don\'t have an account?',
                                     style: TextStyle(
                                         color: kTextColor, fontSize: 12.sp),
                                     children: [
                                       TextSpan(
-                                        text: 'إنشاء حساب',
+                                        text: '  Create Account',
                                         style: TextStyle(
                                           color: kPrimaryColor,
                                           fontSize: 12.sp,
@@ -205,9 +204,6 @@ class UserLoginScreen extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                            ),
-                            SizedBox(
-                              height: 20.h,
                             ),
                           ],
                         ),

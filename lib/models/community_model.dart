@@ -3,5 +3,4 @@ class CommunityModel {
   final String comment;
   final String name;
   CommunityModel({required this.image,required this.name,required this.comment});
-
 }
