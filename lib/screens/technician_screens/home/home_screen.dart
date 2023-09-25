@@ -8,6 +8,8 @@ import '../../../widgets/tech_home.dart';
 import 'cubit/cubit.dart';
 
 class TechHomeScreen extends StatelessWidget {
+  const TechHomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(

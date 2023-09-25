@@ -184,7 +184,7 @@ chooseToastColor(ToastStates toastStates) {
   return color;
 }
 
-void NavigateAndFinsh({context, widget}) => Navigator.pushAndRemoveUntil(
+void navigateAndFinish({context, widget}) => Navigator.pushAndRemoveUntil(
       context,
       MaterialPageRoute(
         builder: (context) => widget,
