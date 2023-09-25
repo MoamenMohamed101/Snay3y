@@ -12,7 +12,7 @@ class UserHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => UserHomeCubit(initialState()),
+      create: (context) => UserHomeCubit(),
       child: BlocConsumer<UserHomeCubit, UserHomeStates>(
         builder: (context, state) {
           return Scaffold(

@@ -106,12 +106,12 @@ showButtonSheet(BuildContext context, top, bottom) {
               alignment: AlignmentDirectional.center,
               children: [
                 Image(
-                  image: AssetImage('assets/images/Aura.png'),
+                  image: const AssetImage('assets/images/Aura.png'),
                   width: 100.w,
                   height: 100.h,
                 ),
                 Image(
-                  image: AssetImage('assets/images/Success.png'),
+                  image: const AssetImage('assets/images/Success.png'),
                   width: 70.w,
                   height: 70.h,
                 ),
@@ -126,7 +126,7 @@ showButtonSheet(BuildContext context, top, bottom) {
               style: TextStyle(
                   fontSize: 20.sp,
                   fontWeight: FontWeight.w600,
-                  color: Color(0xFF322653)),
+                  color: const Color(0xFF322653)),
             ),
             SizedBox(
               height: 20.h,
@@ -137,7 +137,7 @@ showButtonSheet(BuildContext context, top, bottom) {
               style: TextStyle(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w500,
-                color: Color(0xFF322653),
+                color: const Color(0xFF322653),
               ),
             ),
             // const SizedBox(
@@ -184,3 +184,10 @@ chooseToastColor(ToastStates toastStates) {
   return color;
 }
 
+void NavigateAndFinsh({context, widget}) => Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(
+        builder: (context) => widget,
+      ),
+      (Route<dynamic> route) => false,
+    );

@@ -7,6 +7,7 @@ import 'package:snay3y/constants.dart';
 import 'package:snay3y/core/route/routes.dart';
 import 'package:snay3y/core/validator/validation.dart';
 import 'package:snay3y/helpers/cash_helper.dart';
+import 'package:snay3y/screens/user_screens/home/home_screen.dart';
 import 'package:snay3y/screens/user_screens/login/cubit/cubit.dart';
 import 'package:snay3y/screens/user_screens/login/cubit/states.dart';
 import 'package:snay3y/widgets/app_main_button.dart';
@@ -108,9 +109,9 @@ class UserLoginScreen extends StatelessWidget {
                                 cubit.password = data;
                               },
                               textInputAction: TextInputAction.done,
-                              // validator: (value) {
-                              //   return Validator.validatePassword(value);
-                              // },
+                              validator: (value) {
+                                return Validator.validatePassword(value);
+                              },
                               hintText: '*******************',
                               fontOfHint: 16.sp,
                               secure: cubit.isPasswordSecure,
@@ -228,7 +229,10 @@ class UserLoginScreen extends StatelessWidget {
               )!
                   .then(
                 (value) {
-                  Navigator.of(context).pushNamed(Routes.userHomePageRoute);
+                  NavigateAndFinsh(
+                    context: context,
+                    widget: const UserHomeScreen(),
+                  );
                 },
               );
             } else {
