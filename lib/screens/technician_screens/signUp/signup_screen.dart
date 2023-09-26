@@ -89,7 +89,7 @@ class TechSignUpScreen extends StatelessWidget {
         }
 
         var idImage = cubit.idImage;
-        //var personalImage = cubit.personalImage;
+        var personalImage = cubit.personalImage;
         return Scaffold(
           appBar: AppBar(
             elevation: 0,
@@ -232,46 +232,46 @@ class TechSignUpScreen extends StatelessWidget {
                           type: false,
                           gender: S.of(context).signUPGenderTitle,
                         ),
-                        // Column(
-                        //   crossAxisAlignment: CrossAxisAlignment.start,
-                        //   children: [
-                        //     Text(
-                        //       'Insert a personal photo',
-                        //       style: TextStyle(
-                        //         color: Colors.black,
-                        //         fontSize: 18.sp,
-                        //         fontWeight: FontWeight.w500,
-                        //       ),
-                        //     ),
-                        //     SizedBox(
-                        //       height: 10.h,
-                        //     ),
-                        //     InkWell(
-                        //       onTap: () {
-                        //         cubit.getPersonalImage();
-                        //       },
-                        //       child: Container(
-                        //         height: 132.27,
-                        //         width: 342,
-                        //         decoration: BoxDecoration(
-                        //           image: DecorationImage(
-                        //             image: personalImage == null
-                        //                 ? const AssetImage(
-                        //                     'assets/images/ion_image.png',
-                        //                   )
-                        //                 : FileImage(personalImage)
-                        //                     as ImageProvider,
-                        //           ),
-                        //           border: Border.all(
-                        //             color: const Color(0xFF4682A9),
-                        //             width: 1,
-                        //           ),
-                        //           borderRadius: BorderRadius.circular(10),
-                        //         ),
-                        //       ),
-                        //     ),
-                        //   ],
-                        // ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Insert a personal photo',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 18.sp,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 10.h,
+                            ),
+                            InkWell(
+                              onTap: () {
+                                cubit.getPersonalImage();
+                              },
+                              child: Container(
+                                height: 132.27,
+                                width: 342,
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: personalImage == null
+                                        ? const AssetImage(
+                                            'assets/images/ion_image.png',
+                                          )
+                                        : FileImage(personalImage)
+                                            as ImageProvider,
+                                  ),
+                                  border: Border.all(
+                                    color: const Color(0xFF4682A9),
+                                    width: 1,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                         defaultButton(
                           color: const Color(0xFF4682A9),
                           voidCallback: () {

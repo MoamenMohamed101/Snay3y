@@ -24,6 +24,7 @@ class UserLoginScreen extends StatelessWidget {
         builder: (BuildContext context, state) {
           final cubit = UserLoginCubit.of(context);
           return Scaffold(
+            // what this line do? it's make the keyboard not hide the text field
             resizeToAvoidBottomInset: false,
             body: Stack(
               children: [
@@ -38,6 +39,7 @@ class UserLoginScreen extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  // what BlocBuilder do? it's make the widget rebuild when the state change
                   child: BlocBuilder<UserLoginCubit, UserLoginState>(
                     builder: (context, state) {
                       return Form(
@@ -58,6 +60,7 @@ class UserLoginScreen extends StatelessWidget {
                             ),
                             AppTextFormField(
                               controller: cubit.emailController,
+                              // what focusNode do? it's make the keyboard focus on the text field
                               focusNode: cubit.emailFocusNode,
                               onEditingComplete: () {
                                 FocusScope.of(context).requestFocus(
@@ -103,11 +106,13 @@ class UserLoginScreen extends StatelessWidget {
                                 return null;
                               },
                               controller: cubit.passwordController,
+                              // what focusNode do? it make user control from TextFormField to anther TextFormField by click on the next button on the keyboard
                               focusNode: cubit.passwordFocusNode,
                               keyBoardType: TextInputType.visiblePassword,
                               onSave: (data) {
                                 cubit.password = data;
                               },
+                              // what textInputAction do? it make the keyboard change the enter button to done button
                               textInputAction: TextInputAction.done,
                               validator: (value) {
                                 return Validator.validatePassword(value);
@@ -229,7 +234,7 @@ class UserLoginScreen extends StatelessWidget {
               )!
                   .then(
                 (value) {
-                  NavigateAndFinsh(
+                  navigateAndFinish(
                     context: context,
                     widget: const UserHomeScreen(),
                   );

@@ -17,6 +17,12 @@ class UserSignUpCubit extends Cubit<UserSignUpStates> {
   var userNameController = TextEditingController();
   var userPhoneNumberController = TextEditingController();
 
+  var emailFocus = FocusNode();
+  var passwordFocus = FocusNode();
+  var nameFocus = FocusNode();
+  var phoneFocus = FocusNode();
+
+
   var formStateUser = GlobalKey<FormState>();
 
   inPutUserValueDropDown({required bool? type, required value}) {
