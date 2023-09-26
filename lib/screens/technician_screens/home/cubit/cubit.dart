@@ -16,7 +16,7 @@ class TechHomeCubit extends Cubit<TechHomeStates> {
     return BottomAppBar(
       surfaceTintColor: Colors.black,
       child: Container(
-        padding: EdgeInsets.only(top: 20),
+        padding: const EdgeInsets.only(top: 20),
         // decoration: BoxDecoration(border: Border.all(color: Color(0xff4682A9))),
         child: BottomNavigationBar(
             items: const [
@@ -53,7 +53,7 @@ class TechHomeCubit extends Cubit<TechHomeStates> {
             },
             currentIndex: selectedIndex,
             unselectedItemColor: Colors.black,
-            selectedItemColor: Color(0xff4682A9)),
+            selectedItemColor: const Color(0xff4682A9)),
       ),
     )
         // ,body: pages.elementAt(selectedIndex))
