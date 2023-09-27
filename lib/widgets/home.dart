@@ -106,7 +106,8 @@ class HomeItem extends StatelessWidget{
                     onTap: (){
                       Navigator.pushNamed(context, Routes.userCategoriesRoute);
                     },
-                    child: Text("See All",style: TextStyle(fontSize:16.sp ,fontWeight:FontWeight.w500,color: Colors.grey ),))
+                    child: Text("See All",
+                      style: TextStyle(fontSize:16.sp ,fontWeight:FontWeight.w500,color: Colors.grey ),))
               ],
             ),
           ),
@@ -121,7 +122,8 @@ class HomeItem extends StatelessWidget{
               itemBuilder: (context,index)=> CategotyItem(category:categories[index]),
             ),
           ),
-            Text(textAlign: TextAlign.start,"Best Worker in the Community",style: TextStyle(fontWeight:FontWeight.w600 ,fontSize: 20.sp),),
+            Text(textAlign: TextAlign.start,"Best Worker in the Community",
+              style: TextStyle(fontWeight:FontWeight.w600 ,fontSize: 20.sp),),
             SizedBox(
               height: 115.h,
               child: ListView.builder(

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snay3y/models/client_feedback_model.dart';
 
-class ClientfeedBackItem extends StatelessWidget {
-  final ClientFeedBackModel clientfeedBack;
+class ClientFeedBackItem extends StatelessWidget {
+  final ClientFeedBackModel clientFeedBack;
 
-  const ClientfeedBackItem({super.key, required this.clientfeedBack});
+  const ClientFeedBackItem({super.key, required this.clientFeedBack});
 
   @override
   Widget build(BuildContext context) {
@@ -18,13 +18,13 @@ class ClientfeedBackItem extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset(clientfeedBack.image, alignment: Alignment.topCenter),
+              Image.asset(clientFeedBack.image, alignment: Alignment.topCenter),
               Text(
-                clientfeedBack.clientnName,
+                clientFeedBack.clientName,
                 style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w700),
               ),
               Text(
-                clientfeedBack.feedBack,
+                clientFeedBack.feedBack,
                 style: TextStyle(fontSize: 11.sp, fontWeight: FontWeight.w400),
               )
             ],

@@ -4,14 +4,12 @@ import 'package:snay3y/models/client_feedback_model.dart';
 import 'package:snay3y/widgets/community_item.dart';
 import 'package:snay3y/widgets/nearby_technician_item.dart';
 import 'package:snay3y/widgets/today_schaduale_item.dart';
-
 import '../models/community_model.dart';
 import '../models/tech_nearby_model.dart';
 import '../models/today_schedule_model.dart';
 import 'client_feed_back_item.dart';
-
 class TechHomeItem extends StatelessWidget {
-  List<TechNearbyModel> techNearby = [
+  final List<TechNearbyModel> techNearby = [
     TechNearbyModel(
         image: "assets/images/Rectangle (1).png", title: "carpenter"),
     TechNearbyModel(image: "assets/images/Rectangle (2).png", title: "plumber"),
@@ -20,7 +18,7 @@ class TechHomeItem extends StatelessWidget {
     TechNearbyModel(
         image: "assets/images/Rectangle (2).png", title: "electrician"),
   ];
-  List<TodayScadualeModel> todayScaduale = [
+  final List<TodayScadualeModel> todayScaduale = [
     TodayScadualeModel(
         image: "assets/images/Photo by mr lee.png",
         title: "Fridge repair",
@@ -38,29 +36,29 @@ class TechHomeItem extends StatelessWidget {
         title: "Fridge repair",
         time: "Today 9.30 P.M"),
   ];
-  List<ClientFeedBackModel> clientFeedBack = [
+  final List<ClientFeedBackModel> clientFeedBack = [
     ClientFeedBackModel(
         image: "assets/images/Photo by Shawn _.png",
-        clientnName: "Mohamed",
+        clientName: "Mohamed",
         feedBack:
             "The service was done perfectly and the technician was wonderful"),
     ClientFeedBackModel(
         image: "assets/images/Photo by Shawn _.png",
-        clientnName: "Mohamed",
+        clientName: "Mohamed",
         feedBack:
             "The service was done perfectly and the technician was wonderful"),
     ClientFeedBackModel(
         image: "assets/images/Photo by Shawn _.png",
-        clientnName: "Mohamed",
+        clientName: "Mohamed",
         feedBack:
             "The service was done perfectly and the technician was wonderful"),
     ClientFeedBackModel(
         image: "assets/images/Photo by Shawn _.png",
-        clientnName: "Mohamed",
+        clientName: "Mohamed",
         feedBack:
             "The service was done perfectly and the technician was wonderful"),
   ];
-  List<CommunityModel> community = [
+  final List<CommunityModel> community = [
     CommunityModel(
         image: "assets/images/Photo by Shawn _.png",
         comment: "I want to share with you my opinion"
@@ -106,7 +104,7 @@ class TechHomeItem extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 30),
-              child: ListTitle("Technicians nearby"),
+              child: listTitle("Technicians nearby"),
             ),
             SizedBox(
               height: 90.h,
@@ -119,7 +117,7 @@ class TechHomeItem extends StatelessWidget {
                     NearbyechItem(techNearby: techNearby[index]),
               ),
             ),
-            ListTitle("Today's schedule"),
+            listTitle("Today's schedule"),
             SizedBox(
               height: 20.h,
             ),
@@ -152,7 +150,7 @@ class TechHomeItem extends StatelessWidget {
             SizedBox(
               height: 20.h,
             ),
-            ListTitle("Clients’ Feedback"),
+            listTitle("Clients’ Feedback"),
             SizedBox(
               height: 20.h,
             ),
@@ -180,15 +178,15 @@ class TechHomeItem extends StatelessWidget {
                           ),
                         ],
                         color: Colors.white),
-                    child: ClientfeedBackItem(
-                      clientfeedBack: clientFeedBack[index],
+                    child: ClientFeedBackItem(
+                      clientFeedBack: clientFeedBack[index],
                     )),
               ),
             ),
             SizedBox(
               height: 20.h,
             ),
-            ListTitle("Community"),
+            listTitle("Community"),
             SizedBox(
               height: 20.h,
             ),
@@ -226,7 +224,7 @@ class TechHomeItem extends StatelessWidget {
   }
 }
 
-Widget ListTitle(String text) {
+Widget listTitle(String text) {
   return Text(
     text,
     style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16.sp),

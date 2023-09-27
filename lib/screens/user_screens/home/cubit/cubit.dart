@@ -3,58 +3,56 @@ import 'package:flutter/material.dart';
 import 'package:snay3y/screens/user_screens/home/cubit/states.dart';
 import '../../../../widgets/booking.dart';
 import '../../../../widgets/home.dart';
+import '../../../../widgets/tech_booking.dart';
 
 class UserHomeCubit extends Cubit<UserHomeStates> {
   int selectedIndex = 0;
 
-  UserHomeCubit() : super(initialState());
+  UserHomeCubit() : super(InitialState());
 
-  List<Widget> pages = [HomeItem(), const BookingItem()];
+  List<Widget> pages = [HomeItem(),  TechBookingItem()];
 
   Widget getBottomNavigationBar() {
     return BottomAppBar(
-      surfaceTintColor: Colors.black,
-      shape: const CircularNotchedRectangle(),
-      clipBehavior: Clip.hardEdge,
+      shape:  const CircularNotchedRectangle(),
+      clipBehavior: Clip.antiAlias,
       color: Colors.black,
       height: 90,
       elevation: 0,
       notchMargin: 7,
-      child: Container(
-        padding: const EdgeInsets.only(top: 20),
-        // decoration: BoxDecoration(border: Border.all(color: Color(0xff4682A9))),
-        child: BottomNavigationBar(
-            items: const [
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.home,
-                ),
-                label: "Home",
+      child: BottomNavigationBar(
+
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home,
               ),
-              BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.event_note_rounded,
-                  ),
-                  label: "Booking"),
-              BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.shopping_cart_outlined,
-                  ),
-                  label: "jj"),
-              BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.person,
-                  ),
-                  label: "kk"),
-            ],
-            onTap: (index) {
-              selectedIndex = index;
-              emit(BottomNavigationBarState());
-            },
-            currentIndex: selectedIndex,
-            unselectedItemColor: Colors.black,
-            selectedItemColor: const Color(0xff4682A9)),
-      ),
+              label: "Home",
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.event_note_rounded,
+                ),
+                label: "Booking"),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.shopping_cart_outlined,
+                ),
+                label: "jj"),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.person,
+                ),
+                label: "kk"),
+          ],
+          onTap: (index) {
+            selectedIndex = index;
+            emit(BottomNavigationBarState());
+          },
+
+          currentIndex: selectedIndex,
+          unselectedItemColor: Colors.black,
+          selectedItemColor: const Color(0xff4682A9)),
     )
         // ,body: pages.elementAt(selectedIndex))
         ;
