@@ -39,7 +39,7 @@ class ResetPasswordView extends StatelessWidget {
                         icon:  Icon(
                           Icons.arrow_back,
                           size: 20.sp,
-                          color: Color(0xff15224F),
+                          color: const Color(0xff15224F),
                         ),
                       ),
                        SizedBox(
@@ -71,7 +71,7 @@ class ResetPasswordView extends StatelessWidget {
                                   ),
                                   clipBehavior: Clip.antiAliasWithSaveLayer,
                                   child:  Image(
-                                    image: AssetImage(
+                                    image: const AssetImage(
                                       'assets/images/Rectangle 1.png',
                                     ),
                                     fit: BoxFit.cover,
@@ -180,8 +180,9 @@ class ResetPasswordView extends StatelessWidget {
                                         },
                                         textInputAction: TextInputAction.done,
                                         validator: (value) {
-                                          if (value!.isEmpty)
+                                          if (value!.isEmpty) {
                                             return 'حقل فارغ!';
+                                          }
                                           if (value !=
                                               cubit.passwordController.text) {
                                             return 'كلمة المرور غير متطابقة';
