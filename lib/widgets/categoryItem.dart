@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snay3y/models/category_item_model.dart';
 class CategotyItem extends StatelessWidget {
 final CategoryItemModel category;
-  const CategotyItem({super.key, required this.category});
+  const CategotyItem({super.key, required this.category,});
   @override
   Widget build(BuildContext context) {
     return

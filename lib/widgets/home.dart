@@ -219,7 +219,7 @@ class HomeItem extends StatelessWidget {
                 physics: const ClampingScrollPhysics(),
                 itemCount: categories.length,
                 itemBuilder: (context, index) =>
-                    CategotyItem(category: categories[index]),
+                    CategotyItem(category:categories[index] , ),
               ),
             ),
             Text(

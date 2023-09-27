@@ -2,15 +2,17 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:snay3y/screens/user_screens/home/cubit/states.dart';
 import '../../../../widgets/booking.dart';
+import '../../../../widgets/categories.dart';
 import '../../../../widgets/home.dart';
 import '../../../../widgets/tech_booking.dart';
+import '../../Booking/booking_screen.dart';
 
 class UserHomeCubit extends Cubit<UserHomeStates> {
   int selectedIndex = 0;
 
   UserHomeCubit() : super(InitialState());
 
-  List<Widget> pages = [HomeItem(),  TechBookingItem()];
+  List<Widget> pages = [HomeItem(), CategoriesScreen(), UserBooking()];
 
   Widget getBottomNavigationBar() {
     return BottomAppBar(

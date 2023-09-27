@@ -15,7 +15,10 @@ import 'package:snay3y/screens/user_screens/signUp/user_sign_up_screen.dart';
 import 'package:snay3y/screens/user_screens/user_reset_password/user_reset_password_screen.dart';
 import 'package:snay3y/widgets/categories.dart';
 
+import '../../screens/user_screens/Booking/booking_screen.dart';
+import '../../screens/user_screens/Description/description.dart';
 import '../../screens/user_screens/home/home_screen.dart';
+import '../../widgets/category_listview_item.dart';
 
 class SpecialRouter {
   static Route<dynamic> onGenerateRoutes(RouteSettings settings) {
@@ -81,6 +84,12 @@ class SpecialRouter {
         );
       case Routes.userCategoriesRoute:
         return MaterialPageRoute(builder: (_)=> CategoriesScreen()
+        );
+      case Routes.userBookingRoute:
+        return MaterialPageRoute(builder: (_)=> UserBooking()
+        );
+      case Routes.userDescription:
+        return MaterialPageRoute(builder: (_)=> UserDescription()
         );
       default:
         return MaterialPageRoute(

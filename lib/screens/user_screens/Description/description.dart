@@ -4,8 +4,8 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:snay3y/screens/user_screens/Description/cubit/cubit.dart';
 import 'package:snay3y/screens/user_screens/Description/cubit/states.dart';
 
-class description extends StatelessWidget {
-  const description({Key? key}) : super(key: key);
+class UserDescription extends StatelessWidget {
+  const UserDescription({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

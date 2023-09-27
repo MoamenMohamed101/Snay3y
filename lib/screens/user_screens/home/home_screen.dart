@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:snay3y/screens/user_screens/Booking/booking_screen.dart';
 import 'package:snay3y/screens/user_screens/home/cubit/cubit.dart';
 import 'package:snay3y/widgets/booking.dart';
 import 'package:snay3y/widgets/home.dart';
+import '../../../widgets/categories.dart';
 import '../../../widgets/home_page_app_bar (tech-user).dart';
 import '../../../widgets/tech_booking.dart';
 import 'cubit/states.dart';
@@ -43,7 +45,7 @@ class UserHomeScreen extends StatelessWidget {
           if (state is HomeItemState) {
             HomeItem();
           } else if (state is BookingItemState) {
-            TechBookingItem();
+            CategoriesScreen();
           }
         },
       ),
