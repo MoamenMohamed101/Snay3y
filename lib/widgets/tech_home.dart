@@ -9,7 +9,7 @@ import '../models/tech_nearby_model.dart';
 import '../models/today_schedule_model.dart';
 import 'client_feed_back_item.dart';
 class TechHomeItem extends StatelessWidget {
-  List<TechNearbyModel> techNearby = [
+  final List<TechNearbyModel> techNearby = [
     TechNearbyModel(
         image: "assets/images/Rectangle (1).png", title: "carpenter"),
     TechNearbyModel(image: "assets/images/Rectangle (2).png", title: "plumber"),
@@ -18,7 +18,7 @@ class TechHomeItem extends StatelessWidget {
     TechNearbyModel(
         image: "assets/images/Rectangle (2).png", title: "electrician"),
   ];
-  List<TodayScadualeModel> todayScaduale = [
+  final List<TodayScadualeModel> todayScaduale = [
     TodayScadualeModel(
         image: "assets/images/Photo by mr lee.png",
         title: "Fridge repair",
@@ -36,7 +36,7 @@ class TechHomeItem extends StatelessWidget {
         title: "Fridge repair",
         time: "Today 9.30 P.M"),
   ];
-  List<ClientFeedBackModel> clientFeedBack = [
+  final List<ClientFeedBackModel> clientFeedBack = [
     ClientFeedBackModel(
         image: "assets/images/Photo by Shawn _.png",
         clientName: "Mohamed",
@@ -58,7 +58,7 @@ class TechHomeItem extends StatelessWidget {
         feedBack:
             "The service was done perfectly and the technician was wonderful"),
   ];
-  List<CommunityModel> community = [
+  final List<CommunityModel> community = [
     CommunityModel(
         image: "assets/images/Photo by Shawn _.png",
         comment: "I want to share with you my opinion"
