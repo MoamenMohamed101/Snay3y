@@ -25,7 +25,7 @@ class LoginView extends StatelessWidget {
             child: Stack(
               children: [
                 Container(
-                  width: double.infinity.w ,
+                  width: double.infinity.w,
                   height: 300.h,
                   color: kMainColor,
                 ),
@@ -39,13 +39,13 @@ class LoginView extends StatelessWidget {
                         onPressed: () {
                           Navigator.of(context).pop();
                         },
-                        icon:  Icon(
+                        icon: Icon(
                           Icons.arrow_back,
                           size: 20.sp,
                           color: Color(0xff15224F),
                         ),
                       ),
-                       SizedBox(
+                      SizedBox(
                         width: 70.w,
                       ),
                       const CircleAvatar(
@@ -76,7 +76,7 @@ class LoginView extends StatelessWidget {
                             //   'assets/images/Rectangle 1.svg',
                             //   fit: BoxFit.cover,
                             // ),
-                             Image(
+                            Image(
                               image:
                                   AssetImage('assets/images/Rectangle 1.png'),
                               fit: BoxFit.cover,
@@ -91,10 +91,10 @@ class LoginView extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                     SizedBox(
+                                    SizedBox(
                                       height: 80.h,
                                     ),
-                                     Align(
+                                    Align(
                                       child: Text(
                                         'تسجيل الدخول ',
                                         style: TextStyle(
@@ -103,10 +103,10 @@ class LoginView extends StatelessWidget {
                                             fontWeight: FontWeight.w700),
                                       ),
                                     ),
-                                     SizedBox(
+                                    SizedBox(
                                       height: 50.h,
                                     ),
-                                     Text(
+                                    Text(
                                       'رقم الهاتف',
                                       style: TextStyle(
                                           fontSize: 18.sp,
@@ -129,10 +129,10 @@ class LoginView extends StatelessWidget {
                                       },
                                       hintText: 'ادخل رقم الهاتف',
                                     ),
-                                     SizedBox(
+                                    SizedBox(
                                       height: 35.h,
                                     ),
-                                     Text(
+                                    Text(
                                       'كلمة المرور',
                                       style: TextStyle(
                                           fontSize: 18.sp,
@@ -165,7 +165,7 @@ class LoginView extends StatelessWidget {
                                             MaterialStateColor.resolveWith(
                                                 (states) => Colors.transparent),
                                       ),
-                                      child:  Text(
+                                      child: Text(
                                         'هل نسيت كلمه المرور؟',
                                         style: TextStyle(
                                             fontSize: 14.sp,
@@ -173,32 +173,34 @@ class LoginView extends StatelessWidget {
                                             color: kMainColor),
                                       ),
                                     ),
-                                     SizedBox(
+                                    SizedBox(
                                       height: 50.h,
                                     ),
                                     AppMainButton(
                                       title: 'تسجيل الدخول',
                                       onTap: () {
-                                        if (cubit.formKey.currentState!
-                                            .validate()) {
-                                          cubit.formKey.currentState!.save();
-                                        } else {
-                                          const snackBar = SnackBar(
-                                            content: Text('Faild to login!'),
-                                          );
-
-                                          ScaffoldMessenger.of(context)
-                                              .showSnackBar(snackBar);
-                                        }
+                                        // if (cubit.formKey.currentState!.validate()) {
+                                        //   cubit.formKey.currentState!.save();
+                                        // } else {
+                                        //   const snackBar = SnackBar(
+                                        //     content: Text('Faild to login!'),
+                                        //   );
+                                        //
+                                        //   ScaffoldMessenger.of(context)
+                                        //       .showSnackBar(snackBar);
+                                        // }
+                                        Navigator.of(context).pushNamed(
+                                            Routes.technicianHomePageRoute);
                                       },
                                     ),
-                                     SizedBox(
+                                    SizedBox(
                                       height: 5.h,
                                     ),
                                     InkWell(
                                       onTap: () {
-                                        Navigator.of(context)
-                                            .pushNamed(Routes.signUpPageRoute);
+                                        Navigator.of(context).pushNamed(
+                                          Routes.signUpPageRoute,
+                                        );
                                       },
                                       child: Align(
                                         child: RichText(

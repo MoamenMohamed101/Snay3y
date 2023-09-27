@@ -74,7 +74,7 @@ class MyApp extends StatelessWidget {
             ],
             supportedLocales: S.delegate.supportedLocales,
             debugShowCheckedModeBanner: false,
-            initialRoute: Routes.technicianHomePageRoute,
+            initialRoute: Routes.onBoarding,
             home: startWidget,
             onGenerateRoute: SpecialRouter.onGenerateRoutes,
           );
