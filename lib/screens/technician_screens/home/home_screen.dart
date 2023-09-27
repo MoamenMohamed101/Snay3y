@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:snay3y/screens/technician_screens/home/cubit/states.dart';
 import 'package:snay3y/widgets/tech_booking.dart';
 
+import '../../../widgets/booking.dart';
 import '../../../widgets/home_page_app_bar (tech-user).dart';
 import '../../../widgets/tech_home.dart';
 import 'cubit/cubit.dart';
@@ -13,7 +14,7 @@ class TechHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => TechHomeCubit(initialState()),
+      create: (context) => TechHomeCubit(InitialState()),
       child: BlocConsumer<TechHomeCubit, TechHomeStates>(
         builder: (context, state) {
           return Scaffold(
@@ -29,6 +30,7 @@ class TechHomeScreen extends StatelessWidget {
             TechHomeItem();
           } else if (state is BookingItemState) {
             TechBookingItem();
+
           }
         },
       ),
